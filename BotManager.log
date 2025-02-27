@@ -1,0 +1,13 @@
+
+================================================================================
+=== Log Start: 2025-02-27 08:19:42 ===
+================================================================================
+2025-02-27 08:19:42,089 - INFO - Logger initialized and header written.
+2025-02-27 08:19:42,089 - INFO - Discovered bot: trading_bot_algo_brian
+2025-02-27 08:19:42,089 - INFO - Bot Manager initialized with 1 bots
+2025-02-27 08:19:42,089 - INFO - Running all bots (1 total)
+2025-02-27 08:19:42,091 - INFO - Running bot: trading_bot_algo_brian
+2025-02-27 08:19:43,580 - INFO - Bot trading_bot_algo_brian completed successfully
+2025-02-27 08:19:43,580 - INFO - Bot Execution Summary: 1/1 bots executed successfully
+  - trading_bot_algo_brian: Success
+

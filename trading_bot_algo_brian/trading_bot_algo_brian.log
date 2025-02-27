@@ -1,0 +1,59 @@
+
+================================================================================
+=== Log Start: 2025-02-27 08:17:58 ===
+================================================================================
+2025-02-27 08:17:58,086 - INFO - Logger initialized and header written.
+2025-02-27 08:17:58,086 - INFO - Starting trading_bot_algo_brian
+2025-02-27 08:17:58,086 - INFO - Trading bot trading_bot_algo_brian initialized with 3 symbols
+2025-02-27 08:17:58,086 - INFO - Running Bollinger Bands strategy...
+2025-02-27 08:17:58,086 - INFO - Market is closed. Running in simulation mode.
+2025-02-27 08:17:58,440 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-02-27 08:17:58,440 - INFO - Cash: $40010.58
+2025-02-27 08:17:58,440 - INFO - Portfolio value: $99989.79
+2025-02-27 08:17:58,441 - INFO - Buying power: $140000.37
+2025-02-27 08:17:58,441 - INFO - Analyzing AAPL...
+2025-02-27 08:17:58,722 - INFO - Retrieved 33 bars for AAPL
+2025-02-27 08:17:58,724 - INFO - Current price: $242.15, Upper band: $252.00, Lower band: $224.83
+2025-02-27 08:17:58,724 - INFO - No action needed for AAPL
+2025-02-27 08:17:58,724 - INFO - Analyzing MSFT...
+2025-02-27 08:17:58,821 - INFO - Retrieved 33 bars for MSFT
+2025-02-27 08:17:58,824 - INFO - Current price: $399.21, Upper band: $420.71, Lower band: $398.64
+2025-02-27 08:17:58,824 - INFO - No action needed for MSFT
+2025-02-27 08:17:58,824 - INFO - Analyzing GOOGL...
+2025-02-27 08:17:58,937 - INFO - Retrieved 33 bars for GOOGL
+2025-02-27 08:17:58,940 - INFO - Current price: $171.65, Upper band: $206.61, Lower band: $167.38
+2025-02-27 08:17:58,940 - INFO - No action needed for GOOGL
+2025-02-27 08:17:58,941 - INFO - Strategy execution completed
+2025-02-27 08:17:58,941 - INFO - trading_bot_algo_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-02-27 08:19:42 ===
+================================================================================
+2025-02-27 08:19:42,091 - INFO - Logger initialized and header written.
+
+================================================================================
+=== Log Start: 2025-02-27 08:19:42 ===
+================================================================================
+2025-02-27 08:19:42,722 - INFO - Logger initialized and header written.
+2025-02-27 08:19:42,722 - INFO - Starting trading_bot_algo_brian
+2025-02-27 08:19:42,722 - INFO - Trading bot trading_bot_algo_brian initialized with 3 symbols
+2025-02-27 08:19:42,722 - INFO - Running Bollinger Bands strategy...
+2025-02-27 08:19:42,722 - INFO - Market is closed. Running in simulation mode.
+2025-02-27 08:19:43,079 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-02-27 08:19:43,079 - INFO - Cash: $40010.58
+2025-02-27 08:19:43,079 - INFO - Portfolio value: $100000.92
+2025-02-27 08:19:43,079 - INFO - Buying power: $140011.5
+2025-02-27 08:19:43,080 - INFO - Analyzing AAPL...
+2025-02-27 08:19:43,374 - INFO - Retrieved 33 bars for AAPL
+2025-02-27 08:19:43,377 - INFO - Current price: $242.28, Upper band: $252.02, Lower band: $224.83
+2025-02-27 08:19:43,378 - INFO - No action needed for AAPL
+2025-02-27 08:19:43,378 - INFO - Analyzing MSFT...
+2025-02-27 08:19:43,476 - INFO - Retrieved 33 bars for MSFT
+2025-02-27 08:19:43,479 - INFO - Current price: $399.28, Upper band: $420.70, Lower band: $398.66
+2025-02-27 08:19:43,479 - INFO - No action needed for MSFT
+2025-02-27 08:19:43,479 - INFO - Analyzing GOOGL...
+2025-02-27 08:19:43,576 - INFO - Retrieved 33 bars for GOOGL
+2025-02-27 08:19:43,579 - INFO - Current price: $171.73, Upper band: $206.60, Lower band: $167.39
+2025-02-27 08:19:43,579 - INFO - No action needed for GOOGL
+2025-02-27 08:19:43,579 - INFO - Strategy execution completed
+2025-02-27 08:19:43,579 - INFO - trading_bot_algo_brian completed successfully
