@@ -1,0 +1,440 @@
+
+================================================================================
+=== Log Start: 2025-03-20 17:40:33 ===
+================================================================================
+2025-03-20 17:40:33,099 - INFO - Logger initialized and header written.
+2025-03-20 17:40:33,099 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-03-20 17:40:33,099 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-03-20 17:40:33,099 - INFO - Running LLM sentiment strategy...
+2025-03-20 17:40:33,099 - INFO - Market is closed. Running in simulation mode.
+2025-03-20 17:40:33,487 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-03-20 17:40:33,488 - INFO - Cash: $40010.58
+2025-03-20 17:40:33,488 - INFO - Portfolio value: $96946.57
+2025-03-20 17:40:33,488 - INFO - Buying power: $129479.55
+2025-03-20 17:40:33,488 - INFO - Daily budget for new trades: $2000.53
+2025-03-20 17:40:33,961 - INFO - Sentiment score for AAPL: 1.0
+2025-03-20 17:40:34,384 - INFO - Sentiment score for MSFT: 1.0
+2025-03-20 17:40:34,833 - INFO - Sentiment score for META: 1.0
+2025-03-20 17:40:35,259 - INFO - Sentiment score for GOOGL: 1.0
+2025-03-20 17:40:35,729 - INFO - Sentiment score for AMZN: 1.0
+2025-03-20 17:40:36,169 - INFO - Sentiment score for NVDA: 1.0
+2025-03-20 17:40:36,170 - INFO - Buy signals: {'AAPL': 1.0, 'META': 1.0, 'GOOGL': 1.0, 'AMZN': 1.0, 'NVDA': 1.0}. Allocation per stock: $400.11
+2025-03-20 17:40:36,455 - INFO - Retrieved 4 bars for AAPL
+2025-03-20 17:40:36,455 - INFO - Executing BUY for AAPL: 1 shares at $214.10 per share.
+2025-03-20 17:40:36,546 - INFO - Order placed: OrderSide.BUY 1 shares of AAPL
+2025-03-20 17:40:36,547 - INFO - Order ID: 7b1c6c8d-d336-4aeb-8f37-046cca527cdb
+2025-03-20 17:40:36,651 - INFO - Retrieved 4 bars for META
+2025-03-20 17:40:36,651 - INFO - Executing BUY for META: 1 shares at $586.00 per share.
+2025-03-20 17:40:36,740 - INFO - Order placed: OrderSide.BUY 1 shares of META
+2025-03-20 17:40:36,741 - INFO - Order ID: 4478b717-21d1-4030-b093-cf859fefb15e
+2025-03-20 17:40:36,841 - INFO - Retrieved 4 bars for GOOGL
+2025-03-20 17:40:36,841 - INFO - Executing BUY for GOOGL: 2 shares at $162.80 per share.
+2025-03-20 17:40:36,929 - INFO - Order placed: OrderSide.BUY 2 shares of GOOGL
+2025-03-20 17:40:36,930 - INFO - Order ID: 7130e929-83d0-4a0f-bf15-9453cb6e36f9
+2025-03-20 17:40:37,030 - INFO - Retrieved 4 bars for AMZN
+2025-03-20 17:40:37,030 - INFO - Executing BUY for AMZN: 2 shares at $194.95 per share.
+2025-03-20 17:40:37,120 - INFO - Order placed: OrderSide.BUY 2 shares of AMZN
+2025-03-20 17:40:37,120 - INFO - Order ID: db930117-1958-4dd3-b416-538700511f90
+2025-03-20 17:40:37,216 - INFO - Retrieved 4 bars for NVDA
+2025-03-20 17:40:37,217 - INFO - Executing BUY for NVDA: 3 shares at $118.53 per share.
+2025-03-20 17:40:37,357 - INFO - Order placed: OrderSide.BUY 3 shares of NVDA
+2025-03-20 17:40:37,357 - INFO - Order ID: 6ecd5512-fe27-4993-a272-13008d788647
+2025-03-20 17:40:37,969 - INFO - Sentiment score for MSFT: 1.0
+2025-03-20 17:40:37,969 - INFO - Holding MSFT with sentiment 1.0.
+2025-03-20 17:40:37,970 - INFO - Strategy execution completed.
+2025-03-20 17:40:37,970 - INFO - trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-20 17:42:59 ===
+================================================================================
+2025-03-20 17:42:59,314 - INFO - Logger initialized and header written.
+2025-03-20 17:42:59,314 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-03-20 17:42:59,314 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-03-20 17:42:59,314 - INFO - Running LLM sentiment strategy...
+2025-03-20 17:42:59,314 - INFO - Market is closed. Running in simulation mode.
+2025-03-20 17:42:59,678 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-03-20 17:42:59,679 - INFO - Cash: $40010.58
+2025-03-20 17:42:59,679 - INFO - Portfolio value: $96946.57
+2025-03-20 17:42:59,679 - INFO - Buying power: $127610.15
+2025-03-20 17:42:59,679 - INFO - Daily budget for new trades: $2000.53
+2025-03-20 17:43:00,212 - INFO - Sentiment score for AAPL: 1.0
+2025-03-20 17:43:00,601 - INFO - Sentiment score for MSFT: 1.0
+2025-03-20 17:43:00,949 - INFO - Sentiment score for META: 1.0
+2025-03-20 17:43:01,429 - INFO - Sentiment score for GOOGL: 1.0
+2025-03-20 17:43:02,109 - INFO - Sentiment score for AMZN: 1.0
+2025-03-20 17:43:02,529 - INFO - Sentiment score for NVDA: 1.0
+2025-03-20 17:43:02,530 - INFO - Buy signals: {'AAPL': 1.0, 'META': 1.0, 'GOOGL': 1.0, 'AMZN': 1.0, 'NVDA': 1.0}. Allocation per stock: $400.11
+2025-03-20 17:43:02,850 - INFO - Retrieved 4 bars for AAPL
+2025-03-20 17:43:02,851 - INFO - Executing BUY for AAPL: 1 shares at $214.10 per share.
+2025-03-20 17:43:02,944 - INFO - Order placed: OrderSide.BUY 1 shares of AAPL
+2025-03-20 17:43:02,944 - INFO - Order ID: 3dd5d262-e5ce-4f81-a6ad-650465fe9ae7
+2025-03-20 17:43:03,050 - INFO - Retrieved 4 bars for META
+2025-03-20 17:43:03,050 - INFO - Executing BUY for META: 1 shares at $586.00 per share.
+2025-03-20 17:43:03,142 - INFO - Order placed: OrderSide.BUY 1 shares of META
+2025-03-20 17:43:03,142 - INFO - Order ID: 10c0fb51-97a3-4110-a76b-00435a294f4d
+2025-03-20 17:43:03,250 - INFO - Retrieved 4 bars for GOOGL
+2025-03-20 17:43:03,250 - INFO - Executing BUY for GOOGL: 2 shares at $162.80 per share.
+2025-03-20 17:43:03,340 - INFO - Order placed: OrderSide.BUY 2 shares of GOOGL
+2025-03-20 17:43:03,340 - INFO - Order ID: 6d07cef7-1a1a-4adb-9555-7cb8531a3ddb
+2025-03-20 17:43:03,437 - INFO - Retrieved 4 bars for AMZN
+2025-03-20 17:43:03,437 - INFO - Executing BUY for AMZN: 2 shares at $194.95 per share.
+2025-03-20 17:43:03,528 - INFO - Order placed: OrderSide.BUY 2 shares of AMZN
+2025-03-20 17:43:03,528 - INFO - Order ID: dca041fb-a4f7-4639-b6cd-d1f3acb2194b
+2025-03-20 17:43:03,635 - INFO - Retrieved 4 bars for NVDA
+2025-03-20 17:43:03,635 - INFO - Executing BUY for NVDA: 3 shares at $118.53 per share.
+2025-03-20 17:43:03,730 - INFO - Order placed: OrderSide.BUY 3 shares of NVDA
+2025-03-20 17:43:03,730 - INFO - Order ID: a185818f-a6f2-4455-b696-592fafb210e2
+2025-03-20 17:43:04,097 - INFO - Sentiment score for MSFT: 1.0
+2025-03-20 17:43:04,097 - INFO - Holding MSFT with sentiment 1.0.
+2025-03-20 17:43:04,097 - INFO - Strategy execution completed.
+2025-03-20 17:43:04,097 - INFO - trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-20 17:47:08 ===
+================================================================================
+2025-03-20 17:47:08,110 - INFO - Logger initialized and header written.
+2025-03-20 17:47:08,110 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-03-20 17:47:08,111 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-03-20 17:47:08,111 - INFO - Running LLM sentiment strategy...
+2025-03-20 17:47:08,111 - INFO - Market is closed. Running in simulation mode.
+2025-03-20 17:47:08,562 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-03-20 17:47:08,562 - INFO - Cash: $40010.58
+2025-03-20 17:47:08,562 - INFO - Portfolio value: $96946.57
+2025-03-20 17:47:08,562 - INFO - Buying power: $125740.75
+2025-03-20 17:47:08,562 - INFO - Daily budget for new trades: $2000.53
+2025-03-20 17:47:08,563 - ERROR - Error running trading_bot_llm_sentiment_brian: TradingBotLLMSentiment.get_news_articles() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 245, in main
+    bot.run_strategy()
+    ~~~~~~~~~~~~~~~~^^
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 207, in run_strategy
+    sentiment = self.get_sentiment_signal(symbol)
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 129, in get_sentiment_signal
+    articles = self.get_news_articles(symbol)
+TypeError: TradingBotLLMSentiment.get_news_articles() takes 1 positional argument but 2 were given
+
+================================================================================
+=== Log Start: 2025-03-20 17:47:34 ===
+================================================================================
+2025-03-20 17:47:34,484 - INFO - Logger initialized and header written.
+2025-03-20 17:47:34,484 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-03-20 17:47:34,484 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-03-20 17:47:34,485 - INFO - Running LLM sentiment strategy...
+2025-03-20 17:47:34,485 - INFO - Market is closed. Running in simulation mode.
+2025-03-20 17:47:34,851 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-03-20 17:47:34,852 - INFO - Cash: $40010.58
+2025-03-20 17:47:34,852 - INFO - Portfolio value: $96946.57
+2025-03-20 17:47:34,852 - INFO - Buying power: $125740.75
+2025-03-20 17:47:34,852 - INFO - Daily budget for new trades: $2000.53
+2025-03-20 17:47:34,852 - WARNING - No articles found for AAPL. Defaulting sentiment to 0.
+2025-03-20 17:47:34,852 - WARNING - No articles found for MSFT. Defaulting sentiment to 0.
+2025-03-20 17:47:34,852 - WARNING - No articles found for META. Defaulting sentiment to 0.
+2025-03-20 17:47:34,852 - WARNING - No articles found for GOOGL. Defaulting sentiment to 0.
+2025-03-20 17:47:34,852 - WARNING - No articles found for AMZN. Defaulting sentiment to 0.
+2025-03-20 17:47:34,853 - WARNING - No articles found for NVDA. Defaulting sentiment to 0.
+2025-03-20 17:47:34,853 - INFO - No buy signals detected today.
+2025-03-20 17:47:34,853 - WARNING - No articles found for MSFT. Defaulting sentiment to 0.
+2025-03-20 17:47:34,853 - INFO - Holding MSFT with sentiment 0.0.
+2025-03-20 17:47:34,853 - INFO - Strategy execution completed.
+2025-03-20 17:47:34,853 - INFO - trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-20 17:48:26 ===
+================================================================================
+2025-03-20 17:48:26,925 - INFO - Logger initialized and header written.
+2025-03-20 17:48:26,925 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-03-20 17:48:26,925 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-03-20 17:48:26,925 - INFO - Running LLM sentiment strategy...
+2025-03-20 17:48:26,925 - INFO - Market is closed. Running in simulation mode.
+2025-03-20 17:48:27,284 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-03-20 17:48:27,284 - INFO - Cash: $40010.58
+2025-03-20 17:48:27,284 - INFO - Portfolio value: $96946.57
+2025-03-20 17:48:27,284 - INFO - Buying power: $125740.75
+2025-03-20 17:48:27,284 - INFO - Daily budget for new trades: $2000.53
+2025-03-20 17:48:28,400 - INFO - Sentiment score for AAPL: -0.5
+2025-03-20 17:48:28,972 - INFO - Sentiment score for MSFT: 0.1
+2025-03-20 17:48:29,523 - INFO - Sentiment score for META: 0.7
+2025-03-20 17:48:30,038 - INFO - Sentiment score for GOOGL: 0.1
+2025-03-20 17:48:30,750 - INFO - Sentiment score for AMZN: 0.1
+2025-03-20 17:48:31,287 - INFO - Sentiment score for NVDA: 0.5
+2025-03-20 17:48:31,287 - INFO - Buy signals: {'META': 0.7, 'NVDA': 0.5}. Allocation per stock: $1000.26
+2025-03-20 17:48:31,585 - INFO - Retrieved 4 bars for META
+2025-03-20 17:48:31,585 - INFO - Executing BUY for META: 1 shares at $586.00 per share.
+2025-03-20 17:48:31,679 - INFO - Order placed: OrderSide.BUY 1 shares of META
+2025-03-20 17:48:31,679 - INFO - Order ID: c7f3778c-f2c2-48ac-b586-6e0d7a946c9b
+2025-03-20 17:48:31,776 - INFO - Retrieved 4 bars for NVDA
+2025-03-20 17:48:31,776 - INFO - Executing BUY for NVDA: 8 shares at $118.53 per share.
+2025-03-20 17:48:31,871 - INFO - Order placed: OrderSide.BUY 8 shares of NVDA
+2025-03-20 17:48:31,872 - INFO - Order ID: 35ad2a58-d25b-4808-a7b5-18e894c3452c
+2025-03-20 17:48:32,430 - INFO - Sentiment score for MSFT: 0.1
+2025-03-20 17:48:32,431 - INFO - Holding MSFT with sentiment 0.1.
+2025-03-20 17:48:32,431 - INFO - Strategy execution completed.
+2025-03-20 17:48:32,431 - INFO - trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-20 17:51:23 ===
+================================================================================
+2025-03-20 17:51:23,729 - INFO - Logger initialized and header written.
+2025-03-20 17:51:23,730 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-03-20 17:51:23,730 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-03-20 17:51:23,730 - INFO - Running LLM sentiment strategy...
+2025-03-20 17:51:23,730 - INFO - Market is closed. Running in simulation mode.
+2025-03-20 17:51:24,098 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-03-20 17:51:24,099 - INFO - Cash: $40010.58
+2025-03-20 17:51:24,099 - INFO - Portfolio value: $96946.57
+2025-03-20 17:51:24,099 - INFO - Buying power: $124209.77
+2025-03-20 17:51:24,099 - INFO - Daily budget for new trades: $2000.53
+2025-03-20 17:51:24,100 - ERROR - Error running trading_bot_llm_sentiment_brian: 'TradingBotLLMSentiment' object has no attribute 'get_news_articles'
+Traceback (most recent call last):
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 259, in main
+    bot.run_strategy()
+    ~~~~~~~~~~~~~~~~^^
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 221, in run_strategy
+    sentiment = self.get_sentiment_signal(symbol)
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 143, in get_sentiment_signal
+    articles = self.get_news_articles(symbol)
+               ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'TradingBotLLMSentiment' object has no attribute 'get_news_articles'
+
+================================================================================
+=== Log Start: 2025-03-20 17:52:47 ===
+================================================================================
+2025-03-20 17:52:47,035 - INFO - Logger initialized and header written.
+2025-03-20 17:52:47,035 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-03-20 17:52:47,035 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-03-20 17:52:47,035 - INFO - Running LLM sentiment strategy...
+2025-03-20 17:52:47,035 - INFO - Market is closed. Running in simulation mode.
+2025-03-20 17:52:47,390 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-03-20 17:52:47,391 - INFO - Cash: $40010.58
+2025-03-20 17:52:47,391 - INFO - Portfolio value: $96946.57
+2025-03-20 17:52:47,391 - INFO - Buying power: $124209.77
+2025-03-20 17:52:47,391 - INFO - Daily budget for new trades: $2000.53
+2025-03-20 17:52:47,527 - INFO - News articles for AAPL:
+2025-03-20 17:52:47,527 - INFO -   Article 1: https://qz.com/google-apple-violation-of-eu-law-1851771086
+2025-03-20 17:52:47,527 - INFO -   Article 2: https://qz.com/roche-novartis-dei-pharma-trump-1851771007
+2025-03-20 17:52:47,527 - INFO -   Article 3: https://medium.com/@VeryFatBoy/quick-tip-comparing-openai-and-ollama-using-langchains-sqldatabasetoolkit-caec76013ee5
+2025-03-20 17:52:48,051 - INFO - Sentiment score for AAPL: -0.5
+2025-03-20 17:52:48,188 - INFO - News articles for MSFT:
+2025-03-20 17:52:48,188 - INFO -   Article 1: https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_0fe362d3-a8ec-4395-b75b-37ffc7c928e6
+2025-03-20 17:52:48,189 - INFO -   Article 2: https://biztoc.com/x/ff71a19dc25cb177
+2025-03-20 17:52:48,189 - INFO -   Article 3: https://qz.com/google-apple-violation-of-eu-law-1851771086
+2025-03-20 17:52:48,757 - INFO - Sentiment score for MSFT: 0.1
+2025-03-20 17:52:49,093 - INFO - News articles for META:
+2025-03-20 17:52:49,093 - INFO -   Article 1: https://nypost.com/2025/03/19/business/memoir-careless-people-about-mark-zuckerberg-sheryl-sandberg-has-strong-first-week-sales/
+2025-03-20 17:52:49,093 - INFO -   Article 2: https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_7b3e82c9-2c7b-4dcb-a81f-365473222d6d
+2025-03-20 17:52:49,093 - INFO -   Article 3: https://www.uploadvr.com/meta-still-investing-massively-in-vr-gaming-and-dont-plan-to-stop/
+2025-03-20 17:52:49,481 - INFO - Sentiment score for META: 0.7
+2025-03-20 17:52:49,885 - INFO - News articles for GOOGL:
+2025-03-20 17:52:49,886 - INFO -   Article 1: https://qz.com/google-apple-violation-of-eu-law-1851771086
+2025-03-20 17:52:49,886 - INFO -   Article 2: https://biztoc.com/x/89b93dd5a4e9635a
+2025-03-20 17:52:49,886 - INFO -   Article 3: https://biztoc.com/x/27a9c89cff43954b
+2025-03-20 17:52:50,327 - INFO - Sentiment score for GOOGL: 0.1
+2025-03-20 17:52:50,484 - INFO - News articles for AMZN:
+2025-03-20 17:52:50,485 - INFO -   Article 1: https://biztoc.com/x/ff71a19dc25cb177
+2025-03-20 17:52:50,485 - INFO -   Article 2: https://qz.com/google-apple-violation-of-eu-law-1851771086
+2025-03-20 17:52:50,485 - INFO -   Article 3: https://medium.com/@VeryFatBoy/quick-tip-comparing-openai-and-ollama-using-langchains-sqldatabasetoolkit-caec76013ee5
+2025-03-20 17:52:51,038 - INFO - Sentiment score for AMZN: 0.1
+2025-03-20 17:52:51,376 - INFO - News articles for NVDA:
+2025-03-20 17:52:51,376 - INFO -   Article 1: https://biztoc.com/x/6f8a45bac04d21a9
+2025-03-20 17:52:51,376 - INFO -   Article 2: https://biztoc.com/x/717482ceeafadede
+2025-03-20 17:52:51,376 - INFO -   Article 3: https://finance.yahoo.com/news/nvidias-huang-isnt-shying-away-from-deepseek-says-ai-needs-100x-more-computing-power-192706297.html
+2025-03-20 17:52:51,934 - INFO - Sentiment score for NVDA: 0.5
+2025-03-20 17:52:51,934 - INFO - Buy signals: {'META': 0.7, 'NVDA': 0.5}. Allocation per stock: $1000.26
+2025-03-20 17:52:52,264 - INFO - Retrieved 4 bars for META
+2025-03-20 17:52:52,264 - INFO - Executing BUY for META: 1 shares at $586.00 per share.
+2025-03-20 17:52:52,362 - INFO - Order placed: OrderSide.BUY 1 shares of META
+2025-03-20 17:52:52,362 - INFO - Order ID: 51419601-7d23-4e90-b8ca-6bbd8981042c
+2025-03-20 17:52:52,459 - INFO - Retrieved 4 bars for NVDA
+2025-03-20 17:52:52,459 - INFO - Executing BUY for NVDA: 8 shares at $118.53 per share.
+2025-03-20 17:52:52,551 - INFO - Order placed: OrderSide.BUY 8 shares of NVDA
+2025-03-20 17:52:52,552 - INFO - Order ID: b2f6ef0e-77c6-47df-96e1-98f01594aa3c
+2025-03-20 17:52:52,690 - INFO - News articles for MSFT:
+2025-03-20 17:52:52,690 - INFO -   Article 1: https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_0fe362d3-a8ec-4395-b75b-37ffc7c928e6
+2025-03-20 17:52:52,690 - INFO -   Article 2: https://biztoc.com/x/ff71a19dc25cb177
+2025-03-20 17:52:52,690 - INFO -   Article 3: https://qz.com/google-apple-violation-of-eu-law-1851771086
+2025-03-20 17:52:53,163 - INFO - Sentiment score for MSFT: 0.1
+2025-03-20 17:52:53,163 - INFO - Holding MSFT with sentiment 0.1.
+2025-03-20 17:52:53,163 - INFO - Strategy execution completed.
+2025-03-20 17:52:53,163 - INFO - trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-20 17:55:01 ===
+================================================================================
+2025-03-20 17:55:01,602 - INFO - Logger initialized and header written.
+2025-03-20 17:55:01,602 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-03-20 17:55:01,602 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-03-20 17:55:01,602 - INFO - Running LLM sentiment strategy...
+2025-03-20 17:55:01,602 - INFO - Market is closed. Running in simulation mode.
+2025-03-20 17:55:01,994 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-03-20 17:55:01,995 - INFO - Cash: $40010.58
+2025-03-20 17:55:01,995 - INFO - Portfolio value: $96946.57
+2025-03-20 17:55:01,995 - INFO - Buying power: $122678.79
+2025-03-20 17:55:01,995 - INFO - Daily budget for new trades: $2000.53
+2025-03-20 17:55:02,260 - INFO - News articles for AAPL:
+2025-03-20 17:55:02,260 - INFO -   Article 1: https://qz.com/google-apple-violation-of-eu-law-1851771086
+2025-03-20 17:55:02,260 - INFO -   Article 2: https://qz.com/roche-novartis-dei-pharma-trump-1851771007
+2025-03-20 17:55:02,260 - INFO -   Article 3: https://medium.com/@VeryFatBoy/quick-tip-comparing-openai-and-ollama-using-langchains-sqldatabasetoolkit-caec76013ee5
+2025-03-20 17:55:02,947 - INFO - Sentiment score for AAPL: -0.5
+2025-03-20 17:55:03,110 - INFO - News articles for MSFT:
+2025-03-20 17:55:03,110 - INFO -   Article 1: https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_0fe362d3-a8ec-4395-b75b-37ffc7c928e6
+2025-03-20 17:55:03,110 - INFO -   Article 2: https://biztoc.com/x/ff71a19dc25cb177
+2025-03-20 17:55:03,110 - INFO -   Article 3: https://qz.com/google-apple-violation-of-eu-law-1851771086
+2025-03-20 17:55:03,553 - INFO - Sentiment score for MSFT: 0.1
+2025-03-20 17:55:03,907 - INFO - News articles for META:
+2025-03-20 17:55:03,907 - INFO -   Article 1: https://nypost.com/2025/03/19/business/memoir-careless-people-about-mark-zuckerberg-sheryl-sandberg-has-strong-first-week-sales/
+2025-03-20 17:55:03,908 - INFO -   Article 2: https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_7b3e82c9-2c7b-4dcb-a81f-365473222d6d
+2025-03-20 17:55:03,908 - INFO -   Article 3: https://www.uploadvr.com/meta-still-investing-massively-in-vr-gaming-and-dont-plan-to-stop/
+2025-03-20 17:55:04,324 - INFO - Sentiment score for META: 0.7
+2025-03-20 17:55:04,491 - INFO - News articles for GOOGL:
+2025-03-20 17:55:04,491 - INFO -   Article 1: https://qz.com/google-apple-violation-of-eu-law-1851771086
+2025-03-20 17:55:04,491 - INFO -   Article 2: https://biztoc.com/x/89b93dd5a4e9635a
+2025-03-20 17:55:04,491 - INFO -   Article 3: https://biztoc.com/x/27a9c89cff43954b
+2025-03-20 17:55:04,947 - INFO - Sentiment score for GOOGL: 0.1
+2025-03-20 17:55:05,294 - INFO - News articles for AMZN:
+2025-03-20 17:55:05,294 - INFO -   Article 1: https://biztoc.com/x/ff71a19dc25cb177
+2025-03-20 17:55:05,295 - INFO -   Article 2: https://qz.com/google-apple-violation-of-eu-law-1851771086
+2025-03-20 17:55:05,295 - INFO -   Article 3: https://medium.com/@VeryFatBoy/quick-tip-comparing-openai-and-ollama-using-langchains-sqldatabasetoolkit-caec76013ee5
+2025-03-20 17:55:05,828 - INFO - Sentiment score for AMZN: 0.1
+2025-03-20 17:55:05,983 - INFO - News articles for NVDA:
+2025-03-20 17:55:05,983 - INFO -   Article 1: https://biztoc.com/x/6f8a45bac04d21a9
+2025-03-20 17:55:05,983 - INFO -   Article 2: https://biztoc.com/x/717482ceeafadede
+2025-03-20 17:55:05,983 - INFO -   Article 3: https://finance.yahoo.com/news/nvidias-huang-isnt-shying-away-from-deepseek-says-ai-needs-100x-more-computing-power-192706297.html
+2025-03-20 17:55:06,694 - INFO - Sentiment score for NVDA: 0.5
+2025-03-20 17:55:06,694 - INFO - Buy signals: {'META': 0.7, 'NVDA': 0.5}. Allocation per stock: $1000.26
+2025-03-20 17:55:06,999 - INFO - Retrieved 4 bars for META
+2025-03-20 17:55:07,000 - INFO - Executing BUY for META: 1 shares at $586.00 per share.
+2025-03-20 17:55:07,097 - INFO - Order placed: OrderSide.BUY 1 shares of META
+2025-03-20 17:55:07,098 - INFO - Order ID: f6a71744-0f9b-4b9e-b183-93e9473f756f
+2025-03-20 17:55:07,197 - INFO - Retrieved 4 bars for NVDA
+2025-03-20 17:55:07,197 - INFO - Executing BUY for NVDA: 8 shares at $118.53 per share.
+2025-03-20 17:55:07,288 - INFO - Order placed: OrderSide.BUY 8 shares of NVDA
+2025-03-20 17:55:07,288 - INFO - Order ID: 2c0b90bd-9139-460f-b106-a0a0b6145891
+2025-03-20 17:55:07,427 - INFO - News articles for MSFT:
+2025-03-20 17:55:07,427 - INFO -   Article 1: https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_0fe362d3-a8ec-4395-b75b-37ffc7c928e6
+2025-03-20 17:55:07,427 - INFO -   Article 2: https://biztoc.com/x/ff71a19dc25cb177
+2025-03-20 17:55:07,427 - INFO -   Article 3: https://qz.com/google-apple-violation-of-eu-law-1851771086
+2025-03-20 17:55:07,904 - INFO - Sentiment score for MSFT: 0.1
+2025-03-20 17:55:07,904 - INFO - Holding MSFT with sentiment 0.1.
+2025-03-20 17:55:07,904 - INFO - Strategy execution completed.
+2025-03-20 17:55:07,904 - INFO - trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-20 17:58:08 ===
+================================================================================
+2025-03-20 17:58:08,066 - INFO - Logger initialized and header written.
+2025-03-20 17:58:08,066 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-03-20 17:58:08,066 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-03-20 17:58:08,066 - INFO - Running LLM sentiment strategy...
+2025-03-20 17:58:08,066 - INFO - Market is closed. Running in simulation mode.
+2025-03-20 17:58:08,465 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-03-20 17:58:08,465 - INFO - Cash: $40010.58
+2025-03-20 17:58:08,465 - INFO - Portfolio value: $96946.57
+2025-03-20 17:58:08,465 - INFO - Buying power: $121147.81
+2025-03-20 17:58:08,466 - INFO - Daily budget for new trades: $2000.53
+2025-03-20 17:58:08,605 - INFO - News articles for AAPL:
+2025-03-20 17:58:08,605 - INFO -   Article 1: https://qz.com/google-apple-violation-of-eu-law-1851771086
+2025-03-20 17:58:08,605 - INFO -   Article 2: https://qz.com/roche-novartis-dei-pharma-trump-1851771007
+2025-03-20 17:58:08,606 - INFO -   Article 3: https://medium.com/@VeryFatBoy/quick-tip-comparing-openai-and-ollama-using-langchains-sqldatabasetoolkit-caec76013ee5
+2025-03-20 17:58:09,385 - INFO - Sentiment score for AAPL: -0.5
+2025-03-20 17:58:09,544 - INFO - News articles for MSFT:
+2025-03-20 17:58:09,545 - INFO -   Article 1: https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_0fe362d3-a8ec-4395-b75b-37ffc7c928e6
+2025-03-20 17:58:09,545 - INFO -   Article 2: https://biztoc.com/x/ff71a19dc25cb177
+2025-03-20 17:58:09,545 - INFO -   Article 3: https://qz.com/google-apple-violation-of-eu-law-1851771086
+2025-03-20 17:58:10,098 - INFO - Sentiment score for MSFT: 0.1
+2025-03-20 17:58:10,240 - INFO - News articles for META:
+2025-03-20 17:58:10,240 - INFO -   Article 1: https://nypost.com/2025/03/19/business/memoir-careless-people-about-mark-zuckerberg-sheryl-sandberg-has-strong-first-week-sales/
+2025-03-20 17:58:10,240 - INFO -   Article 2: https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_7b3e82c9-2c7b-4dcb-a81f-365473222d6d
+2025-03-20 17:58:10,240 - INFO -   Article 3: https://www.uploadvr.com/meta-still-investing-massively-in-vr-gaming-and-dont-plan-to-stop/
+2025-03-20 17:58:10,784 - INFO - Sentiment score for META: 0.7
+2025-03-20 17:58:11,175 - INFO - News articles for GOOGL:
+2025-03-20 17:58:11,176 - INFO -   Article 1: https://qz.com/google-apple-violation-of-eu-law-1851771086
+2025-03-20 17:58:11,176 - INFO -   Article 2: https://biztoc.com/x/89b93dd5a4e9635a
+2025-03-20 17:58:11,176 - INFO -   Article 3: https://biztoc.com/x/27a9c89cff43954b
+2025-03-20 17:58:11,737 - INFO - Sentiment score for GOOGL: 0.1
+2025-03-20 17:58:11,891 - INFO - News articles for AMZN:
+2025-03-20 17:58:11,891 - INFO -   Article 1: https://biztoc.com/x/ff71a19dc25cb177
+2025-03-20 17:58:11,892 - INFO -   Article 2: https://qz.com/google-apple-violation-of-eu-law-1851771086
+2025-03-20 17:58:11,892 - INFO -   Article 3: https://medium.com/@VeryFatBoy/quick-tip-comparing-openai-and-ollama-using-langchains-sqldatabasetoolkit-caec76013ee5
+2025-03-20 17:58:12,367 - INFO - Sentiment score for AMZN: 0.1
+2025-03-20 17:58:12,753 - INFO - News articles for NVDA:
+2025-03-20 17:58:12,753 - INFO -   Article 1: https://biztoc.com/x/6f8a45bac04d21a9
+2025-03-20 17:58:12,753 - INFO -   Article 2: https://biztoc.com/x/717482ceeafadede
+2025-03-20 17:58:12,753 - INFO -   Article 3: https://finance.yahoo.com/news/nvidias-huang-isnt-shying-away-from-deepseek-says-ai-needs-100x-more-computing-power-192706297.html
+2025-03-20 17:58:13,201 - INFO - Sentiment score for NVDA: 0.5
+2025-03-20 17:58:13,201 - INFO - Buy signals: {'META': 0.7, 'NVDA': 0.5}. Allocation per stock: $1000.26
+2025-03-20 17:58:13,494 - INFO - Retrieved 4 bars for META
+2025-03-20 17:58:13,494 - INFO - Executing BUY for META: 1 shares at $586.00 per share.
+2025-03-20 17:58:13,585 - INFO - Order placed: OrderSide.BUY 1 shares of META
+2025-03-20 17:58:13,585 - INFO - Order ID: e872b93b-5e51-46c1-9725-aeddc9c69bda
+2025-03-20 17:58:13,683 - INFO - Retrieved 4 bars for NVDA
+2025-03-20 17:58:13,683 - INFO - Executing BUY for NVDA: 8 shares at $118.53 per share.
+2025-03-20 17:58:13,777 - INFO - Order placed: OrderSide.BUY 8 shares of NVDA
+2025-03-20 17:58:13,777 - INFO - Order ID: 8015cd2d-545a-4d66-9149-1f97ce02e5d2
+2025-03-20 17:58:13,778 - INFO - No sell signals detected today.
+2025-03-20 17:58:13,778 - INFO - Holding MSFT with neutral or positive sentiment.
+2025-03-20 17:58:13,778 - INFO - Holding SPY with neutral or positive sentiment.
+2025-03-20 17:58:13,778 - INFO - Strategy execution completed.
+2025-03-20 17:58:13,778 - INFO - trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-20 17:59:39 ===
+================================================================================
+2025-03-20 17:59:39,509 - INFO - Logger initialized and header written.
+2025-03-20 17:59:39,509 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-03-20 17:59:39,509 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-03-20 17:59:39,509 - INFO - Running LLM sentiment strategy...
+2025-03-20 17:59:39,509 - INFO - Market is closed. Running in simulation mode.
+2025-03-20 17:59:40,116 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-03-20 17:59:40,117 - INFO - Cash: $40010.58
+2025-03-20 17:59:40,117 - INFO - Portfolio value: $96946.57
+2025-03-20 17:59:40,117 - INFO - Buying power: $119616.83
+2025-03-20 17:59:40,117 - INFO - Daily budget for new trades: $2000.53
+2025-03-20 17:59:40,393 - INFO - News articles for AAPL:
+2025-03-20 17:59:40,394 - INFO -   Article 1: https://qz.com/google-apple-violation-of-eu-law-1851771086
+2025-03-20 17:59:40,394 - INFO -   Article 2: https://qz.com/roche-novartis-dei-pharma-trump-1851771007
+2025-03-20 17:59:40,394 - INFO -   Article 3: https://medium.com/@VeryFatBoy/quick-tip-comparing-openai-and-ollama-using-langchains-sqldatabasetoolkit-caec76013ee5
+2025-03-20 17:59:41,083 - INFO - Sentiment score for AAPL: -0.5
+2025-03-20 17:59:41,227 - INFO - News articles for MSFT:
+2025-03-20 17:59:41,227 - INFO -   Article 1: https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_0fe362d3-a8ec-4395-b75b-37ffc7c928e6
+2025-03-20 17:59:41,227 - INFO -   Article 2: https://biztoc.com/x/ff71a19dc25cb177
+2025-03-20 17:59:41,227 - INFO -   Article 3: https://qz.com/google-apple-violation-of-eu-law-1851771086
+2025-03-20 17:59:41,603 - INFO - Sentiment score for MSFT: 0.1
+2025-03-20 17:59:41,744 - INFO - News articles for META:
+2025-03-20 17:59:41,744 - INFO -   Article 1: https://nypost.com/2025/03/19/business/memoir-careless-people-about-mark-zuckerberg-sheryl-sandberg-has-strong-first-week-sales/
+2025-03-20 17:59:41,744 - INFO -   Article 2: https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_7b3e82c9-2c7b-4dcb-a81f-365473222d6d
+2025-03-20 17:59:41,744 - INFO -   Article 3: https://www.uploadvr.com/meta-still-investing-massively-in-vr-gaming-and-dont-plan-to-stop/
+2025-03-20 17:59:42,122 - INFO - Sentiment score for META: 0.7
+2025-03-20 17:59:42,269 - INFO - News articles for GOOGL:
+2025-03-20 17:59:42,269 - INFO -   Article 1: https://qz.com/google-apple-violation-of-eu-law-1851771086
+2025-03-20 17:59:42,269 - INFO -   Article 2: https://biztoc.com/x/89b93dd5a4e9635a
+2025-03-20 17:59:42,269 - INFO -   Article 3: https://biztoc.com/x/27a9c89cff43954b
+2025-03-20 17:59:42,761 - INFO - Sentiment score for GOOGL: 0.1
+2025-03-20 17:59:42,902 - INFO - News articles for AMZN:
+2025-03-20 17:59:42,903 - INFO -   Article 1: https://biztoc.com/x/ff71a19dc25cb177
+2025-03-20 17:59:42,903 - INFO -   Article 2: https://qz.com/google-apple-violation-of-eu-law-1851771086
+2025-03-20 17:59:42,903 - INFO -   Article 3: https://medium.com/@VeryFatBoy/quick-tip-comparing-openai-and-ollama-using-langchains-sqldatabasetoolkit-caec76013ee5
+2025-03-20 17:59:43,418 - INFO - Sentiment score for AMZN: 0.1
+2025-03-20 17:59:43,553 - INFO - News articles for NVDA:
+2025-03-20 17:59:43,553 - INFO -   Article 1: https://biztoc.com/x/6f8a45bac04d21a9
+2025-03-20 17:59:43,553 - INFO -   Article 2: https://biztoc.com/x/717482ceeafadede
+2025-03-20 17:59:43,553 - INFO -   Article 3: https://finance.yahoo.com/news/nvidias-huang-isnt-shying-away-from-deepseek-says-ai-needs-100x-more-computing-power-192706297.html
+2025-03-20 17:59:43,941 - INFO - Sentiment score for NVDA: 0.5
+2025-03-20 17:59:43,942 - INFO - Buy signals: {'META': 0.7, 'NVDA': 0.5}. Allocation per stock: $1000.26
+2025-03-20 17:59:44,266 - INFO - Retrieved 4 bars for META
+2025-03-20 17:59:44,267 - INFO - Executing BUY for META: 1 shares at $586.00 per share.
+2025-03-20 17:59:44,356 - INFO - Order placed: OrderSide.BUY 1 shares of META
+2025-03-20 17:59:44,356 - INFO - Order ID: 52f6a144-b039-4521-8a04-8068053287b2
+2025-03-20 17:59:44,457 - INFO - Retrieved 4 bars for NVDA
+2025-03-20 17:59:44,457 - INFO - Executing BUY for NVDA: 8 shares at $118.53 per share.
+2025-03-20 17:59:44,550 - INFO - Order placed: OrderSide.BUY 8 shares of NVDA
+2025-03-20 17:59:44,550 - INFO - Order ID: 1ad5df88-c494-4bdc-9736-6064e10dc585
+2025-03-20 17:59:44,550 - INFO - Sell signals: {'AAPL': -0.5}
+2025-03-20 17:59:44,551 - ERROR - Error running trading_bot_llm_sentiment_brian: 'AAPL'
+Traceback (most recent call last):
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 270, in main
+    bot.run_strategy()
+    ~~~~~~~~~~~~~~~~^^
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 251, in run_strategy
+    position = positions[symbol]
+               ~~~~~~~~~^^^^^^^^
+KeyError: 'AAPL'
