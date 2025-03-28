@@ -1,0 +1,77 @@
+
+================================================================================
+=== Log Start: 2025-03-27 22:24:04 ===
+================================================================================
+2025-03-27 22:24:04,757 - INFO - Logger initialized and header written.
+2025-03-27 22:24:04,757 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-03-27 22:24:04,789 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-03-27 22:24:05,552 - INFO - Retrieved 22 bars for AAPL
+2025-03-27 22:24:05,649 - INFO - Retrieved 22 bars for MSFT
+2025-03-27 22:24:05,741 - INFO - Retrieved 22 bars for META
+2025-03-27 22:24:05,836 - INFO - Retrieved 22 bars for GOOGL
+2025-03-27 22:24:05,934 - INFO - Retrieved 22 bars for AMZN
+2025-03-27 22:24:06,025 - INFO - Retrieved 22 bars for NVDA
+2025-03-27 22:24:06,027 - INFO - Combined historical data is up-to-date.
+2025-03-27 22:24:06,172 - INFO - AAPL: current $225.35, predicted $305.51 => signal BUY
+2025-03-27 22:24:06,294 - INFO - Retrieved 22 bars for AAPL
+2025-03-27 22:24:06,400 - INFO - Retrieved 22 bars for MSFT
+2025-03-27 22:24:06,497 - INFO - Retrieved 22 bars for META
+2025-03-27 22:24:06,604 - INFO - Retrieved 22 bars for GOOGL
+2025-03-27 22:24:06,707 - INFO - Retrieved 22 bars for AMZN
+2025-03-27 22:24:06,806 - INFO - Retrieved 22 bars for NVDA
+2025-03-27 22:24:06,808 - INFO - Combined historical data is up-to-date.
+2025-03-27 22:24:06,940 - INFO - MSFT: current $395.11, predicted $305.51 => signal SELL
+2025-03-27 22:24:07,059 - INFO - Retrieved 22 bars for AAPL
+2025-03-27 22:24:07,159 - INFO - Retrieved 22 bars for MSFT
+2025-03-27 22:24:07,257 - INFO - Retrieved 22 bars for META
+2025-03-27 22:24:07,360 - INFO - Retrieved 22 bars for GOOGL
+2025-03-27 22:24:07,458 - INFO - Retrieved 22 bars for AMZN
+2025-03-27 22:24:07,558 - INFO - Retrieved 22 bars for NVDA
+2025-03-27 22:24:07,561 - INFO - Combined historical data is up-to-date.
+2025-03-27 22:24:07,691 - INFO - META: current $600.00, predicted $305.51 => signal SELL
+2025-03-27 22:24:07,809 - INFO - Retrieved 22 bars for AAPL
+2025-03-27 22:24:07,908 - INFO - Retrieved 22 bars for MSFT
+2025-03-27 22:24:08,004 - INFO - Retrieved 22 bars for META
+2025-03-27 22:24:08,111 - INFO - Retrieved 22 bars for GOOGL
+2025-03-27 22:24:08,219 - INFO - Retrieved 22 bars for AMZN
+2025-03-27 22:24:08,317 - INFO - Retrieved 22 bars for NVDA
+2025-03-27 22:24:08,319 - INFO - Combined historical data is up-to-date.
+2025-03-27 22:24:08,511 - INFO - GOOGL: current $162.19, predicted $305.51 => signal BUY
+2025-03-27 22:24:08,628 - INFO - Retrieved 22 bars for AAPL
+2025-03-27 22:24:08,730 - INFO - Retrieved 22 bars for MSFT
+2025-03-27 22:24:08,829 - INFO - Retrieved 22 bars for META
+2025-03-27 22:24:08,933 - INFO - Retrieved 22 bars for GOOGL
+2025-03-27 22:24:09,034 - INFO - Retrieved 22 bars for AMZN
+2025-03-27 22:24:09,134 - INFO - Retrieved 22 bars for NVDA
+2025-03-27 22:24:09,136 - INFO - Combined historical data is up-to-date.
+2025-03-27 22:24:09,257 - INFO - AMZN: current $201.38, predicted $305.51 => signal BUY
+2025-03-27 22:24:09,377 - INFO - Retrieved 22 bars for AAPL
+2025-03-27 22:24:09,482 - INFO - Retrieved 22 bars for MSFT
+2025-03-27 22:24:09,579 - INFO - Retrieved 22 bars for META
+2025-03-27 22:24:09,680 - INFO - Retrieved 22 bars for GOOGL
+2025-03-27 22:24:09,778 - INFO - Retrieved 22 bars for AMZN
+2025-03-27 22:24:09,877 - INFO - Retrieved 22 bars for NVDA
+2025-03-27 22:24:09,881 - INFO - Combined historical data is up-to-date.
+2025-03-27 22:24:10,012 - INFO - NVDA: current $113.12, predicted $305.51 => signal BUY
+2025-03-27 22:24:10,095 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-03-27 22:24:10,095 - INFO - Cash: $16528.33
+2025-03-27 22:24:10,095 - INFO - Portfolio value: $97128.71
+2025-03-27 22:24:10,095 - INFO - Buying power: $112178.56
+2025-03-27 22:24:10,096 - INFO - Daily budget for new trades: $826.42
+2025-03-27 22:24:10,179 - ERROR - Error retrieving open orders: 'TradingClient' object has no attribute 'list_orders'
+2025-03-27 22:24:10,179 - INFO - Executing BUY for AAPL: 1 shares at $225.35 per share.
+2025-03-27 22:24:10,267 - ERROR - Error submitting order for AAPL: {"code":40310000,"existing_order_id":"9ad32809-f057-4c9b-8664-7ccedb26aee5","message":"potential wash trade detected. use complex orders","reject_reason":"opposite side market/stop order exists"}
+2025-03-27 22:24:10,267 - INFO - Executing SELL for MSFT: 6.0 shares at current price $395.11.
+2025-03-27 22:24:10,352 - ERROR - Error submitting order for MSFT: {"code":40310000,"existing_order_id":"ce1fcf80-aa66-492d-8326-1fb489f07ec0","message":"potential wash trade detected. use complex orders","reject_reason":"opposite side market/stop order exists"}
+2025-03-27 22:24:10,353 - INFO - Executing SELL for META: 14.0 shares at current price $600.00.
+2025-03-27 22:24:10,445 - ERROR - Error submitting order for META: {"available":"0","code":40310000,"existing_qty":"14","held_for_orders":"14","message":"insufficient qty available for order (requested: 14, available: 0)","related_orders":["3bd8b978-8671-4f14-b035-f3ce8975faa5"],"symbol":"META"}
+2025-03-27 22:24:10,445 - INFO - Executing BUY for GOOGL: 1 shares at $162.19 per share.
+2025-03-27 22:24:10,534 - INFO - Order placed: buy 1 shares of GOOGL
+2025-03-27 22:24:10,534 - INFO - Order ID: afb70e27-7ba9-4075-8eaf-85885861f3ee
+2025-03-27 22:24:10,534 - INFO - Executing BUY for AMZN: 1 shares at $201.38 per share.
+2025-03-27 22:24:10,625 - INFO - Order placed: buy 1 shares of AMZN
+2025-03-27 22:24:10,626 - INFO - Order ID: 6781458c-02b9-44ab-bad9-d841847718cf
+2025-03-27 22:24:10,626 - INFO - Executing BUY for NVDA: 1 shares at $113.12 per share.
+2025-03-27 22:24:10,713 - ERROR - Error submitting order for NVDA: {"code":40310000,"existing_order_id":"100fd9ad-3129-4a9d-8b23-64f7fa17cd4f","message":"potential wash trade detected. use complex orders","reject_reason":"opposite side market/stop order exists"}
+2025-03-27 22:24:10,714 - INFO - Strategy execution completed.
+2025-03-27 22:24:10,714 - INFO - trading_bot_llm_sentiment_brian completed successfully

@@ -1,1 +1,11 @@
 .env
+
+# Ignore Python cache directories and compiled files
+__pycache__/
+*.py[cod]
+
+# Ignore any file or directory with "checkpoints" in its name
+*checkpoints*
+
+# Specifically ignore Jupyter Notebook checkpoints
+**/.ipynb_checkpoints/*

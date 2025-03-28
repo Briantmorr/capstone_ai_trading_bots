@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 from datetime import datetime
 
-def get_bot_logger(bot_name: str, log_dir: Path = None) -> logging.Logger:
+def get_bot_logger(bot_name: str) -> logging.Logger:
     """
     Returns a logger for the given bot. Always resets any existing logger handlers 
     so that a new header is appended at the start of each run.
@@ -17,10 +17,12 @@ def get_bot_logger(bot_name: str, log_dir: Path = None) -> logging.Logger:
         logging.Logger: Configured logger for the bot.
     """
     # Use current working directory if no log_dir provided
-    if log_dir is None:
-        log_dir = Path.cwd()
-
-    log_file = f"{log_dir}/{bot_name}.log"
+    log_dir = Path.cwd()
+    if bot_name == 'bot_manager':
+        log_file = f"{log_dir}/{bot_name}.log"
+    else: 
+        log_file = f"{log_dir}/{bot_name}/{bot_name}.log"
+        
     logger = logging.getLogger(bot_name)
     
     # Reset any existing handlers so we get a fresh config each run.
