@@ -21,7 +21,7 @@ class BotManager:
     def __init__(self):
         """Initialize the bot manager."""
         # Use the abstracted logger for BotManager
-        self.logger = get_bot_logger("BotManager", log_dir=Path(__file__).parent)
+        self.logger = get_bot_logger("bot_manager")
         
         # Discover bots from environment variables
         self.bots = self._discover_bots()
@@ -85,12 +85,6 @@ class BotManager:
             self.logger.error(f"Bot file not found: {bot_path}")
             return False
             
-        # Set up bot-specific logging using get_bot_logger.
-        # This writes the log in a subdirectory named after the bot.
-        bot_log_dir = Path(bot_name)
-        bot_log_dir.mkdir(exist_ok=True)
-        bot_logger = get_bot_logger(bot_name, log_dir=bot_log_dir)
-        
         self.logger.info(f"Running bot: {bot_name}")
         
         try:

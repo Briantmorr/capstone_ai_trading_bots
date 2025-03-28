@@ -18,8 +18,11 @@ def get_bot_logger(bot_name: str) -> logging.Logger:
     """
     # Use current working directory if no log_dir provided
     log_dir = Path.cwd()
-
-    log_file = f"{log_dir}/{bot_name}.log"
+    if bot_name == 'bot_manager':
+        log_file = f"{log_dir}/{bot_name}.log"
+    else: 
+        log_file = f"{log_dir}/{bot_name}/{bot_name}.log"
+        
     logger = logging.getLogger(bot_name)
     
     # Reset any existing handlers so we get a fresh config each run.
