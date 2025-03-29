@@ -95,3 +95,75 @@ AttributeError: 'TradingClient' object has no attribute 'get_all_orders'. Did yo
 2025-03-27 22:24:00,181 - INFO - Bot Manager initialized with 2 bots
 2025-03-27 22:24:00,181 - INFO - Running bot: trading_bot_llm_sentiment_brian
 2025-03-27 22:24:10,715 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 06:49:08 ===
+================================================================================
+2025-03-29 06:49:08,066 - INFO - Logger initialized and header written.
+2025-03-29 06:49:08,066 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 06:49:08,066 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 06:49:08,066 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 06:49:08,067 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 06:49:45,355 - ERROR - Error running bot trading_bot_llm_sentiment_brian: '<' not supported between instances of 'datetime.date' and 'str'
+Traceback (most recent call last):
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/bot_manager.py", line 104, in run_bot
+    module.main()
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 422, in main
+    signals = bot.get_signals()
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 281, in get_signals
+    predicted_price = self.predict_todays_closing_price_enriched(symbol)
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 385, in predict_todays_closing_price_enriched
+    enriched_df = self.load_and_update_sentiment_data(self.time_series_length)
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 244, in load_and_update_sentiment_data
+    distinct_dates = sorted(combined_df['date'].unique())
+TypeError: '<' not supported between instances of 'datetime.date' and 'str'
+
+================================================================================
+=== Log Start: 2025-03-29 06:52:21 ===
+================================================================================
+2025-03-29 06:52:21,518 - INFO - Logger initialized and header written.
+2025-03-29 06:52:21,518 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 06:52:21,518 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 06:52:21,518 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 06:52:21,518 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 06:52:30,703 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 07:01:55 ===
+================================================================================
+2025-03-29 07:01:55,674 - INFO - Logger initialized and header written.
+2025-03-29 07:01:55,674 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 07:01:55,674 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 07:01:55,674 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 07:01:55,674 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 07:02:06,205 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 07:13:22 ===
+================================================================================
+2025-03-29 07:13:22,443 - INFO - Logger initialized and header written.
+2025-03-29 07:13:22,443 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 07:13:22,443 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 07:13:22,443 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 07:13:22,443 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 07:13:32,754 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 07:14:42 ===
+================================================================================
+2025-03-29 07:14:42,146 - INFO - Logger initialized and header written.
+2025-03-29 07:14:42,146 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 07:14:42,146 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 07:14:42,146 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 07:14:42,146 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 07:14:52,368 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 07:16:56 ===
+================================================================================
+2025-03-29 07:16:57,005 - INFO - Logger initialized and header written.
+2025-03-29 07:16:57,006 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 07:16:57,006 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 07:16:57,006 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 07:16:57,006 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 07:17:26,536 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully

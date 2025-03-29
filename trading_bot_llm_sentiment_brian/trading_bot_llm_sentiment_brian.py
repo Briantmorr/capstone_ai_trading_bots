@@ -219,8 +219,8 @@ class TradingBotLLMSentiment:
                 logger.info(f"Missing combined data for dates: {missing_dates}. Fetching updates...")
                 for date in missing_dates:
                     # Convert string to date for filtering.
-                    target_date = pd.to_datetime(date).date()
-                    price_row_df = price_df[price_df['date'] == target_date]
+                    # target_date = pd.to_datetime(date).date()
+                    price_row_df = price_df[price_df['date'] == date]
                     if price_row_df.empty:
                         continue
                     articles = 5
@@ -234,14 +234,15 @@ class TradingBotLLMSentiment:
                     updates.append(f"{symbol}:{date}")
             
         if updates:
+            combined_df.sort_values(by="timestamp", inplace=True)
             combined_df.to_csv(sentiment_file, index=False)
             logger.info(f"updated: {updates}")
             logger.info(f"Combined historical data updated and saved to {sentiment_file}")
         else:
             logger.info("Combined historical data is up-to-date.")
 
-        # Return only the most recent `days` of data.
-        distinct_dates = sorted(combined_df['date'].unique())
+        # Return only the most recent x `days` of data.
+        distinct_dates = combined_df['date'].unique()       
         last_30_dates = distinct_dates[-30:]
         updated_df = combined_df[combined_df['date'].isin(last_30_dates)]
         
@@ -398,14 +399,13 @@ class TradingBotLLMSentiment:
             print("Not enough data to form a prediction sequence.")
             return None
         else:
-            # Use the last TIME_SERIES_LENGTH rows for prediction.
             feature_columns = ['open', 'high', 'low', 'close', 'volume', 'sentiment']
             latest_seq = symbol_df.iloc[-self.time_series_length:][feature_columns].values
 
         # Step 4: Reshape and scale the sequence.
-        latest_seq_2d = latest_seq.reshape(-1, len(self.symbols))
+        latest_seq_2d = latest_seq.reshape(-1, len(feature_columns))
         latest_seq_scaled_2d = SCALER.transform(latest_seq_2d)
-        latest_seq_scaled = latest_seq_scaled_2d.reshape(1, self.time_series_length, len(self.symbols))
+        latest_seq_scaled = latest_seq_scaled_2d.reshape(1, self.time_series_length, len(feature_columns))
         
         # Predict using the trained model.
         predicted_price = MODEL.predict(latest_seq_scaled)

@@ -75,3 +75,447 @@
 2025-03-27 22:24:10,713 - ERROR - Error submitting order for NVDA: {"code":40310000,"existing_order_id":"100fd9ad-3129-4a9d-8b23-64f7fa17cd4f","message":"potential wash trade detected. use complex orders","reject_reason":"opposite side market/stop order exists"}
 2025-03-27 22:24:10,714 - INFO - Strategy execution completed.
 2025-03-27 22:24:10,714 - INFO - trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 06:49:37 ===
+================================================================================
+2025-03-29 06:49:37,558 - INFO - Logger initialized and header written.
+2025-03-29 06:49:37,559 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-03-29 06:49:37,753 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-03-29 06:49:39,414 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 06:49:39,415 - INFO - Missing combined data for dates: ['2025-03-28']. Fetching updates...
+2025-03-29 06:49:39,920 - INFO - News articles for AAPL:
+2025-03-29 06:49:39,921 - INFO -   Article 1: https://finnhub.io/api/news?id=177c0939288ffe74a5ec4124ecf3751cabc17ef885a21c6f06755ce6910bb4e6
+2025-03-29 06:49:39,921 - INFO -   Article 2: https://finnhub.io/api/news?id=a7ac60a73d5895a3367da8090952f93a2c920d1bd92d403388d446ed8440aa26
+2025-03-29 06:49:39,921 - INFO -   Article 3: https://finnhub.io/api/news?id=90b26846322915696d55c9fa68d35d83380e09221dd9b4c8b30cf240b0af9aab
+2025-03-29 06:49:39,921 - INFO -   Article 4: https://finnhub.io/api/news?id=4c3f058de763415545c12e29c82a84e80d15fec6c8a7b8e8dc6e8ce37e4d46c2
+2025-03-29 06:49:39,921 - INFO -   Article 5: https://finnhub.io/api/news?id=326488da0babc5db4af514525099de05d7a2de182ce7f812f34e28e880129027
+2025-03-29 06:49:41,148 - INFO - Sentiment score for AAPL: 0.0
+2025-03-29 06:49:41,244 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 06:49:41,245 - INFO - Missing combined data for dates: ['2025-03-28']. Fetching updates...
+2025-03-29 06:49:41,435 - INFO - News articles for MSFT:
+2025-03-29 06:49:41,435 - INFO -   Article 1: https://finnhub.io/api/news?id=1adfb02713d15afaf47e3269da4c5694edcb84932800bcd8843c54539670c92d
+2025-03-29 06:49:41,435 - INFO -   Article 2: https://finnhub.io/api/news?id=2d3ca33b0aba8ca79bb7d230acd728a3175b14998fa540fbbacbe30b1f292819
+2025-03-29 06:49:41,435 - INFO -   Article 3: https://finnhub.io/api/news?id=8f67132c620e80f844317911f94349b442c4151a307bcbe9e4ad2e2cbbf0aeea
+2025-03-29 06:49:41,435 - INFO -   Article 4: https://finnhub.io/api/news?id=9a60c5efdcabeb9c7e37cef23e1aec111cc74c7468e1205050a399bb110bae31
+2025-03-29 06:49:41,435 - INFO -   Article 5: https://finnhub.io/api/news?id=3410169158d9670479c7274fd3b2d94b2b2fd37e2455b779fff0da33f383d0ae
+2025-03-29 06:49:41,953 - INFO - Sentiment score for MSFT: 0.0
+2025-03-29 06:49:42,054 - INFO - Retrieved 21 bars for META
+2025-03-29 06:49:42,055 - INFO - Missing combined data for dates: ['2025-03-28']. Fetching updates...
+2025-03-29 06:49:42,233 - INFO - News articles for META:
+2025-03-29 06:49:42,233 - INFO -   Article 1: https://finnhub.io/api/news?id=a3ed3190f2dc2cbd8669c5cff93b16c06dc7ebfb44ccd90832524f43bff9bc96
+2025-03-29 06:49:42,234 - INFO -   Article 2: https://finnhub.io/api/news?id=c32b2fbacb2221731949b4946d4dbcd933555e1691d928d9424480cb8c746011
+2025-03-29 06:49:42,234 - INFO -   Article 3: https://finnhub.io/api/news?id=f0e0e264f6a86233dc648b6a1f03d4d5eb8af81fcbf124f60de91f0ca9b0cbe7
+2025-03-29 06:49:42,234 - INFO -   Article 4: https://finnhub.io/api/news?id=90b26846322915696d55c9fa68d35d83380e09221dd9b4c8b30cf240b0af9aab
+2025-03-29 06:49:42,234 - INFO -   Article 5: https://finnhub.io/api/news?id=d155507ef88ba13a15b2c3b6f5dbf6ebad76bb50c56936e0b1630883337eed55
+2025-03-29 06:49:42,813 - INFO - Sentiment score for META: -0.5
+2025-03-29 06:49:42,911 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 06:49:42,913 - INFO - Missing combined data for dates: ['2025-03-28']. Fetching updates...
+2025-03-29 06:49:43,093 - INFO - News articles for GOOGL:
+2025-03-29 06:49:43,093 - INFO -   Article 1: https://finnhub.io/api/news?id=aa44d333897fb24e651de3aa815e96e7bd73d860f2bdf799e844c01a4fc79c39
+2025-03-29 06:49:43,093 - INFO -   Article 2: https://finnhub.io/api/news?id=c32b2fbacb2221731949b4946d4dbcd933555e1691d928d9424480cb8c746011
+2025-03-29 06:49:43,093 - INFO -   Article 3: https://finnhub.io/api/news?id=d488bb3b624b862fc2462447741eb4d7ab9bbd91cf3b9b8af3d000c1c90a5131
+2025-03-29 06:49:43,093 - INFO -   Article 4: https://finnhub.io/api/news?id=31f66603d0b6645f21aeabfb9bd96af4d4db7a5d153f5875c08d635fe8c17360
+2025-03-29 06:49:43,094 - INFO -   Article 5: https://finnhub.io/api/news?id=aa12e229003c418a6bdf9adce4c7742407494cc295fe1fed6bf491febfa1570b
+2025-03-29 06:49:43,595 - INFO - Sentiment score for GOOGL: -0.6
+2025-03-29 06:49:43,702 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 06:49:43,704 - INFO - Missing combined data for dates: ['2025-03-28']. Fetching updates...
+2025-03-29 06:49:43,892 - INFO - News articles for AMZN:
+2025-03-29 06:49:43,892 - INFO -   Article 1: https://finnhub.io/api/news?id=1a1b815f66d659e99b7a078bd9f0d3b2f177bb17ccbd095b116288fa2336a4cb
+2025-03-29 06:49:43,892 - INFO -   Article 2: https://finnhub.io/api/news?id=e8c81c0527072f874f76c8eb4c6106afdf4f82c6ccb52e4adcc553cb3fbe9e17
+2025-03-29 06:49:43,892 - INFO -   Article 3: https://finnhub.io/api/news?id=aa664d4b20392ac549eb57baae03952c9dcf4e8b104b0a0aae3817897717c940
+2025-03-29 06:49:43,892 - INFO -   Article 4: https://finnhub.io/api/news?id=4b1cdd242316bae89078b1a0b7e25c2fc840e43c3937f1e433a34e7584c7fb7d
+2025-03-29 06:49:43,892 - INFO -   Article 5: https://finnhub.io/api/news?id=9d83a721503daf20bd2d5f52a0129487db6e4067d37c68d5f0447e67926585f4
+2025-03-29 06:49:44,419 - INFO - Sentiment score for AMZN: 0.5
+2025-03-29 06:49:44,522 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 06:49:44,524 - INFO - Missing combined data for dates: ['2025-03-28']. Fetching updates...
+2025-03-29 06:49:44,882 - INFO - News articles for NVDA:
+2025-03-29 06:49:44,883 - INFO -   Article 1: https://finnhub.io/api/news?id=e8c81c0527072f874f76c8eb4c6106afdf4f82c6ccb52e4adcc553cb3fbe9e17
+2025-03-29 06:49:44,883 - INFO -   Article 2: https://finnhub.io/api/news?id=65396c902b0513eb41838eb47c04f6d7536207217627249291c00b51cca78397
+2025-03-29 06:49:44,883 - INFO -   Article 3: https://finnhub.io/api/news?id=5fdccf3e519b257a21e8ecb846cc7bea4c9f8daa8cc16a384d452281cf1c8c85
+2025-03-29 06:49:44,883 - INFO -   Article 4: https://finnhub.io/api/news?id=f31a1b9eca4cd239b0530512b3474ace82c02549c8defba14621deab7d31a7dd
+2025-03-29 06:49:44,883 - INFO -   Article 5: https://finnhub.io/api/news?id=ae4e2e7e1fdd9f31479b29e1b295604d0c4d072f58705dc3528ed2afc9d16dc1
+2025-03-29 06:49:45,334 - INFO - Sentiment score for NVDA: 0.7
+2025-03-29 06:49:45,354 - INFO - updated: ['AAPL:2025-03-28', 'MSFT:2025-03-28', 'META:2025-03-28', 'GOOGL:2025-03-28', 'AMZN:2025-03-28', 'NVDA:2025-03-28']
+2025-03-29 06:49:45,354 - INFO - Combined historical data updated and saved to trading_bot_llm_sentiment_brian/data/combined_historical_with_daily_sentiment.csv
+2025-03-29 06:49:45,354 - ERROR - Error running trading_bot_llm_sentiment_brian: '<' not supported between instances of 'datetime.date' and 'str'
+Traceback (most recent call last):
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 422, in main
+    signals = bot.get_signals()
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 281, in get_signals
+    predicted_price = self.predict_todays_closing_price_enriched(symbol)
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 385, in predict_todays_closing_price_enriched
+    enriched_df = self.load_and_update_sentiment_data(self.time_series_length)
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 244, in load_and_update_sentiment_data
+    distinct_dates = sorted(combined_df['date'].unique())
+TypeError: '<' not supported between instances of 'datetime.date' and 'str'
+
+================================================================================
+=== Log Start: 2025-03-29 06:52:25 ===
+================================================================================
+2025-03-29 06:52:25,785 - INFO - Logger initialized and header written.
+2025-03-29 06:52:25,785 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-03-29 06:52:25,814 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-03-29 06:52:26,719 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 06:52:26,808 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 06:52:26,903 - INFO - Retrieved 21 bars for META
+2025-03-29 06:52:27,003 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 06:52:27,097 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 06:52:27,200 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 06:52:27,202 - INFO - Combined historical data is up-to-date.
+2025-03-29 06:52:27,371 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 06:52:27,458 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 06:52:27,555 - INFO - Retrieved 21 bars for META
+2025-03-29 06:52:27,651 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 06:52:27,757 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 06:52:27,854 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 06:52:27,856 - INFO - Combined historical data is up-to-date.
+2025-03-29 06:52:28,023 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 06:52:28,112 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 06:52:28,210 - INFO - Retrieved 21 bars for META
+2025-03-29 06:52:28,310 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 06:52:28,402 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 06:52:28,501 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 06:52:28,504 - INFO - Combined historical data is up-to-date.
+2025-03-29 06:52:28,667 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 06:52:28,761 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 06:52:28,852 - INFO - Retrieved 21 bars for META
+2025-03-29 06:52:28,951 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 06:52:29,060 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 06:52:29,155 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 06:52:29,157 - INFO - Combined historical data is up-to-date.
+2025-03-29 06:52:29,343 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 06:52:29,438 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 06:52:29,539 - INFO - Retrieved 21 bars for META
+2025-03-29 06:52:29,646 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 06:52:29,734 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 06:52:29,830 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 06:52:29,833 - INFO - Combined historical data is up-to-date.
+2025-03-29 06:52:30,013 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 06:52:30,105 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 06:52:30,209 - INFO - Retrieved 21 bars for META
+2025-03-29 06:52:30,314 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 06:52:30,409 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 06:52:30,501 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 06:52:30,503 - INFO - Combined historical data is up-to-date.
+2025-03-29 06:52:30,620 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-03-29 06:52:30,620 - INFO - Cash: $33009.73
+2025-03-29 06:52:30,620 - INFO - Portfolio value: $95660.66
+2025-03-29 06:52:30,620 - INFO - Buying power: $128670.39
+2025-03-29 06:52:30,620 - INFO - Daily budget for new trades: $1650.49
+2025-03-29 06:52:30,702 - ERROR - Error retrieving open orders: 'TradingClient' object has no attribute 'list_orders'
+2025-03-29 06:52:30,703 - INFO - Strategy execution completed.
+2025-03-29 06:52:30,703 - INFO - trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 07:02:00 ===
+================================================================================
+2025-03-29 07:02:00,229 - INFO - Logger initialized and header written.
+2025-03-29 07:02:00,229 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-03-29 07:02:00,262 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-03-29 07:02:01,149 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:02:01,251 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:02:01,344 - INFO - Retrieved 21 bars for META
+2025-03-29 07:02:01,446 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:02:01,543 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:02:01,639 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:02:01,641 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:02:01,838 - INFO - AAPL: current $232.50, predicted $305.51 => signal BUY
+2025-03-29 07:02:01,956 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:02:02,047 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:02:02,145 - INFO - Retrieved 21 bars for META
+2025-03-29 07:02:02,248 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:02:02,344 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:02:02,447 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:02:02,448 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:02:02,585 - INFO - MSFT: current $387.35, predicted $305.51 => signal SELL
+2025-03-29 07:02:02,702 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:02:02,793 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:02:02,891 - INFO - Retrieved 21 bars for META
+2025-03-29 07:02:02,986 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:02:03,080 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:02:03,190 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:02:03,191 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:02:03,325 - INFO - META: current $576.83, predicted $305.51 => signal HOLD
+2025-03-29 07:02:03,448 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:02:03,535 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:02:03,632 - INFO - Retrieved 21 bars for META
+2025-03-29 07:02:03,733 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:02:03,823 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:02:03,922 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:02:03,924 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:02:04,137 - INFO - GOOGL: current $157.91, predicted $305.51 => signal BUY
+2025-03-29 07:02:04,253 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:02:04,345 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:02:04,438 - INFO - Retrieved 21 bars for META
+2025-03-29 07:02:04,538 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:02:04,636 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:02:04,735 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:02:04,736 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:02:04,871 - INFO - AMZN: current $191.93, predicted $305.51 => signal BUY
+2025-03-29 07:02:04,991 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:02:05,078 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:02:05,174 - INFO - Retrieved 21 bars for META
+2025-03-29 07:02:05,272 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:02:05,370 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:02:05,462 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:02:05,464 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:02:05,593 - INFO - NVDA: current $109.32, predicted $305.51 => signal BUY
+2025-03-29 07:02:05,674 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-03-29 07:02:05,674 - INFO - Cash: $33009.73
+2025-03-29 07:02:05,674 - INFO - Portfolio value: $95660.66
+2025-03-29 07:02:05,674 - INFO - Buying power: $128670.39
+2025-03-29 07:02:05,674 - INFO - Daily budget for new trades: $1650.49
+2025-03-29 07:02:05,756 - ERROR - Error retrieving open orders: 'TradingClient' object has no attribute 'list_orders'
+2025-03-29 07:02:05,756 - INFO - Executing BUY for AAPL: 1 shares at $232.50 per share.
+2025-03-29 07:02:05,849 - INFO - Order placed: buy 1 shares of AAPL
+2025-03-29 07:02:05,850 - INFO - Order ID: 815c89ba-4e9d-4474-94c9-7903dc82dd16
+2025-03-29 07:02:05,850 - INFO - Executing SELL for MSFT: 7.0 shares at current price $387.35.
+2025-03-29 07:02:05,936 - INFO - Order placed: sell 7.0 shares of MSFT
+2025-03-29 07:02:05,936 - INFO - Order ID: cfa07e80-2847-4ce4-b2bd-eb87189bfa11
+2025-03-29 07:02:05,937 - INFO - Holding META: no trading action required.
+2025-03-29 07:02:05,937 - INFO - Executing BUY for GOOGL: 2 shares at $157.91 per share.
+2025-03-29 07:02:06,024 - INFO - Order placed: buy 2 shares of GOOGL
+2025-03-29 07:02:06,025 - INFO - Order ID: e0738d3d-4753-4d30-b28f-0dc1bb93dc15
+2025-03-29 07:02:06,025 - INFO - Executing BUY for AMZN: 2 shares at $191.93 per share.
+2025-03-29 07:02:06,114 - INFO - Order placed: buy 2 shares of AMZN
+2025-03-29 07:02:06,114 - INFO - Order ID: 31038326-254c-4044-91ca-a6e18ec381be
+2025-03-29 07:02:06,114 - INFO - Executing BUY for NVDA: 3 shares at $109.32 per share.
+2025-03-29 07:02:06,204 - INFO - Order placed: buy 3 shares of NVDA
+2025-03-29 07:02:06,204 - INFO - Order ID: 9f5946c8-ee67-4377-b68d-7ff5f3d1ae2d
+2025-03-29 07:02:06,204 - INFO - Strategy execution completed.
+2025-03-29 07:02:06,204 - INFO - trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 07:13:26 ===
+================================================================================
+2025-03-29 07:13:26,887 - INFO - Logger initialized and header written.
+2025-03-29 07:13:26,887 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-03-29 07:13:26,921 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-03-29 07:13:27,933 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:13:28,019 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:13:28,108 - INFO - Retrieved 21 bars for META
+2025-03-29 07:13:28,210 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:13:28,304 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:13:28,402 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:13:28,403 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:13:28,557 - INFO - AAPL: current $232.50, predicted $305.51 => signal BUY
+2025-03-29 07:13:28,678 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:13:28,769 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:13:28,865 - INFO - Retrieved 21 bars for META
+2025-03-29 07:13:28,965 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:13:29,057 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:13:29,155 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:13:29,156 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:13:29,271 - INFO - MSFT: current $387.35, predicted $305.51 => signal SELL
+2025-03-29 07:13:29,388 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:13:29,481 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:13:29,577 - INFO - Retrieved 21 bars for META
+2025-03-29 07:13:29,675 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:13:29,765 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:13:29,861 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:13:29,863 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:13:29,975 - INFO - META: current $576.83, predicted $305.51 => signal HOLD
+2025-03-29 07:13:30,088 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:13:30,174 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:13:30,263 - INFO - Retrieved 21 bars for META
+2025-03-29 07:13:30,359 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:13:30,454 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:13:30,548 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:13:30,551 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:13:30,735 - INFO - GOOGL: current $157.91, predicted $305.51 => signal BUY
+2025-03-29 07:13:30,854 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:13:30,943 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:13:31,038 - INFO - Retrieved 21 bars for META
+2025-03-29 07:13:31,139 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:13:31,233 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:13:31,330 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:13:31,332 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:13:31,443 - INFO - AMZN: current $191.93, predicted $305.51 => signal BUY
+2025-03-29 07:13:31,560 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:13:31,646 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:13:31,738 - INFO - Retrieved 21 bars for META
+2025-03-29 07:13:31,833 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:13:31,926 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:13:32,022 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:13:32,024 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:13:32,135 - INFO - NVDA: current $109.32, predicted $305.51 => signal BUY
+2025-03-29 07:13:32,217 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-03-29 07:13:32,217 - INFO - Cash: $33009.73
+2025-03-29 07:13:32,218 - INFO - Portfolio value: $95660.66
+2025-03-29 07:13:32,218 - INFO - Buying power: $127432.32
+2025-03-29 07:13:32,218 - INFO - Daily budget for new trades: $1650.49
+2025-03-29 07:13:32,299 - ERROR - Error retrieving open orders: 'TradingClient' object has no attribute 'list_orders'
+2025-03-29 07:13:32,299 - INFO - Executing BUY for AAPL: 1 shares at $232.50 per share.
+2025-03-29 07:13:32,386 - INFO - Order placed: buy 1 shares of AAPL
+2025-03-29 07:13:32,386 - INFO - Order ID: a859eed1-b2e9-4bff-85ad-34dfbe88daa3
+2025-03-29 07:13:32,386 - INFO - Executing SELL for MSFT: 7.0 shares at current price $387.35.
+2025-03-29 07:13:32,481 - ERROR - Error submitting order for MSFT: {"available":"0","code":40310000,"existing_qty":"7","held_for_orders":"7","message":"insufficient qty available for order (requested: 7, available: 0)","related_orders":["cfa07e80-2847-4ce4-b2bd-eb87189bfa11"],"symbol":"MSFT"}
+2025-03-29 07:13:32,482 - INFO - Holding META: no trading action required.
+2025-03-29 07:13:32,482 - INFO - Executing BUY for GOOGL: 2 shares at $157.91 per share.
+2025-03-29 07:13:32,569 - INFO - Order placed: buy 2 shares of GOOGL
+2025-03-29 07:13:32,569 - INFO - Order ID: fb8cfedc-3e6d-483c-af38-0ae2c944830f
+2025-03-29 07:13:32,569 - INFO - Executing BUY for AMZN: 2 shares at $191.93 per share.
+2025-03-29 07:13:32,661 - INFO - Order placed: buy 2 shares of AMZN
+2025-03-29 07:13:32,661 - INFO - Order ID: 47ef73e5-9026-48e2-876f-5b0b118f866e
+2025-03-29 07:13:32,661 - INFO - Executing BUY for NVDA: 3 shares at $109.32 per share.
+2025-03-29 07:13:32,753 - INFO - Order placed: buy 3 shares of NVDA
+2025-03-29 07:13:32,753 - INFO - Order ID: 1e744e18-e9bb-4156-a3f1-4a34a04e1871
+2025-03-29 07:13:32,753 - INFO - Strategy execution completed.
+2025-03-29 07:13:32,753 - INFO - trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 07:14:46 ===
+================================================================================
+2025-03-29 07:14:46,758 - INFO - Logger initialized and header written.
+2025-03-29 07:14:46,758 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-03-29 07:14:46,786 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-03-29 07:14:47,501 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:14:47,587 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:14:47,679 - INFO - Retrieved 21 bars for META
+2025-03-29 07:14:47,781 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:14:47,872 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:14:47,971 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:14:47,973 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:14:48,166 - INFO - AAPL: current $232.50, predicted $305.51 => signal BUY
+2025-03-29 07:14:48,283 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:14:48,372 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:14:48,464 - INFO - Retrieved 21 bars for META
+2025-03-29 07:14:48,567 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:14:48,654 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:14:48,746 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:14:48,748 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:14:48,871 - INFO - MSFT: current $387.35, predicted $305.51 => signal SELL
+2025-03-29 07:14:48,987 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:14:49,077 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:14:49,175 - INFO - Retrieved 21 bars for META
+2025-03-29 07:14:49,274 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:14:49,368 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:14:49,456 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:14:49,457 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:14:49,569 - INFO - META: current $576.83, predicted $305.51 => signal HOLD
+2025-03-29 07:14:49,690 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:14:49,777 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:14:49,876 - INFO - Retrieved 21 bars for META
+2025-03-29 07:14:49,978 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:14:50,069 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:14:50,162 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:14:50,163 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:14:50,309 - INFO - GOOGL: current $157.91, predicted $305.51 => signal BUY
+2025-03-29 07:14:50,494 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:14:50,582 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:14:50,674 - INFO - Retrieved 21 bars for META
+2025-03-29 07:14:50,787 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:14:50,879 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:14:50,973 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:14:50,976 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:14:51,091 - INFO - AMZN: current $191.93, predicted $305.51 => signal BUY
+2025-03-29 07:14:51,205 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:14:51,293 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:14:51,383 - INFO - Retrieved 21 bars for META
+2025-03-29 07:14:51,479 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:14:51,571 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:14:51,664 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:14:51,666 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:14:51,774 - INFO - NVDA: current $109.32, predicted $305.51 => signal BUY
+2025-03-29 07:14:51,855 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-03-29 07:14:51,855 - INFO - Cash: $33009.73
+2025-03-29 07:14:51,855 - INFO - Portfolio value: $95660.66
+2025-03-29 07:14:51,855 - INFO - Buying power: $126194.25
+2025-03-29 07:14:51,855 - INFO - Daily budget for new trades: $1650.49
+2025-03-29 07:14:51,934 - ERROR - Error retrieving open orders: 'TradingClient' object has no attribute 'list_orders'
+2025-03-29 07:14:51,934 - INFO - Executing BUY for AAPL: 1 shares at $232.50 per share.
+2025-03-29 07:14:52,019 - INFO - Order placed: buy 1 shares of AAPL
+2025-03-29 07:14:52,020 - INFO - Order ID: 20053b4a-3f4b-4a0c-a8c0-c8ed8d256c6f
+2025-03-29 07:14:52,020 - INFO - Executing SELL for MSFT: 7.0 shares at current price $387.35.
+2025-03-29 07:14:52,104 - ERROR - Error submitting order for MSFT: {"available":"0","code":40310000,"existing_qty":"7","held_for_orders":"7","message":"insufficient qty available for order (requested: 7, available: 0)","related_orders":["cfa07e80-2847-4ce4-b2bd-eb87189bfa11"],"symbol":"MSFT"}
+2025-03-29 07:14:52,105 - INFO - Holding META: no trading action required.
+2025-03-29 07:14:52,105 - INFO - Executing BUY for GOOGL: 2 shares at $157.91 per share.
+2025-03-29 07:14:52,190 - INFO - Order placed: buy 2 shares of GOOGL
+2025-03-29 07:14:52,191 - INFO - Order ID: 78f80254-23eb-4040-8bac-40f9bb8694a9
+2025-03-29 07:14:52,191 - INFO - Executing BUY for AMZN: 2 shares at $191.93 per share.
+2025-03-29 07:14:52,278 - INFO - Order placed: buy 2 shares of AMZN
+2025-03-29 07:14:52,278 - INFO - Order ID: 14be790e-5b34-43fc-8d06-7774423dadb9
+2025-03-29 07:14:52,279 - INFO - Executing BUY for NVDA: 3 shares at $109.32 per share.
+2025-03-29 07:14:52,366 - INFO - Order placed: buy 3 shares of NVDA
+2025-03-29 07:14:52,366 - INFO - Order ID: b61fccd5-d7e7-4c22-bbe6-b76ecf5bb685
+2025-03-29 07:14:52,366 - INFO - Strategy execution completed.
+2025-03-29 07:14:52,367 - INFO - trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 07:17:20 ===
+================================================================================
+2025-03-29 07:17:20,634 - INFO - Logger initialized and header written.
+2025-03-29 07:17:20,635 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-03-29 07:17:20,773 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-03-29 07:17:21,712 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:17:21,800 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:17:21,891 - INFO - Retrieved 21 bars for META
+2025-03-29 07:17:21,987 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:17:22,075 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:17:22,165 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:17:22,166 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:17:22,359 - INFO - AAPL: current $232.50, predicted $305.51 => signal BUY
+2025-03-29 07:17:22,477 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:17:22,561 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:17:22,652 - INFO - Retrieved 21 bars for META
+2025-03-29 07:17:22,750 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:17:22,842 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:17:22,946 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:17:22,947 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:17:23,053 - INFO - MSFT: current $387.35, predicted $305.51 => signal SELL
+2025-03-29 07:17:23,169 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:17:23,256 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:17:23,353 - INFO - Retrieved 21 bars for META
+2025-03-29 07:17:23,506 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:17:23,601 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:17:23,693 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:17:23,695 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:17:23,808 - INFO - META: current $576.83, predicted $305.51 => signal HOLD
+2025-03-29 07:17:23,922 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:17:24,009 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:17:24,100 - INFO - Retrieved 21 bars for META
+2025-03-29 07:17:24,197 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:17:24,288 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:17:24,382 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:17:24,383 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:17:24,567 - INFO - GOOGL: current $157.91, predicted $305.51 => signal BUY
+2025-03-29 07:17:24,686 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:17:24,775 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:17:24,867 - INFO - Retrieved 21 bars for META
+2025-03-29 07:17:24,963 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:17:25,056 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:17:25,148 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:17:25,149 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:17:25,259 - INFO - AMZN: current $191.93, predicted $305.51 => signal BUY
+2025-03-29 07:17:25,376 - INFO - Retrieved 21 bars for AAPL
+2025-03-29 07:17:25,464 - INFO - Retrieved 21 bars for MSFT
+2025-03-29 07:17:25,559 - INFO - Retrieved 21 bars for META
+2025-03-29 07:17:25,652 - INFO - Retrieved 21 bars for GOOGL
+2025-03-29 07:17:25,745 - INFO - Retrieved 21 bars for AMZN
+2025-03-29 07:17:25,841 - INFO - Retrieved 21 bars for NVDA
+2025-03-29 07:17:25,842 - INFO - Combined historical data is up-to-date.
+2025-03-29 07:17:25,952 - INFO - NVDA: current $109.32, predicted $305.51 => signal BUY
+2025-03-29 07:17:26,031 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-03-29 07:17:26,031 - INFO - Cash: $33009.73
+2025-03-29 07:17:26,031 - INFO - Portfolio value: $95660.66
+2025-03-29 07:17:26,031 - INFO - Buying power: $124956.18
+2025-03-29 07:17:26,031 - INFO - Daily budget for new trades: $1650.49
+2025-03-29 07:17:26,112 - ERROR - Error retrieving open orders: 'TradingClient' object has no attribute 'list_orders'
+2025-03-29 07:17:26,112 - INFO - Executing BUY for AAPL: 1 shares at $232.50 per share.
+2025-03-29 07:17:26,194 - INFO - Order placed: buy 1 shares of AAPL
+2025-03-29 07:17:26,194 - INFO - Order ID: 4d8939b6-1882-4e5e-ab70-259d8c1e7ce5
+2025-03-29 07:17:26,194 - INFO - Executing SELL for MSFT: 7.0 shares at current price $387.35.
+2025-03-29 07:17:26,278 - ERROR - Error submitting order for MSFT: {"available":"0","code":40310000,"existing_qty":"7","held_for_orders":"7","message":"insufficient qty available for order (requested: 7, available: 0)","related_orders":["cfa07e80-2847-4ce4-b2bd-eb87189bfa11"],"symbol":"MSFT"}
+2025-03-29 07:17:26,279 - INFO - Holding META: no trading action required.
+2025-03-29 07:17:26,279 - INFO - Executing BUY for GOOGL: 2 shares at $157.91 per share.
+2025-03-29 07:17:26,365 - INFO - Order placed: buy 2 shares of GOOGL
+2025-03-29 07:17:26,365 - INFO - Order ID: ea7b8889-c679-4f34-b40b-d94b1b9e2ff5
+2025-03-29 07:17:26,365 - INFO - Executing BUY for AMZN: 2 shares at $191.93 per share.
+2025-03-29 07:17:26,448 - INFO - Order placed: buy 2 shares of AMZN
+2025-03-29 07:17:26,449 - INFO - Order ID: fae8edb1-e292-453a-9320-e2f228a3dfa6
+2025-03-29 07:17:26,449 - INFO - Executing BUY for NVDA: 3 shares at $109.32 per share.
+2025-03-29 07:17:26,534 - INFO - Order placed: buy 3 shares of NVDA
+2025-03-29 07:17:26,534 - INFO - Order ID: 14292654-e8ac-4fb9-8ece-de78d85099a5
+2025-03-29 07:17:26,535 - INFO - Strategy execution completed.
+2025-03-29 07:17:26,535 - INFO - trading_bot_llm_sentiment_brian completed successfully
