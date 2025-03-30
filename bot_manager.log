@@ -335,3 +335,56 @@ ImportError: cannot import name 'GetOrdersRequest' from 'alpaca.data.requests' (
 2025-03-29 17:12:57,059 - INFO - Bot Manager initialized with 2 bots
 2025-03-29 17:12:57,059 - INFO - Running bot: trading_bot_llm_sentiment_brian
 2025-03-29 17:13:07,404 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 18:35:22 ===
+================================================================================
+2025-03-29 18:35:22,174 - INFO - Logger initialized and header written.
+2025-03-29 18:35:22,174 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 18:35:22,174 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 18:35:22,174 - INFO - Discovered bot: momentum_bot_carlo
+2025-03-29 18:35:22,174 - INFO - Discovered bot: albert_wip
+2025-03-29 18:35:22,174 - INFO - Bot Manager initialized with 4 bots
+
+================================================================================
+=== Log Start: 2025-03-29 18:35:34 ===
+================================================================================
+2025-03-29 18:35:34,159 - INFO - Logger initialized and header written.
+2025-03-29 18:35:34,159 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 18:35:34,159 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 18:35:34,159 - INFO - Discovered bot: momentum_bot_carlo
+2025-03-29 18:35:34,159 - INFO - Discovered bot: albert_wip
+2025-03-29 18:35:34,159 - INFO - Bot Manager initialized with 4 bots
+2025-03-29 18:35:34,160 - ERROR - Bot file not found: momentum_bot_carlo/momentum_bot_carlo.py
+
+================================================================================
+=== Log Start: 2025-03-29 18:35:46 ===
+================================================================================
+2025-03-29 18:35:47,002 - INFO - Logger initialized and header written.
+2025-03-29 18:35:47,002 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 18:35:47,002 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 18:35:47,002 - INFO - Discovered bot: momentum_bot_carlo
+2025-03-29 18:35:47,002 - INFO - Discovered bot: albert_wip
+2025-03-29 18:35:47,002 - INFO - Bot Manager initialized with 4 bots
+2025-03-29 18:35:47,003 - INFO - Running bot: momentum_bot_carlo
+2025-03-29 18:35:52,253 - ERROR - Error running bot momentum_bot_carlo: API key and secret must be provided in environment variables
+Traceback (most recent call last):
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/bot_manager.py", line 104, in run_bot
+    module.main()
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/momentum_bot_carlo/momentum_bot_carlo.py", line 243, in main
+    bot = MomentumStrategy()
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/momentum_bot_carlo/momentum_bot_carlo.py", line 44, in __init__
+    raise ValueError("API key and secret must be provided in environment variables")
+ValueError: API key and secret must be provided in environment variables
+
+================================================================================
+=== Log Start: 2025-03-29 18:36:18 ===
+================================================================================
+2025-03-29 18:36:18,413 - INFO - Logger initialized and header written.
+2025-03-29 18:36:18,413 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 18:36:18,413 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 18:36:18,413 - INFO - Discovered bot: momentum_bot_carlo
+2025-03-29 18:36:18,413 - INFO - Discovered bot: albert_wip
+2025-03-29 18:36:18,413 - INFO - Bot Manager initialized with 4 bots
+2025-03-29 18:36:18,413 - INFO - Running bot: momentum_bot_carlo
+2025-03-29 18:36:20,825 - INFO - Bot momentum_bot_carlo completed successfully
