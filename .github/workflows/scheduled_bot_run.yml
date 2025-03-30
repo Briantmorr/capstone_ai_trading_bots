@@ -18,11 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # Map your GitHub Secrets to environment variables
-      BOT_NAME_1: ${{ secrets.BOT_NAME_1 }}
+    #   Explicitly mentioning bot name so its not obscured in logs
+      BOT_NAME_1: "trading_bot_llm_sentiment_brian"
       BOT_API_KEY_1: ${{ secrets.BOT_API_KEY_1 }}
       BOT_API_SECRET_1: ${{ secrets.BOT_API_SECRET_1 }}
 
-      BOT_NAME_2: ${{ secrets.BOT_NAME_2 }}
+      BOT_NAME_2: "momentum_bot_carlo"
       BOT_API_KEY_2: ${{ secrets.BOT_API_KEY_2 }}
       BOT_API_SECRET_2: ${{ secrets.BOT_API_SECRET_2 }}
 
@@ -67,6 +68,7 @@ jobs:
         # Use cat to output the log file content to the Actions console
         # Use || true to prevent workflow failure if the log file doesn't exist
         cat bot_manager.log || true
+        tail -c 1000 bot_manager.log || true
         echo "--- End of bot_manager.log ---"
 
     - name: Configure Git

@@ -79,7 +79,9 @@ class MomentumStrategy:
         """Fetch historical stock data for a given symbol."""
         if days is None:
             days = self.lookback_days
-        end = datetime.now()
+        # End needs to be > 15 minutes to prevent api call failing in free tier
+        end = datetime.now() - timedelta(minutes=20)
+
         start = end - timedelta(days=days)
         
         request_params = StockBarsRequest(

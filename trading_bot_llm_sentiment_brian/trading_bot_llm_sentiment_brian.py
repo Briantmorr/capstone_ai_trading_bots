@@ -69,7 +69,8 @@ class TradingBotLLMSentiment:
     
     def get_historical_data(self, symbol, days=30):
         """Fetch historical stock data."""
-        end = datetime.now()
+        # End needs to be > 15 minutes to prevent api call failing in free tier
+        end = datetime.now() - timedelta(minutes=20)
         start = end - timedelta(days=int(days))
         request_params = StockBarsRequest(
             symbol_or_symbols=symbol,
@@ -299,10 +300,10 @@ class TradingBotLLMSentiment:
             
             logger.info(f"{symbol}: current ${current_price:.2f}, predicted ${predicted_price:.2f}. percent_diff {percent_diff * 100:.1f}% threshold {self.trading_threshold * 100:.1f}% => signal {signals[symbol]['signal']}")
         
-        return signals
+        return signals, positions
 
 
-    def execute_trading_strategy(self, signals):
+    def execute_trading_strategy(self, signals, positions):
         """
         Execute trading orders based on the provided signals.
         
@@ -319,9 +320,6 @@ class TradingBotLLMSentiment:
         daily_budget = available_cash * self.daily_budget_percent
         logger.info(f"Daily budget for new trades: ${daily_budget:.2f}")
         
-        # Build positions 
-        positions = {p.symbol: p for p in self.trading_client.get_all_positions()}
-
         # Clean out any open orders at start of trading:
         try:
             logger.info("Attempting to cancel ALL open orders...")
@@ -435,9 +433,9 @@ def main():
     logger.info(f"Starting {BOT_NAME}")
     try:
         bot = TradingBotLLMSentiment()
-        signals = bot.get_signals()
+        signals, positions = bot.get_signals()
         logger.info(signals)
-        bot.execute_trading_strategy(signals)
+        bot.execute_trading_strategy(signals, positions)
         logger.info(f"{BOT_NAME} completed successfully")
     except Exception as e:
         logger.error(f"Error running {BOT_NAME}: {e}", exc_info=True)
