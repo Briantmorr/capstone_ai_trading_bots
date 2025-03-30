@@ -1,0 +1,153 @@
+
+================================================================================
+=== Log Start: 2025-03-30 14:28:22 ===
+================================================================================
+2025-03-30 14:28:22,351 - INFO - Logger initialized and header written.
+2025-03-30 14:28:22,351 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-30 14:28:22,351 - INFO - Discovered bot: momentum_bot_carlo
+2025-03-30 14:28:22,351 - INFO - Discovered bot: trading_bot_macd_melissa
+2025-03-30 14:28:22,351 - INFO - Bot Manager initialized with 3 bots
+
+================================================================================
+=== Log Start: 2025-03-30 14:28:36 ===
+================================================================================
+2025-03-30 14:28:36,224 - INFO - Logger initialized and header written.
+2025-03-30 14:28:36,224 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-30 14:28:36,224 - INFO - Discovered bot: momentum_bot_carlo
+2025-03-30 14:28:36,224 - INFO - Discovered bot: trading_bot_macd_melissa
+2025-03-30 14:28:36,224 - INFO - Bot Manager initialized with 3 bots
+2025-03-30 14:28:36,224 - INFO - Running bot: trading_bot_macd_melissa
+2025-03-30 14:28:39,056 - ERROR - Error running bot trading_bot_macd_melissa: No module named 'matplotlib'
+Traceback (most recent call last):
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/bot_manager.py", line 100, in run_bot
+    spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_macd_melissa/trading_bot_macd_melissa.py", line 4, in <module>
+    import matplotlib.pyplot as plt
+ModuleNotFoundError: No module named 'matplotlib'
+
+================================================================================
+=== Log Start: 2025-03-30 14:29:11 ===
+================================================================================
+2025-03-30 14:29:11,408 - INFO - Logger initialized and header written.
+2025-03-30 14:29:11,408 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-30 14:29:11,408 - INFO - Discovered bot: momentum_bot_carlo
+2025-03-30 14:29:11,408 - INFO - Discovered bot: trading_bot_macd_melissa
+2025-03-30 14:29:11,408 - INFO - Bot Manager initialized with 3 bots
+2025-03-30 14:29:11,408 - INFO - Running bot: trading_bot_macd_melissa
+2025-03-30 14:29:11,780 - ERROR - Error running bot trading_bot_macd_melissa: No module named 'matplotlib'
+Traceback (most recent call last):
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/bot_manager.py", line 100, in run_bot
+    spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_macd_melissa/trading_bot_macd_melissa.py", line 4, in <module>
+    import matplotlib.pyplot as plt
+ModuleNotFoundError: No module named 'matplotlib'
+
+================================================================================
+=== Log Start: 2025-03-30 14:29:20 ===
+================================================================================
+2025-03-30 14:29:20,070 - INFO - Logger initialized and header written.
+2025-03-30 14:29:20,070 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-30 14:29:20,070 - INFO - Discovered bot: momentum_bot_carlo
+2025-03-30 14:29:20,071 - INFO - Discovered bot: trading_bot_macd_melissa
+2025-03-30 14:29:20,071 - INFO - Bot Manager initialized with 3 bots
+2025-03-30 14:29:20,071 - INFO - Running bot: trading_bot_macd_melissa
+2025-03-30 14:29:20,361 - ERROR - Error running bot trading_bot_macd_melissa: No module named 'matplotlib'
+Traceback (most recent call last):
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/bot_manager.py", line 100, in run_bot
+    spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_macd_melissa/trading_bot_macd_melissa.py", line 4, in <module>
+    import matplotlib.pyplot as plt
+ModuleNotFoundError: No module named 'matplotlib'
+
+================================================================================
+=== Log Start: 2025-03-30 14:30:16 ===
+================================================================================
+2025-03-30 14:30:16,927 - INFO - Logger initialized and header written.
+2025-03-30 14:30:16,927 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-30 14:30:16,927 - INFO - Discovered bot: momentum_bot_carlo
+2025-03-30 14:30:16,927 - INFO - Discovered bot: trading_bot_macd_melissa
+2025-03-30 14:30:16,927 - INFO - Bot Manager initialized with 3 bots
+2025-03-30 14:30:16,927 - INFO - Running bot: trading_bot_macd_melissa
+2025-03-30 14:30:39,386 - ERROR - Error running bot trading_bot_macd_melissa: 'Macd_trading_bot' object has no attribute 'secret_key'
+Traceback (most recent call last):
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/bot_manager.py", line 104, in run_bot
+    module.main()
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_macd_melissa/trading_bot_macd_melissa.py", line 160, in main
+    bot = Macd_trading_bot()
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_macd_melissa/trading_bot_macd_melissa.py", line 35, in __init__
+    self.client = StockHistoricalDataClient(self.api_key, self.secret_key)
+AttributeError: 'Macd_trading_bot' object has no attribute 'secret_key'
+
+================================================================================
+=== Log Start: 2025-03-30 14:31:01 ===
+================================================================================
+2025-03-30 14:31:01,620 - INFO - Logger initialized and header written.
+2025-03-30 14:31:01,620 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-30 14:31:01,620 - INFO - Discovered bot: momentum_bot_carlo
+2025-03-30 14:31:01,620 - INFO - Discovered bot: trading_bot_macd_melissa
+2025-03-30 14:31:01,620 - INFO - Bot Manager initialized with 3 bots
+2025-03-30 14:31:01,620 - INFO - Running bot: trading_bot_macd_melissa
+2025-03-30 14:31:06,397 - ERROR - Error running bot trading_bot_macd_melissa: 'Macd_trading_bot' object is not subscriptable
+Traceback (most recent call last):
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/bot_manager.py", line 104, in run_bot
+    module.main()
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_macd_melissa/trading_bot_macd_melissa.py", line 161, in main
+    stock_dic = bot.fetch_historical_data()
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_macd_melissa/trading_bot_macd_melissa.py", line 74, in fetch_historical_data
+    df = self.compute_macd(df)
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_macd_melissa/trading_bot_macd_melissa.py", line 45, in compute_macd
+    data['ema_fast'] = data['close'].ewm(span=fast, adjust=False).mean()
+TypeError: 'Macd_trading_bot' object is not subscriptable
+
+================================================================================
+=== Log Start: 2025-03-30 14:31:54 ===
+================================================================================
+2025-03-30 14:31:54,669 - INFO - Logger initialized and header written.
+2025-03-30 14:31:54,669 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-30 14:31:54,669 - INFO - Discovered bot: momentum_bot_carlo
+2025-03-30 14:31:54,669 - INFO - Discovered bot: trading_bot_macd_melissa
+2025-03-30 14:31:54,669 - INFO - Bot Manager initialized with 3 bots
+2025-03-30 14:31:54,669 - INFO - Running bot: trading_bot_macd_melissa
+2025-03-30 14:31:59,161 - ERROR - Error running bot trading_bot_macd_melissa: 'Macd_trading_bot' object is not subscriptable
+Traceback (most recent call last):
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/bot_manager.py", line 104, in run_bot
+    module.main()
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_macd_melissa/trading_bot_macd_melissa.py", line 161, in main
+    stock_dic = bot.fetch_historical_data()
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_macd_melissa/trading_bot_macd_melissa.py", line 74, in fetch_historical_data
+    df = self.compute_macd(df)
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_macd_melissa/trading_bot_macd_melissa.py", line 45, in compute_macd
+    data['ema_fast'] = data['close'].ewm(span=fast, adjust=False).mean()
+TypeError: 'Macd_trading_bot' object is not subscriptable
+
+================================================================================
+=== Log Start: 2025-03-30 14:32:19 ===
+================================================================================
+2025-03-30 14:32:19,145 - INFO - Logger initialized and header written.
+2025-03-30 14:32:19,145 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-30 14:32:19,145 - INFO - Discovered bot: momentum_bot_carlo
+2025-03-30 14:32:19,145 - INFO - Discovered bot: trading_bot_macd_melissa
+2025-03-30 14:32:19,145 - INFO - Bot Manager initialized with 3 bots
+2025-03-30 14:32:19,145 - INFO - Running bot: trading_bot_macd_melissa
+2025-03-30 14:32:45,121 - INFO - -------------------------------------
+2025-03-30 14:32:45,122 - INFO - Bot trading_bot_macd_melissa completed successfully
+2025-03-30 14:32:45,122 - INFO - -------------------------------------
+
+================================================================================
+=== Log Start: 2025-03-30 14:34:05 ===
+================================================================================
+2025-03-30 14:34:05,927 - INFO - Logger initialized and header written.
+2025-03-30 14:34:05,927 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-30 14:34:05,927 - INFO - Discovered bot: momentum_bot_carlo
+2025-03-30 14:34:05,927 - INFO - Discovered bot: trading_bot_macd_melissa
+2025-03-30 14:34:05,927 - INFO - Bot Manager initialized with 3 bots
+2025-03-30 14:34:05,927 - INFO - Running bot: trading_bot_macd_melissa
+2025-03-30 14:34:19,844 - INFO - -------------------------------------
+2025-03-30 14:34:19,844 - INFO - Bot trading_bot_macd_melissa completed successfully
+2025-03-30 14:34:19,844 - INFO - -------------------------------------

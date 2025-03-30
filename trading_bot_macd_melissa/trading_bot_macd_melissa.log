@@ -1,0 +1,15 @@
+
+================================================================================
+=== Log Start: 2025-03-30 14:34:10 ===
+================================================================================
+2025-03-30 14:34:10,567 - INFO - Logger initialized and header written.
+2025-03-30 14:34:10,567 - INFO - Starting trading_bot_macd_melissa
+2025-03-30 14:34:10,567 - INFO - Momentum strategy bot trading_bot_macd_melissa initialized with 6 symbols
+2025-03-30 14:34:19,126 - INFO - BUY Order placed for AAPL
+2025-03-30 14:34:19,271 - INFO - BUY Order placed for GOOGL
+2025-03-30 14:34:19,414 - INFO - BUY Order placed for AMZN
+2025-03-30 14:34:19,556 - INFO - BUY Order placed for META
+2025-03-30 14:34:19,699 - INFO - BUY Order placed for MSFT
+2025-03-30 14:34:19,843 - INFO - BUY Order placed for NVDA
+2025-03-30 14:34:19,843 - INFO - Trading bot executed based on LSTM predictions and MACD analysis.
+2025-03-30 14:34:19,843 - INFO - trading_bot_macd_melissa completed successfully
