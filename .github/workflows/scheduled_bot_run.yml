@@ -3,10 +3,10 @@ name: Run Trading Bots Daily and Commit Log
 
 on:
   schedule:
-    # Runs daily at 7:00 AM Pacific Time (PDT/PST = UTC-7/UTC-8)
-    # 7:00 AM PT = 14:00 UTC (during PDT, UTC-7)
+    # Runs daily at 8:00 AM Pacific Time (PDT/PST = UTC-7/UTC-8)
+    # 8:00 AM PT = 15:00 UTC (during PDT, UTC-7)
     # Adjust if needed for standard time or use a different trigger
-    - cron: '0 14 * * 1-5'
+    - cron: '0 15 * * 1-5'
   workflow_dispatch: # Allows manual triggering
 
 # Add permissions for the job to write contents (commit/push)
@@ -17,8 +17,7 @@ jobs:
   run-bots-and-commit-log:
     runs-on: ubuntu-latest
     env:
-      # Map your GitHub Secrets to environment variables
-    #   Explicitly mentioning bot name so its not obscured in logs
+      #   Explicitly mentioning bot name as secrets are hidden logs by githubactions
       BOT_NAME_1: "trading_bot_llm_sentiment_brian"
       BOT_API_KEY_1: ${{ secrets.BOT_API_KEY_1 }}
       BOT_API_SECRET_1: ${{ secrets.BOT_API_SECRET_1 }}
@@ -42,9 +41,8 @@ jobs:
     - name: Check out repository code
       uses: actions/checkout@v4
       with:
-        # Fetch depth 0 to get all history, might be needed for branch operations depending on strategy
-        fetch-depth: 0 # Uncomment if needed, uses more data/time
-
+        fetch-depth: 0 
+        
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
@@ -103,10 +101,10 @@ jobs:
         # The default GITHUB_TOKEN has write permissions because we added the 'permissions' block above
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    # - name: Optional: Upload log as artifact (still useful for easy downloads)
-    #   if: always()
-    #   uses: actions/upload-artifact@v4
-    #   with:
-    #     name: bot-run-logs-${{ github.run_id }}
-    #     path: bot_manager.log
-    #     retention-days: 7
+    - name: Update Trading Leaderboard
+      # This step updates the leaderboard with the bot's performance. Calling for one updates all
+      if: always()
+      run: |
+          curl -X POST "https://trading-leaderboard-three.vercel.app/api/update-leaderboard" \
+            -H "Content-Type: application/json" \
+            -d "{\"bot_name\": \"${BOT_NAME_1}\", \"alpaca_account_id\": \"${BOT_API_KEY_1}\"}"
