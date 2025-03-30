@@ -99,10 +99,10 @@ jobs:
         # The default GITHUB_TOKEN has write permissions because we added the 'permissions' block above
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Optional: Upload log as artifact (still useful for easy downloads)
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: bot-run-logs-${{ github.run_id }}
-        path: bot_manager.log
-        retention-days: 7
+    # - name: Optional: Upload log as artifact (still useful for easy downloads)
+    #   if: always()
+    #   uses: actions/upload-artifact@v4
+    #   with:
+    #     name: bot-run-logs-${{ github.run_id }}
+    #     path: bot_manager.log
+    #     retention-days: 7
