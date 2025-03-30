@@ -34,6 +34,8 @@ jobs:
     #   BOT_NAME_4: ${{ secrets.BOT_NAME_4 }}
     #   BOT_API_KEY_4: ${{ secrets.BOT_API_KEY_4 }}
     #   BOT_API_SECRET_4: ${{ secrets.BOT_API_SECRET_4 }}
+      FINNHUB_API_KEY: ${{secrets.FINNHUB_API_KEY}}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
     steps:
     - name: Check out repository code
