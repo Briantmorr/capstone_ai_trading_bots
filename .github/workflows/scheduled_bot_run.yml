@@ -40,7 +40,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         # Fetch depth 0 to get all history, might be needed for branch operations depending on strategy
-        # fetch-depth: 0 # Uncomment if needed, uses more data/time
+        fetch-depth: 0 # Uncomment if needed, uses more data/time
 
     - name: Set up Python
       uses: actions/setup-python@v5
