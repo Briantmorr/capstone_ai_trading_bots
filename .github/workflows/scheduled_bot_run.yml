@@ -6,7 +6,7 @@ on:
     # Runs daily at 7:00 AM Pacific Time (PDT/PST = UTC-7/UTC-8)
     # 7:00 AM PT = 14:00 UTC (during PDT, UTC-7)
     # Adjust if needed for standard time or use a different trigger
-    - cron: '0 14 * * *'
+    - cron: '0 14 * * 1-5'
   workflow_dispatch: # Allows manual triggering
 
 # Add permissions for the job to write contents (commit/push)
