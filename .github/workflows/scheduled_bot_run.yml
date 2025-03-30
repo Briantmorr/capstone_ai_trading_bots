@@ -1,0 +1,108 @@
+# .github/workflows/scheduled_bot_run.yml
+name: Run Trading Bots Daily and Commit Log
+
+on:
+  schedule:
+    # Runs daily at 9:00 AM Pacific Time (PDT/PST = UTC-7/UTC-8)
+    # 9:00 AM PT = 16:00 UTC (during PDT, UTC-7)
+    # Adjust if needed for standard time or use a different trigger
+    - cron: '0 16 * * *'
+  workflow_dispatch: # Allows manual triggering
+
+# Add permissions for the job to write contents (commit/push)
+permissions:
+  contents: write
+
+jobs:
+  run-bots-and-commit-log:
+    runs-on: ubuntu-latest
+    env:
+      # Map your GitHub Secrets to environment variables
+      BOT_NAME_1: ${{ secrets.BOT_NAME_1 }}
+      BOT_API_KEY_1: ${{ secrets.BOT_API_KEY_1 }}
+      BOT_API_SECRET_1: ${{ secrets.BOT_API_SECRET_1 }}
+
+      BOT_NAME_2: ${{ secrets.BOT_NAME_2 }}
+      BOT_API_KEY_2: ${{ secrets.BOT_API_KEY_2 }}
+      BOT_API_SECRET_2: ${{ secrets.BOT_API_SECRET_2 }}
+
+      # enable after successful test of other bots
+    #   BOT_NAME_3: ${{ secrets.BOT_NAME_3 }}
+    #   BOT_API_KEY_3: ${{ secrets.BOT_API_KEY_3 }}
+    #   BOT_API_SECRET_3: ${{ secrets.BOT_API_SECRET_3 }}
+
+    #   BOT_NAME_4: ${{ secrets.BOT_NAME_4 }}
+    #   BOT_API_KEY_4: ${{ secrets.BOT_API_KEY_4 }}
+    #   BOT_API_SECRET_4: ${{ secrets.BOT_API_SECRET_4 }}
+
+    steps:
+    - name: Check out repository code
+      uses: actions/checkout@v4
+      with:
+        # Fetch depth 0 to get all history, might be needed for branch operations depending on strategy
+        # fetch-depth: 0 # Uncomment if needed, uses more data/time
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10' # Specify your Python version
+
+    - name: Install Pipenv and Dependencies
+      run: |
+        python -m pip install --upgrade pip pipenv
+        # Use sync which installs based on Pipfile.lock (faster for CI if lock file is up-to-date)
+        # Installs into the system python managed by setup-python action
+        pipenv sync --system --dev # Use --dev if you need development dependencies too
+
+    - name: Run Bot Manager
+      run: python bot_manager.py --run-all
+
+    - name: Display Log File Content
+      # Run this step even if the bot manager script failed, to capture error logs
+      if: always()
+      run: |
+        echo "--- Start of bot_manager.log ---"
+        # Use cat to output the log file content to the Actions console
+        # Use || true to prevent workflow failure if the log file doesn't exist
+        cat bot_manager.log || true
+        echo "--- End of bot_manager.log ---"
+
+    - name: Configure Git
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+    - name: Commit and Push Log File
+      run: |
+        # Stage the log file. This command doesn't fail if the file doesn't exist or wasn't changed.
+        # git add bot_manager.log
+        git add .
+
+        # Check if there are staged changes (i.e., if bot_manager.log was added or modified)
+        # Use 'git diff --staged --quiet' which exits with 0 if no changes, 1 if changes.
+        if ! git diff --staged --quiet; then
+          echo "Changes detected in bot_manager.log. Committing..."
+          # Commit the changes on the current HEAD (usually the default branch for scheduled runs)
+          git commit -m "Update bot execution log [skip ci]" -m "Workflow Run ID: ${{ github.run_id }}"
+
+          # Push the current HEAD commit specifically to the 'bot-execution' branch on the remote
+          # This creates 'bot-execution' if it doesn't exist on the remote.
+          # IMPORTANT: This push will FAIL if 'bot-execution' exists and has diverged
+          # (cannot be fast-forwarded). Manual intervention would be needed in that case.
+          echo "Pushing updated log to bot-execution branch..."
+          git push origin HEAD:refs/heads/bot-execution
+          echo "Push successful."
+        else
+          echo "No changes detected in bot_manager.log. Nothing to commit."
+        fi
+      env:
+        # The default GITHUB_TOKEN has write permissions because we added the 'permissions' block above
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Optional: Upload log as artifact (still useful for easy downloads)
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: bot-run-logs-${{ github.run_id }}
+        path: bot_manager.log
+        retention-days: 7
