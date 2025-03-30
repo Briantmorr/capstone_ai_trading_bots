@@ -315,3 +315,23 @@ ImportError: cannot import name 'GetOrdersRequest' from 'alpaca.data.requests' (
 2025-03-29 17:08:46,494 - INFO - Bot Manager initialized with 2 bots
 2025-03-29 17:08:46,494 - INFO - Running bot: trading_bot_llm_sentiment_brian
 2025-03-29 17:08:58,859 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 17:11:13 ===
+================================================================================
+2025-03-29 17:11:13,733 - INFO - Logger initialized and header written.
+2025-03-29 17:11:13,733 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 17:11:13,733 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 17:11:13,733 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 17:11:13,733 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 17:11:23,977 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 17:12:57 ===
+================================================================================
+2025-03-29 17:12:57,059 - INFO - Logger initialized and header written.
+2025-03-29 17:12:57,059 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 17:12:57,059 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 17:12:57,059 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 17:12:57,059 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 17:13:07,404 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully

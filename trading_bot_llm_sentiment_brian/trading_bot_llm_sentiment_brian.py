@@ -3,13 +3,12 @@ import sys
 from datetime import datetime, timedelta
 from openai import OpenAI
 from alpaca.trading.client import TradingClient
-from alpaca.trading.requests import MarketOrderRequest, GetOrdersRequest, CancelOrderResponse
+from alpaca.trading.requests import MarketOrderRequest 
 from alpaca.trading.enums import OrderSide, TimeInForce
 from alpaca.data.historical import StockHistoricalDataClient
 from alpaca.data.requests import StockBarsRequest, StockLatestQuoteRequest
-from alpaca.trading.enums import QueryOrderStatus
 from alpaca.data.timeframe import TimeFrame
-from tensorflow.keras.models import load_model
+import tensorflow as tf
 import pickle
 import pandas as pd
 from datetime import timedelta
@@ -31,7 +30,7 @@ class TradingBotLLMSentiment:
         """Initialize the trading bot with API credentials and settings."""
         self.symbols = ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
         self.timeframe = TimeFrame.Day
-        self.model_name = 'lstm_combined_model_2025-03-27.keras'
+        self.model_name = 'lstm_combined_model_2025-03-29.keras'
         # Trading parameters for fixed daily budget strategy
         self.daily_budget_percent = 0.05  # Use 5% of available cash per day for new trades
         self.trading_threshold = 0.02   # trade when prediction is this % different from actual
@@ -381,7 +380,7 @@ class TradingBotLLMSentiment:
             FEATURES_TO_SCALE = scaler_info['features_to_scale']
         
         FEATURES = ['open', 'high', 'low', 'close', 'volume', 'sentiment'] 
-        MODEL = load_model(f"{BOT_NAME}/data/models/lstm_combined_model_2025-03-29.keras")
+        MODEL = tf.keras.models.load_model(f"{BOT_NAME}/data/models/{self.model_name}")
         
         # Step 1: Load and update historical sentiment data
         df = self.load_and_update_sentiment_data(self.time_series_length)

@@ -1654,3 +1654,117 @@ TypeError: '<' not supported between instances of 'datetime.date' and 'str'
 2025-03-29 17:08:58,858 - INFO - Order ID: d0d4b8fa-d9ac-4df0-a153-0716c5919f02
 2025-03-29 17:08:58,858 - INFO - Strategy execution completed.
 2025-03-29 17:08:58,858 - INFO - trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 17:11:18 ===
+================================================================================
+2025-03-29 17:11:18,057 - INFO - Logger initialized and header written.
+2025-03-29 17:11:18,057 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-03-29 17:11:18,087 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-03-29 17:11:19,489 - INFO - Combined historical data is up-to-date.
+2025-03-29 17:11:19,648 - INFO - Predicted closing price for AAPL is $193.19
+2025-03-29 17:11:19,648 - INFO - AAPL: current $232.50, predicted $193.19. percent_diff -16.9% threshold 2.0% => signal HOLD
+2025-03-29 17:11:20,272 - INFO - Combined historical data is up-to-date.
+2025-03-29 17:11:20,383 - INFO - Predicted closing price for MSFT is $371.54
+2025-03-29 17:11:20,383 - INFO - MSFT: current $387.35, predicted $371.54. percent_diff -4.1% threshold 2.0% => signal SELL
+2025-03-29 17:11:20,975 - INFO - Combined historical data is up-to-date.
+2025-03-29 17:11:21,083 - INFO - Predicted closing price for META is $532.12
+2025-03-29 17:11:21,083 - INFO - META: current $576.83, predicted $532.12. percent_diff -7.8% threshold 2.0% => signal HOLD
+2025-03-29 17:11:21,777 - INFO - Combined historical data is up-to-date.
+2025-03-29 17:11:21,884 - INFO - Predicted closing price for GOOGL is $164.06
+2025-03-29 17:11:21,884 - INFO - GOOGL: current $157.91, predicted $164.06. percent_diff 3.9% threshold 2.0% => signal BUY
+2025-03-29 17:11:22,506 - INFO - Combined historical data is up-to-date.
+2025-03-29 17:11:22,620 - INFO - Predicted closing price for AMZN is $176.27
+2025-03-29 17:11:22,620 - INFO - AMZN: current $191.93, predicted $176.27. percent_diff -8.2% threshold 2.0% => signal SELL
+2025-03-29 17:11:23,242 - INFO - Combined historical data is up-to-date.
+2025-03-29 17:11:23,356 - INFO - Predicted closing price for NVDA is $209.35
+2025-03-29 17:11:23,356 - INFO - NVDA: current $109.32, predicted $209.35. percent_diff 91.5% threshold 2.0% => signal BUY
+2025-03-29 17:11:23,356 - INFO - {'AAPL': {'signal': 'HOLD', 'predicted': np.float64(193.191550360471), 'current': 232.5}, 'MSFT': {'signal': 'SELL', 'predicted': np.float64(371.53854746788744), 'current': 387.35}, 'META': {'signal': 'HOLD', 'predicted': np.float64(532.1171762734651), 'current': 576.8299999999999}, 'GOOGL': {'signal': 'BUY', 'predicted': np.float64(164.05567060973496), 'current': 157.91}, 'AMZN': {'signal': 'SELL', 'predicted': np.float64(176.26869746401906), 'current': 191.925}, 'NVDA': {'signal': 'BUY', 'predicted': np.float64(209.35465529739858), 'current': 109.32}}
+2025-03-29 17:11:23,442 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-03-29 17:11:23,442 - INFO - Cash: $33009.73
+2025-03-29 17:11:23,442 - INFO - Portfolio value: $95660.66
+2025-03-29 17:11:23,442 - INFO - Buying power: $127135.97
+2025-03-29 17:11:23,442 - INFO - Daily budget for new trades: $1650.49
+2025-03-29 17:11:23,524 - INFO - Attempting to cancel ALL open orders...
+2025-03-29 17:11:23,614 - INFO - Cancel all orders response: [{   'body': None,
+    'id': UUID('95a907e3-8496-458a-8a84-c87c39e88dd4'),
+    'status': 200}, {   'body': None,
+    'id': UUID('af18de3a-0c8d-4e88-af9f-69dc5d10c763'),
+    'status': 200}, {   'body': None,
+    'id': UUID('d0d4b8fa-d9ac-4df0-a153-0716c5919f02'),
+    'status': 200}, {   'body': None,
+    'id': UUID('e7c7e73f-049b-43fe-8b82-d9bcffe5e3d2'),
+    'status': 200}]
+2025-03-29 17:11:23,615 - INFO - Holding AAPL: no trading action required.
+2025-03-29 17:11:23,615 - INFO - Executing SELL for MSFT: 7.0 shares at current price $387.35.
+2025-03-29 17:11:23,702 - INFO - Order placed: sell 7.0 shares of MSFT
+2025-03-29 17:11:23,702 - INFO - Order ID: 39992f66-9855-4b95-b778-aed447c1fb1b
+2025-03-29 17:11:23,702 - INFO - Holding META: no trading action required.
+2025-03-29 17:11:23,702 - INFO - Executing BUY for GOOGL: 5 shares at $157.91 per share.
+2025-03-29 17:11:23,788 - INFO - Order placed: buy 5 shares of GOOGL
+2025-03-29 17:11:23,789 - INFO - Order ID: 968818dc-1085-4ec4-833c-3ec32aca4679
+2025-03-29 17:11:23,789 - INFO - Executing SELL for AMZN: 19.0 shares at current price $191.93.
+2025-03-29 17:11:23,877 - INFO - Order placed: sell 19.0 shares of AMZN
+2025-03-29 17:11:23,878 - INFO - Order ID: d43b3775-2343-4029-a7ac-2fad135cd772
+2025-03-29 17:11:23,878 - INFO - Executing BUY for NVDA: 7 shares at $109.32 per share.
+2025-03-29 17:11:23,976 - INFO - Order placed: buy 7 shares of NVDA
+2025-03-29 17:11:23,976 - INFO - Order ID: 843feb29-5f53-4051-b7f9-92cc4ffb712b
+2025-03-29 17:11:23,976 - INFO - Strategy execution completed.
+2025-03-29 17:11:23,976 - INFO - trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 17:13:01 ===
+================================================================================
+2025-03-29 17:13:01,669 - INFO - Logger initialized and header written.
+2025-03-29 17:13:01,669 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-03-29 17:13:01,700 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-03-29 17:13:02,932 - INFO - Combined historical data is up-to-date.
+2025-03-29 17:13:03,087 - INFO - Predicted closing price for AAPL is $193.19
+2025-03-29 17:13:03,087 - INFO - AAPL: current $232.50, predicted $193.19. percent_diff -16.9% threshold 2.0% => signal HOLD
+2025-03-29 17:13:03,698 - INFO - Combined historical data is up-to-date.
+2025-03-29 17:13:03,811 - INFO - Predicted closing price for MSFT is $371.54
+2025-03-29 17:13:03,811 - INFO - MSFT: current $387.35, predicted $371.54. percent_diff -4.1% threshold 2.0% => signal SELL
+2025-03-29 17:13:04,419 - INFO - Combined historical data is up-to-date.
+2025-03-29 17:13:04,532 - INFO - Predicted closing price for META is $532.12
+2025-03-29 17:13:04,532 - INFO - META: current $576.83, predicted $532.12. percent_diff -7.8% threshold 2.0% => signal HOLD
+2025-03-29 17:13:05,222 - INFO - Combined historical data is up-to-date.
+2025-03-29 17:13:05,338 - INFO - Predicted closing price for GOOGL is $164.06
+2025-03-29 17:13:05,338 - INFO - GOOGL: current $157.91, predicted $164.06. percent_diff 3.9% threshold 2.0% => signal BUY
+2025-03-29 17:13:05,960 - INFO - Combined historical data is up-to-date.
+2025-03-29 17:13:06,070 - INFO - Predicted closing price for AMZN is $176.27
+2025-03-29 17:13:06,070 - INFO - AMZN: current $191.93, predicted $176.27. percent_diff -8.2% threshold 2.0% => signal SELL
+2025-03-29 17:13:06,687 - INFO - Combined historical data is up-to-date.
+2025-03-29 17:13:06,800 - INFO - Predicted closing price for NVDA is $209.35
+2025-03-29 17:13:06,800 - INFO - NVDA: current $109.32, predicted $209.35. percent_diff 91.5% threshold 2.0% => signal BUY
+2025-03-29 17:13:06,800 - INFO - {'AAPL': {'signal': 'HOLD', 'predicted': np.float64(193.191550360471), 'current': 232.5}, 'MSFT': {'signal': 'SELL', 'predicted': np.float64(371.53854746788744), 'current': 387.35}, 'META': {'signal': 'HOLD', 'predicted': np.float64(532.1171762734651), 'current': 576.8299999999999}, 'GOOGL': {'signal': 'BUY', 'predicted': np.float64(164.05567060973496), 'current': 157.91}, 'AMZN': {'signal': 'SELL', 'predicted': np.float64(176.26869746401906), 'current': 191.925}, 'NVDA': {'signal': 'BUY', 'predicted': np.float64(209.35465529739858), 'current': 109.32}}
+2025-03-29 17:13:06,883 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-03-29 17:13:06,883 - INFO - Cash: $33009.73
+2025-03-29 17:13:06,883 - INFO - Portfolio value: $95660.66
+2025-03-29 17:13:06,883 - INFO - Buying power: $127135.97
+2025-03-29 17:13:06,883 - INFO - Daily budget for new trades: $1650.49
+2025-03-29 17:13:06,966 - INFO - Attempting to cancel ALL open orders...
+2025-03-29 17:13:07,049 - INFO - Cancel all orders response: [{   'body': None,
+    'id': UUID('39992f66-9855-4b95-b778-aed447c1fb1b'),
+    'status': 200}, {   'body': None,
+    'id': UUID('843feb29-5f53-4051-b7f9-92cc4ffb712b'),
+    'status': 200}, {   'body': None,
+    'id': UUID('968818dc-1085-4ec4-833c-3ec32aca4679'),
+    'status': 200}, {   'body': None,
+    'id': UUID('d43b3775-2343-4029-a7ac-2fad135cd772'),
+    'status': 200}]
+2025-03-29 17:13:07,049 - INFO - Holding AAPL: no trading action required.
+2025-03-29 17:13:07,049 - INFO - Executing SELL for MSFT: 7.0 shares at current price $387.35.
+2025-03-29 17:13:07,136 - INFO - Order placed: sell 7.0 shares of MSFT
+2025-03-29 17:13:07,136 - INFO - Order ID: f658b1d1-c108-424f-92e3-736b5b327cbe
+2025-03-29 17:13:07,137 - INFO - Holding META: no trading action required.
+2025-03-29 17:13:07,137 - INFO - Executing BUY for GOOGL: 5 shares at $157.91 per share.
+2025-03-29 17:13:07,228 - INFO - Order placed: buy 5 shares of GOOGL
+2025-03-29 17:13:07,228 - INFO - Order ID: ab5aea3d-2d3d-4c01-9d29-5f549335cef7
+2025-03-29 17:13:07,229 - INFO - Executing SELL for AMZN: 19.0 shares at current price $191.93.
+2025-03-29 17:13:07,315 - INFO - Order placed: sell 19.0 shares of AMZN
+2025-03-29 17:13:07,316 - INFO - Order ID: 8c8e3788-3f1c-4b1b-91e6-e8bf5a0e77a5
+2025-03-29 17:13:07,316 - INFO - Executing BUY for NVDA: 7 shares at $109.32 per share.
+2025-03-29 17:13:07,403 - INFO - Order placed: buy 7 shares of NVDA
+2025-03-29 17:13:07,403 - INFO - Order ID: 58a5b345-9a99-4820-9015-02b9fc7a4992
+2025-03-29 17:13:07,404 - INFO - Strategy execution completed.
+2025-03-29 17:13:07,404 - INFO - trading_bot_llm_sentiment_brian completed successfully
