@@ -1,129 +1,118 @@
 # Multi-Bot Alpaca Trading Framework
 
-A simplified framework for running multiple algorithmic trading bots, each with its own Alpaca paper trading account and strategy. Bots are configured in a `.env` file and executed from their own directories.
+A simplified framework for running multiple algorithmic trading bots, each with its own Alpaca paper trading account and strategy. Bots are configured via environment variables and executed from their own directories using a centralized bot manager.
 
 ## Features
 
-- Run multiple trading bots with different strategies
-- Each bot uses its own Alpaca paper trading account
-- Simple configuration via .env file
-- Bot-specific logging in each bot's directory
-- Flexible architecture that allows each bot to have its own implementation
+- **Multiple Bot Execution:**  
+  Run multiple trading bots with different strategies. Each bot has its own Alpaca paper trading account and implementation.
 
-## Project Structure
+- **Centralized Bot Manager:**  
+  The `bot_manager.py` script calls each bot’s strategy method and coordinates their execution.
 
-```
-alpaca-trading-bots/
-├── bot_manager.py         # Main bot management system
-├── requirements.txt       # Project dependencies
-├── .env                   # Bot configurations
-├── trading_bot_algo_brian/  # Example bot directory
-│   ├── trading_bot_algo_brian.py  # Bot implementation
-│   └── trading_bot_algo_brian.log # Bot-specific logs
-└── trading_bot_algo_sarah/   # Another bot directory
-    ├── trading_bot_algo_sarah.py  # Bot implementation
-    └── trading_bot_algo_sarah.log # Bot-specific logs
-```
+- **Scheduled Runs (Weekdays Only):**  
+  Bots are automatically executed at **8:00 AM PST** (weekdays only) via GitHub Actions.  
+  *Note:* The scheduled workflow also updates a trading leaderboard.
+
+- **Logging and Version Control:**  
+  - Each bot logs detailed run information to its own log file.
+  - The bot manager logs its output to `bot_manager.log` in the project root.
+  - After each run, updated log files are automatically pushed to the `bot-execution` branch.
+
+- **Leaderboard Update:**  
+  A scheduled run calls an external API endpoint to update the trading leaderboard with the latest execution data.
+
 
 ## Setup
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/alpaca-trading-bots.git
-cd alpaca-trading-bots
+git clone https://github.com/Briantmorr/capstone_ai_trading_bots.git
+cd capstone_ai_trading_bots
 ```
 
-### 2. Install dependencies
-
+### 1. Install Dependencies
 ```bash
 pipenv install
 pipenv shell
 ```
 
-### 3. Configure your bots in .env file
-
-Create a `.env` file in the project root directory with your bot configurations:
-
+### 3. Configure Your Bots
+#### Bot 1
 ```
-# Bot 1
-BOT_NAME_1=trading_bot_algo_brian
+BOT_NAME_1=trading_bot_llm_sentiment_brian
 BOT_API_KEY_1=your_alpaca_api_key_here
 BOT_API_SECRET_1=your_alpaca_api_secret_here
-BOT_SCHEDULE_1=09:30
 
-# Bot 2
-BOT_NAME_2=trading_bot_algo_sarah
+#### Bot 2
+BOT_NAME_2=momentum_bot_carlo
 BOT_API_KEY_2=another_alpaca_api_key_here
 BOT_API_SECRET_2=another_alpaca_api_secret_here
-BOT_SCHEDULE_2=10:00
+
+#### Additional API Keys
+FINNHUB_API_KEY=your_finnhub_api_key_here
+OPENAI_API_KEY=your_openai_api_key_here
 ```
 
-### 4. Create your bot implementations
-
-For each bot specified in the `.env` file, create a directory with the same name and a Python script with the same name inside it:
-
-```
-mkdir -p trading_bot_algo_brian
-touch trading_bot_algo_brian/trading_bot_algo_brian.py
+### 4. Create Your Bot Implementations
+For each bot specified in the configuration, create a directory with the bot's name and add a Python script with the same name. For example:
+```bash
+mkdir -p trading_bot_llm_sentiment_brian
+touch trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py
 ```
 
-## Bot Implementation
+Implement your trading strategy in the script. Ensure that each script has a main() function that will be invoked by the bot manager.
 
-Each bot should be implemented in its own directory and should have a `main()` function that will be called by the bot manager. The bot can access its API credentials from environment variables:
 
+each bot will can retrieve credentials with:
 ```python
-import os
-
-# Get API credentials
-api_key = os.getenv('ALPACA_API_KEY')
-api_secret = os.getenv('ALPACA_API_SECRET')
+api_key = os.getenv(f"{BOT_NAME}_API_KEY_1")
+api_secret = os.getenv(f"{BOT_NAME}_API_SECRET_1")
 ```
 
-## Usage
-
-### List registered bots
-
+### 5. Run the Bot Manager
+List registered bots
 ```bash
 python bot_manager.py --list
 ```
-
-### Run a specific bot
-
+Run a specific bot
 ```bash
-python bot_manager.py --run trading_bot_algo_brian
+python bot_manager.py --run trading_bot_llm_sentiment_brian
 ```
-
-### Run all bots once
-
+Run all bots
 ```bash
 python bot_manager.py --run-all
 ```
 
-## Creating a New Bot
+### 6. Scheduled Execution & Leaderboard Update
 
-1. Add the bot entry to the `.env` file with a new index number
-2. Create a directory with the same name as the bot
-3. Create a Python script inside the directory with the same name as the bot
-4. Implement your trading strategy in the script
-5. Make sure your script has a `main()` function that will be called by the bot manager
+The scheduled GitHub Actions workflow (.github/workflows/scheduled_bot_run.yml) performs the following each weekday at 8:00 AM PST:
 
-## Bot Examples
+- ### Executes All Bots:
 
-The repository includes an example bot implementation:
+Calls the bot_manager.py script to run all registered bots.
 
-- `trading_bot_algo_brian`: Implements a Bollinger Bands trading strategy
+- ### Logs Run Details:
 
-You can use this as a template for creating your own trading bots with different strategies.
+Captures run details in bot_manager.log and pushes updates to the bot-execution branch.
+
+- ### Updates the Leaderboard:
+Calls the external API at https://trading-leaderboard-three.vercel.app/api/update-leaderboard with the necessary payload to update the trading leaderboard.
 
 ## Logging
+Bot-Specific Logs:
+Each bot writes logs to a file in its respective directory.
 
-Each bot logs to both the console and a log file in its own directory. The bot manager also logs to a `bot_manager.log` file in the root directory.
+Bot Manager Log:
+bot_manager.log in the project root records overall execution details.
 
-## Disclaimer
+Automated Git Push:
+After each scheduled run, the workflow automatically commits and pushes updated log files to the bot-execution branch.
 
-This trading bot framework is for educational purposes only. Trading involves risk, and algorithmic trading adds additional technical risks. Always use paper trading to test strategies before risking real money.
+---
+### Disclaimer
+This trading bot framework is provided for educational purposes only. Trading involves significant risk, and algorithmic trading introduces additional technical complexities. Always test with paper trading accounts before risking real capital.
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
