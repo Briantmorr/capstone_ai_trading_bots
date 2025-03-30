@@ -388,3 +388,82 @@ ValueError: API key and secret must be provided in environment variables
 2025-03-29 18:36:18,413 - INFO - Bot Manager initialized with 4 bots
 2025-03-29 18:36:18,413 - INFO - Running bot: momentum_bot_carlo
 2025-03-29 18:36:20,825 - INFO - Bot momentum_bot_carlo completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 18:38:54 ===
+================================================================================
+2025-03-29 18:38:54,117 - INFO - Logger initialized and header written.
+2025-03-29 18:38:54,117 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 18:38:54,118 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 18:38:54,118 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 18:38:54,118 - INFO - Running all bots (2 total)
+2025-03-29 18:38:54,118 - INFO - Running bot: trading_bot_algo_brian
+2025-03-29 18:38:58,012 - ERROR - Error running bot trading_bot_algo_brian: get_bot_logger() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/bot_manager.py", line 100, in run_bot
+    spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_algo_brian/trading_bot_algo_brian.py", line 19, in <module>
+    logger = get_bot_logger(BOT_NAME, f"{Path.cwd()}/{BOT_NAME}")
+TypeError: get_bot_logger() takes 1 positional argument but 2 were given
+2025-03-29 18:38:58,013 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 18:39:28,689 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+2025-03-29 18:39:28,689 - INFO - Bot Execution Summary: 1/2 bots executed successfully
+  - trading_bot_algo_brian: Failed
+  - trading_bot_llm_sentiment_brian: Success
+
+
+================================================================================
+=== Log Start: 2025-03-29 18:40:26 ===
+================================================================================
+2025-03-29 18:40:26,939 - INFO - Logger initialized and header written.
+2025-03-29 18:40:26,939 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 18:40:26,939 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 18:40:26,939 - INFO - Bot Manager initialized with 2 bots
+
+================================================================================
+=== Log Start: 2025-03-29 18:45:52 ===
+================================================================================
+2025-03-29 18:45:52,455 - INFO - Logger initialized and header written.
+2025-03-29 18:45:52,455 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 18:45:52,455 - INFO - Discovered bot: momentum_bot_carlo
+2025-03-29 18:45:52,455 - INFO - Bot Manager initialized with 2 bots
+
+================================================================================
+=== Log Start: 2025-03-29 18:46:02 ===
+================================================================================
+2025-03-29 18:46:02,961 - INFO - Logger initialized and header written.
+2025-03-29 18:46:02,961 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 18:46:02,961 - INFO - Discovered bot: momentum_bot_carlo
+2025-03-29 18:46:02,961 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 18:46:02,961 - INFO - Running all bots (2 total)
+2025-03-29 18:46:02,961 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 18:46:13,480 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+2025-03-29 18:46:13,480 - INFO - Running bot: momentum_bot_carlo
+2025-03-29 18:46:15,164 - INFO - Bot momentum_bot_carlo completed successfully
+2025-03-29 18:46:15,164 - INFO - Bot Execution Summary: 2/2 bots executed successfully
+  - trading_bot_llm_sentiment_brian: Success
+  - momentum_bot_carlo: Success
+
+
+================================================================================
+=== Log Start: 2025-03-29 18:46:46 ===
+================================================================================
+2025-03-29 18:46:46,552 - INFO - Logger initialized and header written.
+2025-03-29 18:46:46,552 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 18:46:46,552 - INFO - Discovered bot: momentum_bot_carlo
+2025-03-29 18:46:46,552 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 18:46:46,552 - INFO - Running all bots (2 total)
+2025-03-29 18:46:46,552 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 18:46:56,900 - INFO - -------------------------------------
+2025-03-29 18:46:56,900 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+2025-03-29 18:46:56,900 - INFO - -------------------------------------
+2025-03-29 18:46:56,900 - INFO - Running bot: momentum_bot_carlo
+2025-03-29 18:46:58,466 - INFO - -------------------------------------
+2025-03-29 18:46:58,466 - INFO - Bot momentum_bot_carlo completed successfully
+2025-03-29 18:46:58,466 - INFO - -------------------------------------
+2025-03-29 18:46:58,466 - INFO - Bot Execution Summary: 2/2 bots executed successfully
+  - trading_bot_llm_sentiment_brian: Success
+  - momentum_bot_carlo: Success
+

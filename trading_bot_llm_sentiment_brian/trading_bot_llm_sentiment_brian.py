@@ -37,8 +37,8 @@ class TradingBotLLMSentiment:
         self.time_series_length = 30
 
         # Initialize clients
-        self.api_key = os.environ['ALPACA_API_KEY']
-        self.api_secret = os.environ['ALPACA_API_SECRET']
+        self.api_key = os.environ[f"{BOT_NAME}_ALPACA_API_KEY"]
+        self.api_secret = os.environ[f"{BOT_NAME}_ALPACA_API_SECRET"]
         self.news_api_key = os.environ["FINNHUB_API_KEY"]
         self.openai_api_key = os.environ["OPENAI_API_KEY"]
 

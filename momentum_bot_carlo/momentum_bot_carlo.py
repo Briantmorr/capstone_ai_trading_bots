@@ -37,8 +37,8 @@ class MomentumStrategy:
     def __init__(self):
         """Initialize the momentum strategy bot with API credentials and settings."""
         # API Keys from environment variables
-        self.api_key = os.getenv('ALPACA_API_KEY')
-        self.api_secret = os.getenv('ALPACA_API_SECRET')
+        self.api_key = os.environ[f"{BOT_NAME}_ALPACA_API_KEY"]
+        self.api_secret = os.environ[f"{BOT_NAME}_ALPACA_API_SECRET"]
         
         if not self.api_key or not self.api_secret:
             raise ValueError("API key and secret must be provided in environment variables")

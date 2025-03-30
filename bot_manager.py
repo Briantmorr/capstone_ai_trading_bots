@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 from logger_setup import get_bot_logger  # Ensure this module is available in your project
 
 # Load environment variables
-load_dotenv()
+load_dotenv(override=True)
 
 class BotManager:
     """
@@ -93,8 +93,8 @@ class BotManager:
             module = importlib.util.module_from_spec(spec)
             
             # Set API credentials in environment for the bot to use.
-            os.environ["ALPACA_API_KEY"] = bot_config["api_key"]
-            os.environ["ALPACA_API_SECRET"] = bot_config["api_secret"]
+            os.environ[f"{bot_name}_ALPACA_API_KEY"] = bot_config["api_key"]
+            os.environ[f"{bot_name}_ALPACA_API_SECRET"] = bot_config["api_secret"]
             
             # Execute the bot module.
             spec.loader.exec_module(module)
@@ -103,7 +103,9 @@ class BotManager:
             if hasattr(module, "main"):
                 module.main()
                 
+            self.logger.info(f"-------------------------------------")
             self.logger.info(f"Bot {bot_name} completed successfully")
+            self.logger.info(f"-------------------------------------")
             return True
         except Exception as e:
             self.logger.error(f"Error running bot {bot_name}: {e}", exc_info=True)
