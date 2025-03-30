@@ -167,3 +167,151 @@ TypeError: '<' not supported between instances of 'datetime.date' and 'str'
 2025-03-29 07:16:57,006 - INFO - Bot Manager initialized with 2 bots
 2025-03-29 07:16:57,006 - INFO - Running bot: trading_bot_llm_sentiment_brian
 2025-03-29 07:17:26,536 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 16:27:38 ===
+================================================================================
+2025-03-29 16:27:38,900 - INFO - Logger initialized and header written.
+2025-03-29 16:27:38,901 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 16:27:38,901 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 16:27:38,901 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 16:27:38,901 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 16:28:13,626 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 16:37:00 ===
+================================================================================
+2025-03-29 16:37:00,692 - INFO - Logger initialized and header written.
+2025-03-29 16:37:00,693 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 16:37:00,693 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 16:37:00,694 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 16:37:00,695 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 16:37:31,021 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 16:39:08 ===
+================================================================================
+2025-03-29 16:39:08,804 - INFO - Logger initialized and header written.
+2025-03-29 16:39:08,805 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 16:39:08,805 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 16:39:08,805 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 16:39:08,805 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 16:39:36,210 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 16:40:37 ===
+================================================================================
+2025-03-29 16:40:37,469 - INFO - Logger initialized and header written.
+2025-03-29 16:40:37,470 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 16:40:37,470 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 16:40:37,470 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 16:40:37,470 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 16:40:47,655 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 16:44:54 ===
+================================================================================
+2025-03-29 16:44:54,524 - INFO - Logger initialized and header written.
+2025-03-29 16:44:54,524 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 16:44:54,524 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 16:44:54,524 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 16:44:54,524 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 16:45:05,185 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 16:46:24 ===
+================================================================================
+2025-03-29 16:46:24,227 - INFO - Logger initialized and header written.
+2025-03-29 16:46:24,228 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 16:46:24,228 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 16:46:24,228 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 16:46:24,228 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 16:46:34,523 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 16:52:50 ===
+================================================================================
+2025-03-29 16:52:50,792 - INFO - Logger initialized and header written.
+2025-03-29 16:52:50,792 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 16:52:50,792 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 16:52:50,793 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 16:52:50,793 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 16:53:18,615 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 16:55:10 ===
+================================================================================
+2025-03-29 16:55:10,627 - INFO - Logger initialized and header written.
+2025-03-29 16:55:10,628 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 16:55:10,628 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 16:55:10,628 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 16:55:10,628 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 16:55:11,610 - ERROR - Error running bot trading_bot_llm_sentiment_brian: cannot import name 'GetOrdersRequest' from 'alpaca.data.requests' (/Users/I523193/.local/share/virtualenvs/capstone_ai_trading_bots-ImcEFSTR/lib/python3.10/site-packages/alpaca/data/requests.py)
+Traceback (most recent call last):
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/bot_manager.py", line 100, in run_bot
+    spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/I523193/dev/masters/capstone/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 9, in <module>
+    from alpaca.data.requests import StockBarsRequest, StockLatestQuoteRequest, GetOrdersRequest
+ImportError: cannot import name 'GetOrdersRequest' from 'alpaca.data.requests' (/Users/I523193/.local/share/virtualenvs/capstone_ai_trading_bots-ImcEFSTR/lib/python3.10/site-packages/alpaca/data/requests.py)
+
+================================================================================
+=== Log Start: 2025-03-29 16:55:47 ===
+================================================================================
+2025-03-29 16:55:47,977 - INFO - Logger initialized and header written.
+2025-03-29 16:55:47,977 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 16:55:47,978 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 16:55:47,978 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 16:55:47,978 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 16:55:58,573 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 16:56:09 ===
+================================================================================
+2025-03-29 16:56:09,669 - INFO - Logger initialized and header written.
+2025-03-29 16:56:09,669 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 16:56:09,669 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 16:56:09,669 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 16:56:09,669 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 16:56:18,608 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 17:03:02 ===
+================================================================================
+2025-03-29 17:03:02,703 - INFO - Logger initialized and header written.
+2025-03-29 17:03:02,703 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 17:03:02,703 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 17:03:02,704 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 17:03:02,704 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 17:03:13,406 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 17:04:33 ===
+================================================================================
+2025-03-29 17:04:33,070 - INFO - Logger initialized and header written.
+2025-03-29 17:04:33,070 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 17:04:33,070 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 17:04:33,070 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 17:04:33,070 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 17:04:43,612 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 17:07:24 ===
+================================================================================
+2025-03-29 17:07:24,614 - INFO - Logger initialized and header written.
+2025-03-29 17:07:24,614 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 17:07:24,614 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 17:07:24,615 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 17:07:24,615 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 17:07:52,713 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+
+================================================================================
+=== Log Start: 2025-03-29 17:08:46 ===
+================================================================================
+2025-03-29 17:08:46,494 - INFO - Logger initialized and header written.
+2025-03-29 17:08:46,494 - INFO - Discovered bot: trading_bot_algo_brian
+2025-03-29 17:08:46,494 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-29 17:08:46,494 - INFO - Bot Manager initialized with 2 bots
+2025-03-29 17:08:46,494 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-29 17:08:58,859 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully

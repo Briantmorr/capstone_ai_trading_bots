@@ -3,10 +3,11 @@ import sys
 from datetime import datetime, timedelta
 from openai import OpenAI
 from alpaca.trading.client import TradingClient
-from alpaca.trading.requests import MarketOrderRequest
+from alpaca.trading.requests import MarketOrderRequest, GetOrdersRequest, CancelOrderResponse
 from alpaca.trading.enums import OrderSide, TimeInForce
 from alpaca.data.historical import StockHistoricalDataClient
 from alpaca.data.requests import StockBarsRequest, StockLatestQuoteRequest
+from alpaca.trading.enums import QueryOrderStatus
 from alpaca.data.timeframe import TimeFrame
 from tensorflow.keras.models import load_model
 import pickle
@@ -33,7 +34,7 @@ class TradingBotLLMSentiment:
         self.model_name = 'lstm_combined_model_2025-03-27.keras'
         # Trading parameters for fixed daily budget strategy
         self.daily_budget_percent = 0.05  # Use 5% of available cash per day for new trades
-        self.trading_threshold = 0.01   # trade when prediction is this % different from actual
+        self.trading_threshold = 0.02   # trade when prediction is this % different from actual
         self.time_series_length = 30
 
         # Initialize clients
@@ -85,7 +86,8 @@ class TradingBotLLMSentiment:
             return None
             
         df = df.reset_index().sort_values(by=["timestamp"])
-        logger.info(f"Retrieved {len(df)} bars for {symbol}")
+        if days != 30:
+            logger.info(f"Retrieved {len(df)} bars for {symbol}")
         return df
 
     def get_news_articles(self, symbol, article_count, to_date, lookback_range):
@@ -283,10 +285,11 @@ class TradingBotLLMSentiment:
             if predicted_price is None:
                 continue
             
+            percent_diff = (predicted_price - current_price) / current_price
             # Generate signals if the predicted price deviates by more than 1% from the current price.
-            if predicted_price > current_price * 1.01:
+            if percent_diff > self.trading_threshold:
                 signals[symbol] = {"signal": "BUY", "predicted": predicted_price, "current": current_price}
-            elif predicted_price < current_price * 0.99:
+            elif percent_diff  < (self.trading_threshold * -1):
                 # Only generate a SELL signal if we already hold the asset.
                 if symbol in positions:
                     signals[symbol] = {"signal": "SELL", "predicted": predicted_price, "current": current_price}
@@ -295,7 +298,7 @@ class TradingBotLLMSentiment:
             else:
                 signals[symbol] = {"signal": "HOLD", "predicted": predicted_price, "current": current_price}
             
-            logger.info(f"{symbol}: current ${current_price:.2f}, predicted ${predicted_price:.2f} => signal {signals[symbol]['signal']}")
+            logger.info(f"{symbol}: current ${current_price:.2f}, predicted ${predicted_price:.2f}. percent_diff {percent_diff * 100:.1f}% threshold {self.trading_threshold * 100:.1f}% => signal {signals[symbol]['signal']}")
         
         return signals
 
@@ -317,18 +320,17 @@ class TradingBotLLMSentiment:
         daily_budget = available_cash * self.daily_budget_percent
         logger.info(f"Daily budget for new trades: ${daily_budget:.2f}")
         
-        # Build positions and open orders dictionaries.
+        # Build positions 
         positions = {p.symbol: p for p in self.trading_client.get_all_positions()}
-        open_orders = {}
+
+        # Clean out any open orders at start of trading:
         try:
-            orders = self.trading_client.list_orders(status="open")
-            for order in orders:
-                open_orders[order.symbol] = order
+            logger.info("Attempting to cancel ALL open orders...")
+            cancel_statuses = self.trading_client.cancel_orders() 
+            logger.info(f"Cancel all orders response: {cancel_statuses}")
         except Exception as e:
-            logger.error(f"Error retrieving open orders: {e}")
-            open_orders = {}
-        
-        # Process each signal.
+             logger.error(f"Failed to cancel all orders: {e}")
+
         # Count BUY signals to compute allocation per stock.
         buy_symbols = [s for s, data in signals.items() if data["signal"] == "BUY"]
         if buy_symbols:
@@ -345,10 +347,6 @@ class TradingBotLLMSentiment:
                 logger.info(f"Executing BUY for {symbol}: {qty} shares at ${current_price:.2f} per share.")
                 self.submit_order(symbol, OrderSide.BUY, qty)
             elif sig == "SELL":
-                # Check if there's an open order.
-                if symbol in open_orders:
-                    logger.info(f"Skipping SELL for {symbol}: Already has an open order.")
-                    continue
                 # Sell the entire held position.
                 if symbol in positions:
                     position_qty = float(positions[symbol].qty)
@@ -368,50 +366,69 @@ class TradingBotLLMSentiment:
         
         Process:
         1. Load and update historical sentiment data.
-        2. Filter the enriched data for the given symbol.
-        3. Use the last TIME_SERIES_LENGTH rows (the most recent trading days) as the input sequence.
-        4. Scale the sequence and predict today's closing price using the trained model.
+        2. Scale the price and volume features (same as during training).
+        3. Add one-hot encoding for symbols.
+        4. Create the input sequence for the model.
+        5. Predict the closing price.
         
         Returns:
             float or None: The predicted closing price for today, or None if not enough data.
         """
         # Load the scaler
         with open(f"{BOT_NAME}/data/scaler.pkl", 'rb') as f:
-            SCALER = pickle.load(f)
+            scaler_info = pickle.load(f)
+            SCALER = scaler_info['scaler']
+            FEATURES_TO_SCALE = scaler_info['features_to_scale']
         
-        # Load the trained model.
-        MODEL = load_model(f"{BOT_NAME}/data/models/{self.model_name}")
+        FEATURES = ['open', 'high', 'low', 'close', 'volume', 'sentiment'] 
+        MODEL = load_model(f"{BOT_NAME}/data/models/lstm_combined_model_2025-03-29.keras")
         
-        # Step 1: Load and update historical sentiment data.
-        enriched_df = self.load_and_update_sentiment_data(self.time_series_length)
-        if enriched_df is None or enriched_df.empty:
-            print("Failed to load sentiment data.")
+        # Step 1: Load and update historical sentiment data
+        df = self.load_and_update_sentiment_data(self.time_series_length)
+        if df is None or df.empty:
+            logger.error("Failed to load sentiment data.")
             return None
-
-        # Step 2: Filter for the specific symbol and sort by timestamp.
-        symbol_df = enriched_df[enriched_df['symbol'] == symbol].sort_values(by="timestamp")
-        if symbol_df.empty:
-            print(f"No data available for {symbol}.")
-            return None
-
-        # Step 3: Check if there are at least TIME_SERIES_LENGTH rows.
+        
+        # Step 2: Scale numerical features using the same scaler from training
+        df_scaled = df.copy()
+        df_scaled[FEATURES_TO_SCALE] = SCALER.transform(df[FEATURES_TO_SCALE])
+        
+        # Step 3: Add one-hot encoding for symbols
+        symbol_dummies = pd.get_dummies(df_scaled['symbol'], prefix='symbol').astype('float32')
+        df_scaled = pd.concat([df_scaled, symbol_dummies], axis=1)
+        
+        # Get the full list of features for the model
+        symbol_columns = [col for col in df_scaled.columns if col.startswith('symbol_')]
+        all_features = FEATURES + symbol_columns
+        
+        # Step 4: Filter for the specific symbol and check data sufficiency
+        symbol_df = df_scaled[df_scaled['symbol'] == symbol].sort_values(by="timestamp")
         if len(symbol_df) < self.time_series_length:
-            print("Not enough data to form a prediction sequence.")
+            logger.inf(f"Not enough data for {symbol}. Need {self.time_series_length} days, have {len(symbol_df)}.")
             return None
-        else:
-            feature_columns = ['open', 'high', 'low', 'close', 'volume', 'sentiment']
-            latest_seq = symbol_df.iloc[-self.time_series_length:][feature_columns].values
-
-        # Step 4: Reshape and scale the sequence.
-        latest_seq_2d = latest_seq.reshape(-1, len(feature_columns))
-        latest_seq_scaled_2d = SCALER.transform(latest_seq_2d)
-        latest_seq_scaled = latest_seq_scaled_2d.reshape(1, self.time_series_length, len(feature_columns))
         
-        # Predict using the trained model.
-        predicted_price = MODEL.predict(latest_seq_scaled)
-        predicted_value = predicted_price[0][0]
-        print(f"Predicted closing price for {symbol} is {predicted_value:.2f}")
-        return predicted_value
+        # Create input sequence using the last SEQ_LENGTH rows
+        input_seq = symbol_df.iloc[-self.time_series_length:][all_features].values.astype('float32')
+        input_seq = input_seq.reshape(1, self.time_series_length, len(all_features))
+        
+        # Step 5: Make the prediction (scaled)
+        predicted_scaled = MODEL.predict(input_seq, verbose=0)[0][0]
+        
+        # Step 6: Unscale the prediction
+        # Get the index of 'close' in FEATURES_TO_SCALE
+        close_idx = FEATURES_TO_SCALE.index('close')
+        
+        # Create a dummy array with zeros for all scalable features
+        dummy = np.zeros((1, len(FEATURES_TO_SCALE)))
+        # Place the scaled prediction in the position corresponding to 'close'
+        dummy[0, close_idx] = predicted_scaled
+        
+        # Inverse transform to get the actual price
+        unscaled_dummy = SCALER.inverse_transform(dummy)
+        predicted_price = unscaled_dummy[0, close_idx]    
+        logger.info(f"Predicted closing price for {symbol} is ${predicted_price:.2f}")
+        
+        return predicted_price
     
 
 def main():
@@ -420,7 +437,7 @@ def main():
     try:
         bot = TradingBotLLMSentiment()
         signals = bot.get_signals()
-        print(signals)
+        logger.info(signals)
         bot.execute_trading_strategy(signals)
         logger.info(f"{BOT_NAME} completed successfully")
     except Exception as e:
