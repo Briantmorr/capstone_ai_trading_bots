@@ -1,0 +1,21 @@
+
+================================================================================
+=== Log Start: 2025-03-30 02:42:29 ===
+================================================================================
+2025-03-30 02:42:29,459 - INFO - Logger initialized and header written.
+2025-03-30 02:42:29,459 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-03-30 02:42:29,459 - INFO - Discovered bot: momentum_bot_carlo
+2025-03-30 02:42:29,459 - INFO - Bot Manager initialized with 2 bots
+2025-03-30 02:42:29,459 - INFO - Running all bots (2 total)
+2025-03-30 02:42:29,459 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-03-30 02:42:35,851 - INFO - -------------------------------------
+2025-03-30 02:42:35,851 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+2025-03-30 02:42:35,851 - INFO - -------------------------------------
+2025-03-30 02:42:35,851 - INFO - Running bot: momentum_bot_carlo
+2025-03-30 02:42:36,573 - INFO - -------------------------------------
+2025-03-30 02:42:36,573 - INFO - Bot momentum_bot_carlo completed successfully
+2025-03-30 02:42:36,573 - INFO - -------------------------------------
+2025-03-30 02:42:36,573 - INFO - Bot Execution Summary: 2/2 bots executed successfully
+  - trading_bot_llm_sentiment_brian: Success
+  - momentum_bot_carlo: Success
+

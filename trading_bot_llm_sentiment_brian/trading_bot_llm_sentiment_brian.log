@@ -1,0 +1,57 @@
+
+================================================================================
+=== Log Start: 2025-03-30 02:42:32 ===
+================================================================================
+2025-03-30 02:42:32,782 - INFO - Logger initialized and header written.
+2025-03-30 02:42:32,783 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-03-30 02:42:32,822 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-03-30 02:42:33,488 - INFO - Combined historical data is up-to-date.
+2025-03-30 02:42:33,698 - INFO - Predicted closing price for AAPL is $193.19
+2025-03-30 02:42:33,698 - INFO - AAPL: current $232.50, predicted $193.19. percent_diff -16.9% threshold 2.0% => signal HOLD
+2025-03-30 02:42:33,898 - INFO - Combined historical data is up-to-date.
+2025-03-30 02:42:34,095 - INFO - Predicted closing price for MSFT is $371.54
+2025-03-30 02:42:34,095 - INFO - MSFT: current $387.35, predicted $371.54. percent_diff -4.1% threshold 2.0% => signal SELL
+2025-03-30 02:42:34,289 - INFO - Combined historical data is up-to-date.
+2025-03-30 02:42:34,484 - INFO - Predicted closing price for META is $532.12
+2025-03-30 02:42:34,484 - INFO - META: current $576.83, predicted $532.12. percent_diff -7.8% threshold 2.0% => signal HOLD
+2025-03-30 02:42:34,817 - INFO - Combined historical data is up-to-date.
+2025-03-30 02:42:35,017 - INFO - Predicted closing price for GOOGL is $164.06
+2025-03-30 02:42:35,017 - INFO - GOOGL: current $157.91, predicted $164.06. percent_diff 3.9% threshold 2.0% => signal BUY
+2025-03-30 02:42:35,208 - INFO - Combined historical data is up-to-date.
+2025-03-30 02:42:35,402 - INFO - Predicted closing price for AMZN is $176.27
+2025-03-30 02:42:35,403 - INFO - AMZN: current $191.93, predicted $176.27. percent_diff -8.2% threshold 2.0% => signal SELL
+2025-03-30 02:42:35,598 - INFO - Combined historical data is up-to-date.
+2025-03-30 02:42:35,793 - INFO - Predicted closing price for NVDA is $209.35
+2025-03-30 02:42:35,793 - INFO - NVDA: current $109.32, predicted $209.35. percent_diff 91.5% threshold 2.0% => signal BUY
+2025-03-30 02:42:35,793 - INFO - {'AAPL': {'signal': 'HOLD', 'predicted': np.float64(193.1915335893631), 'current': 232.5}, 'MSFT': {'signal': 'SELL', 'predicted': np.float64(371.53858101010326), 'current': 387.35}, 'META': {'signal': 'HOLD', 'predicted': np.float64(532.117209815681), 'current': 576.8299999999999}, 'GOOGL': {'signal': 'BUY', 'predicted': np.float64(164.0556999591738), 'current': 157.91}, 'AMZN': {'signal': 'SELL', 'predicted': np.float64(176.26871423512696), 'current': 191.925}, 'NVDA': {'signal': 'BUY', 'predicted': np.float64(209.3546469118446), 'current': 109.32}}
+2025-03-30 02:42:35,802 - INFO - Account ID: 42f5d6db-9d02-4e00-95e4-88a9196e16f5
+2025-03-30 02:42:35,802 - INFO - Cash: $33009.73
+2025-03-30 02:42:35,802 - INFO - Portfolio value: $95660.66
+2025-03-30 02:42:35,802 - INFO - Buying power: $127135.97
+2025-03-30 02:42:35,802 - INFO - Daily budget for new trades: $1650.49
+2025-03-30 02:42:35,802 - INFO - Attempting to cancel ALL open orders...
+2025-03-30 02:42:35,812 - INFO - Cancel all orders response: [{   'body': None,
+    'id': UUID('57c679b7-2569-4ff0-a562-cbf562fa0bc0'),
+    'status': 200}, {   'body': None,
+    'id': UUID('7a50e46d-bb3e-485c-a6fd-7e21d4c323e1'),
+    'status': 200}, {   'body': None,
+    'id': UUID('97aec99c-57d6-4133-a688-df8fd0c6961b'),
+    'status': 200}, {   'body': None,
+    'id': UUID('cde3ce95-6d1f-49b6-b59e-38a8e584d087'),
+    'status': 200}]
+2025-03-30 02:42:35,812 - INFO - Holding AAPL: no trading action required.
+2025-03-30 02:42:35,812 - INFO - Executing SELL for MSFT: 7.0 shares at current price $387.35.
+2025-03-30 02:42:35,820 - INFO - Order placed: sell 7.0 shares of MSFT
+2025-03-30 02:42:35,820 - INFO - Order ID: 39f0902d-527d-4a1f-8160-68a7a84a8d25
+2025-03-30 02:42:35,820 - INFO - Holding META: no trading action required.
+2025-03-30 02:42:35,820 - INFO - Executing BUY for GOOGL: 5 shares at $157.91 per share.
+2025-03-30 02:42:35,832 - INFO - Order placed: buy 5 shares of GOOGL
+2025-03-30 02:42:35,832 - INFO - Order ID: 6560e345-819f-4c2f-90b9-778cdf8a21a3
+2025-03-30 02:42:35,832 - INFO - Executing SELL for AMZN: 19.0 shares at current price $191.93.
+2025-03-30 02:42:35,841 - INFO - Order placed: sell 19.0 shares of AMZN
+2025-03-30 02:42:35,842 - INFO - Order ID: 853f4247-900e-4e58-b25a-1a573e3758c2
+2025-03-30 02:42:35,842 - INFO - Executing BUY for NVDA: 7 shares at $109.32 per share.
+2025-03-30 02:42:35,850 - INFO - Order placed: buy 7 shares of NVDA
+2025-03-30 02:42:35,850 - INFO - Order ID: eb6106d2-2f82-43f2-b351-82dc507595a8
+2025-03-30 02:42:35,851 - INFO - Strategy execution completed.
+2025-03-30 02:42:35,851 - INFO - trading_bot_llm_sentiment_brian completed successfully
