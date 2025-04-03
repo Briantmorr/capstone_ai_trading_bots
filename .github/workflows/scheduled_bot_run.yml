@@ -76,13 +76,28 @@ jobs:
 
     - name: Commit and Push Log File
       run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+
           git add .
           if ! git diff --staged --quiet; then
             echo "Changes detected in bot_manager.log. Committing..."
             git commit -m "Update bot execution log [skip ci]" -m "Workflow Run ID: ${{ github.run_id }}"
             echo "Pulling latest changes from bot-execution branch..."
-            git pull --rebase origin bot-execution || true
-            echo "Pushing updated log to bot-execution branch..."
+            if git pull --rebase origin bot-execution; then
+                echo "Rebase conflict detected. Resolving by keeping local versions of *.log files..."
+
+                 # Loop through conflicted .log files and resolve by keeping "ours"
+                for file in $(git diff --name-only --diff-filter=U | grep '\.log$'); do
+                    echo "Resolving conflict in $file by keeping local version..."
+                    git checkout --ours "$file"
+                    git add "$file"
+                done
+
+                git rebase --continue
+            fi
+
+            echo "Pushing updated log(s) to bot-execution branch..."
             git push origin HEAD:refs/heads/bot-execution
             echo "Push successful."
           else
