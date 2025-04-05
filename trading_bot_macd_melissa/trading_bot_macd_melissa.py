@@ -25,13 +25,15 @@ BOT_NAME = "trading_bot_macd_melissa"
 logger = get_bot_logger(BOT_NAME)
 
 class Macd_trading_bot:
-
     def __init__(self):
         """Initialize the momentum strategy bot with API credentials and settings."""
         # API Keys from environment variables
-        self.api_key = os.environ[f"{BOT_NAME}_ALPACA_API_KEY"]
-        self.api_secret = os.environ[f"{BOT_NAME}_ALPACA_API_SECRET"]
+        self.api_key = os.getenv('BOT_API_KEY_1')
+        self.api_secret = os.getenv('BOT_API_SECRET_1')
         
+        if not self.api_key or not self.api_secret:
+            raise ValueError("Missing API credentials. Please set BOT_API_KEY_1 and BOT_API_SECRET_1.")
+
         self.client = StockHistoricalDataClient(self.api_key, self.api_secret)
         self.trading_client = TradingClient(self.api_key, self.api_secret, paper=True)
 
@@ -49,10 +51,17 @@ class Macd_trading_bot:
         data['histogram'] = data['macd'] - data['signal']
         return data
     
-    # Fetch historical stock data for MAG6
+    def compute_atr(self, data, period=14):
+        """Calculates the Average True Range (ATR) for volatility-based trading."""
+        data['high-low'] = data['high'] - data['low']
+        data['high-close'] = np.abs(data['high'] - data['close'].shift(1))
+        data['low-close'] = np.abs(data['low'] - data['close'].shift(1))
+        data['true_range'] = data[['high-low', 'high-close', 'low-close']].max(axis=1)
+        data['atr'] = data['true_range'].rolling(window=period).mean()
+        return data
+
     def fetch_historical_data(self):
         start_date = dt.datetime.now() - dt.timedelta(days=365)
-        # End needs to be > 15 minutes to prevent api call failing in free tier
         end_date = dt.datetime.now() - dt.timedelta(minutes=20)
 
         request_params = StockBarsRequest(
@@ -72,79 +81,84 @@ class Macd_trading_bot:
             df['timestamp'] = pd.to_datetime(df['timestamp'])
             df.set_index('timestamp', inplace=True)
             df = self.compute_macd(df)
+            df = self.compute_atr(df)
             df[['close', 'macd', 'signal']] = scaler.fit_transform(df[['close', 'macd', 'signal']])
             stock_dic[symbol] = df
         return stock_dic
     
-
     def create_sequences(self, data):
-            X, y = [], []
-            for i in range(len(data) - self.sequence_length):
-                X.append(data[i:i + self.sequence_length])
-                y.append(data[i + self.sequence_length, 0])  # Predicting closing price
-            return np.array(X), np.array(y)
+        X, y = [], []
+        for i in range(len(data) - self.sequence_length):
+            X.append(data[i:i + self.sequence_length])
+            y.append(data[i + self.sequence_length, 0])  # Predicting closing price
+        return np.array(X), np.array(y)
     
     def build_model(self, stock_dic):
-        X_train, y_train = [], []
+        """
+        Build and train an LSTM model on historical data from all symbols.
+        The model uses past sequences of [close, macd, signal] to predict the future closing price.
+        """
+        X_train_list = []
+        y_train_list = []
+        # Combine training sequences from all symbols
         for symbol in self.symbols:
-            train_data = stock_dic[symbol][['close', 'macd', 'signal']].values
-            X, y = self.create_sequences(train_data)
-            X_train.append(X)
-            y_train.append(y)
-
-        X_train = np.concatenate(X_train, axis=0)
-        y_train = np.concatenate(y_train, axis=0).reshape(-1, 1)  # Ensure y_train is 2D
-
-        # Build LSTM model
-        model = Sequential([
-            LSTM(50, return_sequences=True, input_shape=(self.sequence_length, 3)),
-            Dropout(0.2),
-            LSTM(50, return_sequences=False),
-            Dropout(0.2),
-            Dense(25, activation='relu'),
-            Dense(1)
-        ])
-
+            data = stock_dic[symbol][['close', 'macd', 'signal']].values
+            X, y = self.create_sequences(data)
+            X_train_list.append(X)
+            y_train_list.append(y)
+        X_train = np.concatenate(X_train_list, axis=0)
+        y_train = np.concatenate(y_train_list, axis=0)
+        
+        # Build the LSTM model
+        model = Sequential()
+        model.add(LSTM(units=50, return_sequences=True, input_shape=(self.sequence_length, 3)))
+        model.add(Dropout(0.2))
+        model.add(LSTM(units=50))
+        model.add(Dropout(0.2))
+        model.add(Dense(1))
+        
         model.compile(optimizer='adam', loss='mean_squared_error')
-        model.fit(X_train, y_train, epochs=10, batch_size=16)
-
+        
+        logger.info("Starting model training...")
+        model.fit(X_train, y_train, epochs=10, batch_size=32, verbose=1)
+        logger.info("Model training completed.")
+        
         return model
 
     def predict_and_execute(self, model, stock_dic):
-        # Predict future prices and execute trades
-        predictions = {}
+        account = self.trading_client.get_account()
+        cash_available = float(account.cash)
+        risk_per_trade = 0.10 * cash_available  # Risk 10% of available capital
+
         for symbol in self.symbols:
+            stock_dic[symbol] = self.compute_atr(stock_dic[symbol])
             test_data = stock_dic[symbol][['close', 'macd', 'signal']].values
             X_test, y_test = self.create_sequences(test_data)
             pred = model.predict(X_test)
-            predictions[symbol] = pred
-            
+
             last_actual_price = stock_dic[symbol]['close'].iloc[-1]
             last_predicted_price = pred[-1][0]
-            
-            if last_predicted_price > last_actual_price:  # Buy condition
-                order = MarketOrderRequest(
-                    symbol=symbol,
-                    qty=1,
-                    side=OrderSide.BUY,
-                    time_in_force=TimeInForce.GTC
-                )
-                self.trading_client.submit_order(order)
-                logger.info(f"BUY Order placed for {symbol}")
-            elif last_predicted_price < last_actual_price:  # Sell condition
-                order = MarketOrderRequest(
-                    symbol=symbol,
-                    qty=1,
-                    side=OrderSide.SELL,
-                    time_in_force=TimeInForce.GTC
-                )
-                self.trading_client.submit_order(order)
-                logger.info(f"SELL Order placed for {symbol}")
+            atr = stock_dic[symbol]['atr'].iloc[-1]
 
-        logger.info("Trading bot executed based on LSTM predictions and MACD analysis.")
+            stop_loss_distance = 2 * atr
+            quantity = int(risk_per_trade / stop_loss_distance)
+
+            logger.info(f"Processing {symbol}: ATR: {atr:.2f} | Stop-Loss Distance: {stop_loss_distance:.2f} | Position Size: {quantity} shares")
+            logger.info(f"Predicted Price: {last_predicted_price:.2f} | Actual Price: {last_actual_price:.2f}")
+
+            if quantity > 0:
+                if last_predicted_price > last_actual_price:
+                    order = MarketOrderRequest(symbol=symbol, qty=quantity, side=OrderSide.BUY, time_in_force=TimeInForce.GTC)
+                    self.trading_client.submit_order(order)
+                    logger.info(f"BUY {quantity} shares of {symbol} at market price")
+                elif last_predicted_price < last_actual_price:
+                    order = MarketOrderRequest(symbol=symbol, qty=quantity, side=OrderSide.SELL, time_in_force=TimeInForce.GTC)
+                    self.trading_client.submit_order(order)
+                    logger.info(f"SELL {quantity} shares of {symbol} at market price")
+
+        logger.info("Trading bot executed based on ATR, LSTM predictions, and MACD analysis.")
 
 def main():
-    """Main function to run the momentum strategy bot."""
     logger.info(f"Starting {BOT_NAME}")
     try:
         bot = Macd_trading_bot()
