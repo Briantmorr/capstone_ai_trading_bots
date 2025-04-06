@@ -28,11 +28,11 @@ class Macd_trading_bot:
     def __init__(self):
         """Initialize the Macd strategy bot with API credentials and settings."""
         # API Keys from environment variables
-        self.api_key = os.getenv('MACD_API_KEY')
-        self.api_secret = os.getenv('MACD_API_SECRET')
+        self.api_key = os.getenv('BOT_API_KEY_1')
+        self.api_secret = os.getenv('BOT_API_SECRET_1')
         
         if not self.api_key or not self.api_secret:
-            raise ValueError("Missing API credentials. Please set MACD_API_KEY and MACD_API_SECRET.")
+            raise ValueError("Missing API credentials. Please set BOT_API_KEY_1 and BOT_API_SECRET_1.")
 
         self.client = StockHistoricalDataClient(self.api_key, self.api_secret)
         self.trading_client = TradingClient(self.api_key, self.api_secret, paper=True)
