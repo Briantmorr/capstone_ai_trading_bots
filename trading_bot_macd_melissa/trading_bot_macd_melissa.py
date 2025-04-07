@@ -18,7 +18,7 @@ from dotenv import load_dotenv
 import os
 
 # Load variables from .env into the environment
-load_dotenv("trading_bot_macd_melissa.env")
+load_dotenv()
 
 # Bot name (same as directory name)
 BOT_NAME = "trading_bot_macd_melissa"
@@ -28,8 +28,8 @@ class Macd_trading_bot:
     def __init__(self):
         """Initialize the Macd strategy bot with API credentials and settings."""
         # API Keys from environment variables
-        self.api_key = os.getenv('BOT_API_KEY_1')
-        self.api_secret = os.getenv('BOT_API_SECRET_1')
+        self.api_key = os.environ[f"{BOT_NAME}_ALPACA_API_KEY"]
+        self.api_secret = os.environ[f"{BOT_NAME}_ALPACA_API_SECRET"]
         
         if not self.api_key or not self.api_secret:
             raise ValueError("Missing API credentials. Please set BOT_API_KEY_1 and BOT_API_SECRET_1.")

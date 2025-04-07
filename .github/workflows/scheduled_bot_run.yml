@@ -26,10 +26,10 @@ jobs:
       BOT_API_KEY_2: ${{ secrets.BOT_API_KEY_2 }}
       BOT_API_SECRET_2: ${{ secrets.BOT_API_SECRET_2 }}
 
-      # enable after successful test of other bots
-      BOT_NAME_3: 'trading_bot_macd_melissa'
-      BOT_API_KEY_3: ${{ secrets.BOT_API_KEY_3 }}
-      BOT_API_SECRET_3: ${{ secrets.BOT_API_SECRET_3 }}
+      # running more frequently in scheduled_bot_run_fast.yaml action
+    #   BOT_NAME_3: 'trading_bot_macd_melissa'
+    #   BOT_API_KEY_3: ${{ secrets.BOT_API_KEY_3 }}
+    #   BOT_API_SECRET_3: ${{ secrets.BOT_API_SECRET_3 }}
 
       BOT_NAME_4: 'momentum_ml_carlo'
       BOT_API_KEY_4: ${{ secrets.BOT_API_KEY_4 }}
