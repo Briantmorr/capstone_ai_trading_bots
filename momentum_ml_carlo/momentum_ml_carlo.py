@@ -19,10 +19,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-BOT_NAME = "momentum_ML"
-log_dir = Path.cwd() / BOT_NAME
-log_dir.mkdir(parents=True, exist_ok=True)
-logger = get_bot_logger(BOT_NAME, f"{Path.cwd()}/{BOT_NAME}")
+BOT_NAME = "momentum_ml_carlo"
+logger = get_bot_logger(BOT_NAME)
 
 class MomentumStrategy:
     """
@@ -31,8 +29,8 @@ class MomentumStrategy:
     """
     def __init__(self):
         """Initialize the momentum strategy bot with API credentials and settings."""
-        self.api_key = os.getenv('API_KEY_ML')
-        self.api_secret = os.getenv('SECRET_KEY_ML')
+        self.api_key = os.environ[f"{BOT_NAME}_ALPACA_API_KEY"]
+        self.api_secret = os.environ[f"{BOT_NAME}_ALPACA_API_SECRET"]
         if not self.api_key or not self.api_secret:
             raise ValueError("API key and secret must be provided in environment variables")
         
