@@ -1,6 +1,5 @@
-# Basic Momentum Strategy
-
 import os
+import sys
 import time
 import logging
 from datetime import datetime, timedelta
@@ -14,6 +13,7 @@ from alpaca.data.requests import StockBarsRequest
 from alpaca.data.timeframe import TimeFrame
 from pathlib import Path
 from logger_setup import get_bot_logger
+
 from dotenv import load_dotenv
 import os
 
@@ -21,11 +21,8 @@ import os
 load_dotenv()
 
 # Bot name (same as directory name)
-BOT_NAME = "momentum_strat"
-log_dir = Path.cwd() / BOT_NAME
-# Create directory if it doesn't exist
-log_dir.mkdir(parents=True, exist_ok=True)
-logger = get_bot_logger(BOT_NAME, f"{Path.cwd()}/{BOT_NAME}")
+BOT_NAME = "momentum_bot_carlo"
+logger = get_bot_logger(BOT_NAME)
 
 class MomentumStrategy:
     """
@@ -33,13 +30,15 @@ class MomentumStrategy:
     The strategy calculates momentum as the percentage change over a lookback period.
     A BUY signal is generated if the momentum exceeds a positive threshold and no position exists,
     while a SELL signal is generated if momentum falls below a negative threshold and a position exists.
+
+    This version automatically liquidates positions if the momentum no longer supports them.
     """
 
     def __init__(self):
         """Initialize the momentum strategy bot with API credentials and settings."""
         # API Keys from environment variables
-        self.api_key = os.getenv('API_KEY')
-        self.api_secret = os.getenv('SECRET_KEY')
+        self.api_key = os.environ[f"{BOT_NAME}_ALPACA_API_KEY"]
+        self.api_secret = os.environ[f"{BOT_NAME}_ALPACA_API_SECRET"]
         
         if not self.api_key or not self.api_secret:
             raise ValueError("API key and secret must be provided in environment variables")
@@ -80,7 +79,9 @@ class MomentumStrategy:
         """Fetch historical stock data for a given symbol."""
         if days is None:
             days = self.lookback_days
-        end = datetime.now()
+        # End needs to be > 15 minutes to prevent api call failing in free tier
+        end = datetime.now() - timedelta(minutes=20)
+
         start = end - timedelta(days=days)
         
         request_params = StockBarsRequest(
@@ -134,20 +135,20 @@ class MomentumStrategy:
         """Run the momentum strategy, automatically liquidating positions whose momentum is invalid."""
         logger.info("Running momentum strategy...")
 
-        # Check market hours for logic or simulation
+        # 1. (Optional) Check market hours for logic or simulation
         current_hour = datetime.now().hour
         if current_hour < 9 or current_hour >= 16:
             logger.info("Market is closed. Running in simulation mode.")
 
-        # Pull current positions & account info
+        # 2. Pull current positions & account info
         positions = self.get_positions()
         account = self.get_account_info()
 
-        # Calculate total cash allocation (90% of available cash) and per-stock allocation
+        # 3. Calculate total cash allocation (90% of available cash) and per-stock allocation
         total_allocated_cash = float(account.cash) * 0.9
         allocation_per_stock = total_allocated_cash / len(self.symbols)
 
-        # Loop over each symbol
+        # 4. Loop over each symbol
         for symbol in self.symbols:
             logger.info(f"Analyzing {symbol}...")
 

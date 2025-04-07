@@ -151,3 +151,25 @@ TypeError: 'Macd_trading_bot' object is not subscriptable
 2025-03-30 14:34:19,844 - INFO - -------------------------------------
 2025-03-30 14:34:19,844 - INFO - Bot trading_bot_macd_melissa completed successfully
 2025-03-30 14:34:19,844 - INFO - -------------------------------------
+
+================================================================================
+=== Log Start: 2025-04-07 16:22:40 ===
+================================================================================
+2025-04-07 16:22:40,619 - INFO - Logger initialized and header written.
+2025-04-07 16:22:40,619 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-04-07 16:22:40,619 - INFO - Discovered bot: momentum_bot_carlo
+2025-04-07 16:22:40,620 - INFO - Discovered bot: trading_bot_macd_melissa
+2025-04-07 16:22:40,620 - INFO - Bot Manager initialized with 3 bots
+
+================================================================================
+=== Log Start: 2025-04-07 16:22:54 ===
+================================================================================
+2025-04-07 16:22:54,191 - INFO - Logger initialized and header written.
+2025-04-07 16:22:54,191 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-04-07 16:22:54,191 - INFO - Discovered bot: momentum_bot_carlo
+2025-04-07 16:22:54,191 - INFO - Discovered bot: trading_bot_macd_melissa
+2025-04-07 16:22:54,191 - INFO - Bot Manager initialized with 3 bots
+2025-04-07 16:22:54,191 - INFO - Running bot: momentum_bot_carlo
+2025-04-07 16:23:01,949 - INFO - -------------------------------------
+2025-04-07 16:23:01,949 - INFO - Bot momentum_bot_carlo completed successfully
+2025-04-07 16:23:01,949 - INFO - -------------------------------------

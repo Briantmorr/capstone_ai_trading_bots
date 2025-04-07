@@ -1,5 +1,6 @@
+# Basic Momentum Strategy
+
 import os
-import sys
 import time
 import logging
 from datetime import datetime, timedelta
@@ -13,7 +14,6 @@ from alpaca.data.requests import StockBarsRequest
 from alpaca.data.timeframe import TimeFrame
 from pathlib import Path
 from logger_setup import get_bot_logger
-
 from dotenv import load_dotenv
 import os
 
@@ -30,8 +30,6 @@ class MomentumStrategy:
     The strategy calculates momentum as the percentage change over a lookback period.
     A BUY signal is generated if the momentum exceeds a positive threshold and no position exists,
     while a SELL signal is generated if momentum falls below a negative threshold and a position exists.
-
-    This version automatically liquidates positions if the momentum no longer supports them.
     """
 
     def __init__(self):
@@ -80,8 +78,7 @@ class MomentumStrategy:
         if days is None:
             days = self.lookback_days
         # End needs to be > 15 minutes to prevent api call failing in free tier
-        end = datetime.now() - timedelta(minutes=20)
-
+        end = datetime.now() - timedelta(minutes=20)        
         start = end - timedelta(days=days)
         
         request_params = StockBarsRequest(
@@ -135,20 +132,20 @@ class MomentumStrategy:
         """Run the momentum strategy, automatically liquidating positions whose momentum is invalid."""
         logger.info("Running momentum strategy...")
 
-        # 1. (Optional) Check market hours for logic or simulation
+        # Check market hours for logic or simulation
         current_hour = datetime.now().hour
         if current_hour < 9 or current_hour >= 16:
             logger.info("Market is closed. Running in simulation mode.")
 
-        # 2. Pull current positions & account info
+        # Pull current positions & account info
         positions = self.get_positions()
         account = self.get_account_info()
 
-        # 3. Calculate total cash allocation (90% of available cash) and per-stock allocation
+        # Calculate total cash allocation (90% of available cash) and per-stock allocation
         total_allocated_cash = float(account.cash) * 0.9
         allocation_per_stock = total_allocated_cash / len(self.symbols)
 
-        # 4. Loop over each symbol
+        # Loop over each symbol
         for symbol in self.symbols:
             logger.info(f"Analyzing {symbol}...")
 
