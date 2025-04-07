@@ -1,9 +1,9 @@
 # .github/workflows/scheduled_bot_run.yml
-name: Run Trading Bots Daily and Commit Log
+name: Run Trading Bots Hourly and Commit Log
 
 on:
   schedule:
-    # Runs daily at 8:00 AM Pacific Time (PDT/PST = UTC-7/UTC-8)
+    # Runs hourly at 8:00 AM Pacific Time - 3 (PDT/PST = UTC-7/UTC-8)
     # 8:00 AM PT = 15:00 UTC (during PDT, UTC-7)
     # Adjust if needed for standard time or use a different trigger
     - cron: '0 15-22 * * 1-5'
