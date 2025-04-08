@@ -17,6 +17,14 @@ jobs:
   run-bots-and-commit-log:
     runs-on: ubuntu-latest
     env:
+      BOT_NAME_1: "trading_bot_llm_sentiment_brian"
+      BOT_API_KEY_1: ${{ secrets.BOT_API_KEY_1 }}
+      BOT_API_SECRET_1: ${{ secrets.BOT_API_SECRET_1 }}
+
+      BOT_NAME_2: "momentum_bot_carlo"
+      BOT_API_KEY_2: ${{ secrets.BOT_API_KEY_2 }}
+      BOT_API_SECRET_2: ${{ secrets.BOT_API_SECRET_2 }}
+      
       BOT_NAME_3: 'trading_bot_macd_melissa'
       BOT_API_KEY_3: ${{ secrets.BOT_API_KEY_3 }}
       BOT_API_SECRET_3: ${{ secrets.BOT_API_SECRET_3 }}
@@ -40,7 +48,7 @@ jobs:
         pipenv sync --system --dev # Use --dev if you need development dependencies too
 
     - name: Run Bot Manager
-      run: python bot_manager.py --run-all
+      run: python bot_manager.py --run trading_bot_macd_melissa
 
     - name: Display Log File Content
       # Run this step even if the bot manager script failed, to capture error logs
