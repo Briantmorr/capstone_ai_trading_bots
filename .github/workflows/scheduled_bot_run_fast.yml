@@ -56,12 +56,6 @@ jobs:
         tail -c 1000 bot_manager.log || true
         echo "--- End of bot_manager.log ---"
 
-    - name: Checkout bot-execution-fast branch
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-        ref: bot-execution-fast
-
     - name: Commit and Push Log Files
       run: |
         git config --global user.name "github-actions"
