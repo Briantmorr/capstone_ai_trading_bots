@@ -30,7 +30,7 @@ class TradingBotLLMSentiment:
         """Initialize the trading bot with API credentials and settings."""
         self.symbols = ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
         self.timeframe = TimeFrame.Day
-        self.model_name = 'lstm_combined_model_2025-03-29.keras'
+        self.model_name = 'lstm_combined_model_2025-04-07.keras'
         # Trading parameters for fixed daily budget strategy
         self.daily_budget_percent = 0.05  # Use 5% of available cash per day for new trades
         self.trading_threshold = 0.02   # trade when prediction is this % different from actual
@@ -372,7 +372,7 @@ class TradingBotLLMSentiment:
             float or None: The predicted closing price for today, or None if not enough data.
         """
         # Load the scaler
-        with open(f"{BOT_NAME}/data/scaler.pkl", 'rb') as f:
+        with open(f"{BOT_NAME}/data/scaler_{symbol}.pkl", 'rb') as f:
             scaler_info = pickle.load(f)
             SCALER = scaler_info['scaler']
             FEATURES_TO_SCALE = scaler_info['features_to_scale']
