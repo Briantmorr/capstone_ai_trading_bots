@@ -5,11 +5,9 @@ on:
   schedule:
     # Runs daily at 8:00 AM Pacific Time (PDT/PST = UTC-7/UTC-8)
     # 8:00 AM PT = 15:00 UTC (during PDT, UTC-7)
-    # Adjust if needed for standard time or use a different trigger
     - cron: '0 15 * * 1-5'
   workflow_dispatch: # Allows manual triggering
 
-# Add permissions for the job to write contents (commit/push)
 permissions:
   contents: write
 
@@ -26,10 +24,10 @@ jobs:
       BOT_API_KEY_2: ${{ secrets.BOT_API_KEY_2 }}
       BOT_API_SECRET_2: ${{ secrets.BOT_API_SECRET_2 }}
 
-      # running more frequently in scheduled_bot_run_fast.yaml action
-    #   BOT_NAME_3: 'trading_bot_macd_melissa'
-    #   BOT_API_KEY_3: ${{ secrets.BOT_API_KEY_3 }}
-    #   BOT_API_SECRET_3: ${{ secrets.BOT_API_SECRET_3 }}
+      # running more frequently in scheduled_bot_run_fast.yaml action, but need to iterate through all
+      BOT_NAME_3: 'trading_bot_macd_melissa'
+      BOT_API_KEY_3: ${{ secrets.BOT_API_KEY_3 }}
+      BOT_API_SECRET_3: ${{ secrets.BOT_API_SECRET_3 }}
 
       BOT_NAME_4: 'momentum_ml_carlo'
       BOT_API_KEY_4: ${{ secrets.BOT_API_KEY_4 }}
@@ -43,18 +41,17 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: 0 
+        ref: main
         
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.10' # Specify your Python version
+        python-version: '3.10'
 
     - name: Install Pipenv and Dependencies
       run: |
         python -m pip install --upgrade pip pipenv
-        # Use sync which installs based on Pipfile.lock (faster for CI if lock file is up-to-date)
-        # Installs into the system python managed by setup-python action
-        pipenv sync --system --dev # Use --dev if you need development dependencies too
+        pipenv sync --system --dev 
 
     - name: Run Bot Manager
       run: python bot_manager.py --run-all
@@ -64,46 +61,43 @@ jobs:
       if: always()
       run: |
         echo "--- Start of bot_manager.log ---"
-        # Use cat to output the log file content to the Actions console
-        # Use || true to prevent workflow failure if the log file doesn't exist
         cat bot_manager.log || true
         tail -c 1000 bot_manager.log || true
         echo "--- End of bot_manager.log ---"
 
-    - name: Configure Git
+    - name: Checkout bot-execution branch
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        ref: bot-execution
+
+    - name: Commit and Push Log Files
       run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git config --global user.name "github-actions"
+        git config --global user.email "github-actions@github.com"
 
-    - name: Commit and Push Log File
-      run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
+        # Only stage .log files
+        find . -name "*.log" -exec git add {} +
 
-          git add .
-          if ! git diff --staged --quiet; then
-            echo "Changes detected in bot_manager.log. Committing..."
-            git commit -m "Update bot execution log [skip ci]" -m "Workflow Run ID: ${{ github.run_id }}"
-            echo "Pulling latest changes from bot-execution branch..."
-            if git pull --rebase origin bot-execution; then
-                echo "Rebase conflict detected. Resolving by keeping local versions of *.log files..."
-
-                 # Loop through conflicted .log files and resolve by keeping "ours"
-                for file in $(git diff --name-only --diff-filter=U | grep '\.log$'); do
-                    echo "Resolving conflict in $file by keeping local version..."
-                    git checkout --ours "$file"
-                    git add "$file"
-                done
-
-                git rebase --continue
-            fi
-
-            echo "Pushing updated log(s) to bot-execution branch..."
-            git push origin HEAD:refs/heads/bot-execution
-            echo "Push successful."
-          else
-            echo "No changes detected in bot_manager.log. Nothing to commit."
+        if ! git diff --staged --quiet; then
+          echo "Changes detected in .log files. Committing..."
+          git commit -m "Update bot execution log [skip ci]" -m "Workflow Run ID: ${{ github.run_id }}"
+          echo "Pulling latest changes from bot-execution branch..."
+          if git pull --rebase origin bot-execution; then
+            echo "Checking for log file conflicts..."
+            for file in $(git diff --name-only --diff-filter=U | grep '\.log$'); do
+              echo "Resolving conflict in $file by keeping local version..."
+              git checkout --ours "$file"
+              git add "$file"
+            done
+            git rebase --continue || true
           fi
+          echo "Pushing updated log(s) to bot-execution branch..."
+          git push origin bot-execution
+          echo "Push successful."
+        else
+          echo "No changes detected in .log files. Nothing to commit."
+        fi
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
