@@ -67,27 +67,18 @@ jobs:
         git config --global user.name "github-actions"
         git config --global user.email "github-actions@github.com"
 
-        # Only stage .log files
+        # Stage only .log files
         find . -name "*.log" -exec git add {} +
 
         if ! git diff --staged --quiet; then
-          echo "Changes detected in .log files. Committing..."
-          git commit -m "Update bot execution log [skip ci]" -m "Workflow Run ID: ${{ github.run_id }}"
-          echo "Pulling latest changes from bot-execution-fast branch..."
-          if git pull --rebase origin bot-execution-fast; then
-            echo "Checking for log file conflicts..."
-            for file in $(git diff --name-only --diff-filter=U | grep '\.log$'); do
-              echo "Resolving conflict in $file by keeping local version..."
-              git checkout --ours "$file"
-              git add "$file"
-            done
-            git rebase --continue || true
-          fi
-          echo "Pushing updated log(s) to bot-execution-fast branch..."
-          git push origin bot-execution-fast
-          echo "Push successful."
+            echo "Changes detected in .log files. Committing..."
+            git commit -m "Update bot execution log [skip ci]" -m "Workflow Run ID: ${{ github.run_id }}"
+
+            echo "Force pushing commit to bot-execution branch..."
+            git push origin HEAD:bot-execution --force
+            echo "Force push successful."
         else
-          echo "No changes detected in .log files. Nothing to commit."
+            echo "No changes detected in .log files. Nothing to commit."
         fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
