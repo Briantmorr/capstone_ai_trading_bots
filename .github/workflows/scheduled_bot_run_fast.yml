@@ -68,8 +68,8 @@ jobs:
             echo "Changes detected in .log files. Committing..."
             git commit -m "Update bot execution log [skip ci]" -m "Workflow Run ID: ${{ github.run_id }}"
 
-            echo "Force pushing commit to bot-execution branch..."
-            git push origin HEAD:bot-execution --force
+            echo "Force pushing commit to bot-execution-fast branch..."
+            git push origin HEAD:bot-execution-fast --force
             echo "Force push successful."
         else
             echo "No changes detected in .log files. Nothing to commit."
