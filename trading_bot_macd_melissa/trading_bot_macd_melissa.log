@@ -13,3 +13,26 @@
 2025-03-30 14:34:19,843 - INFO - BUY Order placed for NVDA
 2025-03-30 14:34:19,843 - INFO - Trading bot executed based on LSTM predictions and MACD analysis.
 2025-03-30 14:34:19,843 - INFO - trading_bot_macd_melissa completed successfully
+
+================================================================================
+=== Log Start: 2025-04-11 22:15:15 ===
+================================================================================
+2025-04-11 22:15:15,817 - INFO - Logger initialized and header written.
+2025-04-11 22:15:15,817 - INFO - Starting trading_bot_macd_melissa
+2025-04-11 22:15:15,817 - INFO - Macd strategy bot trading_bot_macd_melissa initialized with 6 symbols
+2025-04-11 22:15:16,424 - INFO - Starting model training...
+2025-04-11 22:15:25,534 - INFO - Model training completed.
+2025-04-11 22:15:26,292 - INFO - Processing AAPL: ATR: 210.91 | Stop-Loss Distance: 421.83 | Position Size: -1 shares
+2025-04-11 22:15:26,292 - INFO - Predicted Price: 0.28 | Actual Price: 0.35
+2025-04-11 22:15:26,381 - INFO - Processing GOOGL: ATR: 158.63 | Stop-Loss Distance: 317.25 | Position Size: -2 shares
+2025-04-11 22:15:26,381 - INFO - Predicted Price: 0.09 | Actual Price: 0.20
+2025-04-11 22:15:26,472 - INFO - Processing AMZN: ATR: 192.21 | Stop-Loss Distance: 384.42 | Position Size: -1 shares
+2025-04-11 22:15:26,472 - INFO - Predicted Price: 0.21 | Actual Price: 0.29
+2025-04-11 22:15:26,561 - INFO - Processing META: ATR: 578.96 | Stop-Loss Distance: 1157.92 | Position Size: 0 shares
+2025-04-11 22:15:26,561 - INFO - Predicted Price: 0.32 | Actual Price: 0.37
+2025-04-11 22:15:26,650 - INFO - Processing MSFT: ATR: 384.21 | Stop-Loss Distance: 768.42 | Position Size: 0 shares
+2025-04-11 22:15:26,650 - INFO - Predicted Price: 0.14 | Actual Price: 0.30
+2025-04-11 22:15:26,738 - INFO - Processing NVDA: ATR: 110.81 | Stop-Loss Distance: 221.61 | Position Size: -3 shares
+2025-04-11 22:15:26,738 - INFO - Predicted Price: 0.03 | Actual Price: 0.01
+2025-04-11 22:15:26,738 - INFO - Trading bot executed based on ATR, LSTM predictions, and MACD analysis.
+2025-04-11 22:15:26,738 - INFO - trading_bot_macd_melissa completed successfully
