@@ -1,0 +1,16 @@
+
+================================================================================
+=== Log Start: 2025-04-11 15:10:13 ===
+================================================================================
+2025-04-11 15:10:13,205 - INFO - Logger initialized and header written.
+2025-04-11 15:10:13,205 - INFO - Starting trading_bot_llm_sentiment_brian
+2025-04-11 15:10:13,245 - INFO - Trading bot trading_bot_llm_sentiment_brian initialized with symbols: ['AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'NVDA']
+2025-04-11 15:10:13,453 - ERROR - Error running trading_bot_llm_sentiment_brian: [Errno 2] No such file or directory: 'trading_bot_llm_sentiment_brian/data/scaler_AAPL.pkl'
+Traceback (most recent call last):
+  File "/home/runner/work/capstone_ai_trading_bots/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 436, in main
+    signals, positions = bot.get_signals()
+  File "/home/runner/work/capstone_ai_trading_bots/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 284, in get_signals
+    predicted_price = self.predict_todays_closing_price_enriched(symbol)
+  File "/home/runner/work/capstone_ai_trading_bots/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 375, in predict_todays_closing_price_enriched
+    with open(f"{BOT_NAME}/data/scaler_{symbol}.pkl", 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'trading_bot_llm_sentiment_brian/data/scaler_AAPL.pkl'

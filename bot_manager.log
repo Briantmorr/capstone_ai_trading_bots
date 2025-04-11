@@ -187,3 +187,52 @@ TypeError: 'Macd_trading_bot' object is not subscriptable
 2025-04-07 16:32:59,387 - INFO - -------------------------------------
 2025-04-07 16:32:59,387 - INFO - Bot momentum_ml_carlo completed successfully
 2025-04-07 16:32:59,387 - INFO - -------------------------------------
+
+================================================================================
+=== Log Start: 2025-04-11 15:10:09 ===
+================================================================================
+2025-04-11 15:10:09,868 - INFO - Logger initialized and header written.
+2025-04-11 15:10:09,869 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-04-11 15:10:09,869 - INFO - Discovered bot: momentum_bot_carlo
+2025-04-11 15:10:09,869 - INFO - Discovered bot: trading_bot_macd_melissa
+2025-04-11 15:10:09,869 - INFO - Discovered bot: momentum_ml_carlo
+2025-04-11 15:10:09,869 - INFO - Bot Manager initialized with 4 bots
+2025-04-11 15:10:09,869 - INFO - Running all bots (4 total)
+2025-04-11 15:10:09,869 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-04-11 15:10:13,453 - ERROR - Error running bot trading_bot_llm_sentiment_brian: [Errno 2] No such file or directory: 'trading_bot_llm_sentiment_brian/data/scaler_AAPL.pkl'
+Traceback (most recent call last):
+  File "/home/runner/work/capstone_ai_trading_bots/capstone_ai_trading_bots/bot_manager.py", line 104, in run_bot
+    module.main()
+  File "/home/runner/work/capstone_ai_trading_bots/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 436, in main
+    signals, positions = bot.get_signals()
+  File "/home/runner/work/capstone_ai_trading_bots/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 284, in get_signals
+    predicted_price = self.predict_todays_closing_price_enriched(symbol)
+  File "/home/runner/work/capstone_ai_trading_bots/capstone_ai_trading_bots/trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py", line 375, in predict_todays_closing_price_enriched
+    with open(f"{BOT_NAME}/data/scaler_{symbol}.pkl", 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'trading_bot_llm_sentiment_brian/data/scaler_AAPL.pkl'
+2025-04-11 15:10:13,454 - INFO - Running bot: momentum_bot_carlo
+2025-04-11 15:10:13,729 - INFO - -------------------------------------
+2025-04-11 15:10:13,729 - INFO - Bot momentum_bot_carlo completed successfully
+2025-04-11 15:10:13,729 - INFO - -------------------------------------
+2025-04-11 15:10:13,729 - INFO - Running bot: trading_bot_macd_melissa
+2025-04-11 15:10:24,439 - INFO - -------------------------------------
+2025-04-11 15:10:24,439 - INFO - Bot trading_bot_macd_melissa completed successfully
+2025-04-11 15:10:24,439 - INFO - -------------------------------------
+2025-04-11 15:10:24,439 - INFO - Running bot: momentum_ml_carlo
+2025-04-11 15:10:24,609 - ERROR - Error running bot momentum_ml_carlo: type object 'datetime.datetime' has no attribute 'timedelta'
+Traceback (most recent call last):
+  File "/home/runner/work/capstone_ai_trading_bots/capstone_ai_trading_bots/bot_manager.py", line 104, in run_bot
+    module.main()
+  File "/home/runner/work/capstone_ai_trading_bots/capstone_ai_trading_bots/momentum_ml_carlo/momentum_ml_carlo.py", line 300, in main
+    bot.run_strategy()
+  File "/home/runner/work/capstone_ai_trading_bots/capstone_ai_trading_bots/momentum_ml_carlo/momentum_ml_carlo.py", line 208, in run_strategy
+    df = self.get_historical_data(symbol, days=self.lookback_days)
+  File "/home/runner/work/capstone_ai_trading_bots/capstone_ai_trading_bots/momentum_ml_carlo/momentum_ml_carlo.py", line 85, in get_historical_data
+    end = datetime.now() - datetime.timedelta(minutes=20)
+AttributeError: type object 'datetime.datetime' has no attribute 'timedelta'
+2025-04-11 15:10:24,611 - INFO - Bot Execution Summary: 2/4 bots executed successfully
+  - trading_bot_llm_sentiment_brian: Failed
+  - momentum_bot_carlo: Success
+  - trading_bot_macd_melissa: Success
+  - momentum_ml_carlo: Failed
+

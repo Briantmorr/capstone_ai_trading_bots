@@ -79,3 +79,83 @@
 2025-04-07 16:23:01,948 - INFO - Already short on NVDA. No additional short order placed.
 2025-04-07 16:23:01,948 - INFO - Momentum strategy execution completed
 2025-04-07 16:23:01,948 - INFO - momentum_bot_carlo completed successfully
+
+================================================================================
+=== Log Start: 2025-04-11 15:10:13 ===
+================================================================================
+2025-04-11 15:10:13,456 - INFO - Logger initialized and header written.
+2025-04-11 15:10:13,457 - INFO - Starting momentum_bot_carlo
+2025-04-11 15:10:13,457 - INFO - Momentum strategy bot momentum_bot_carlo initialized with 6 symbols
+2025-04-11 15:10:13,457 - INFO - Running momentum strategy...
+2025-04-11 15:10:13,545 - INFO - Position: AAPL, Qty: -68, Market value: $-13178.4
+2025-04-11 15:10:13,545 - INFO - Position: AMZN, Qty: -76, Market value: $-13623.38
+2025-04-11 15:10:13,545 - INFO - Position: GOOGL, Qty: -94, Market value: $-14568.59
+2025-04-11 15:10:13,545 - INFO - Position: META, Qty: -49, Market value: $-26218.43
+2025-04-11 15:10:13,545 - INFO - Position: MSFT, Qty: -39, Market value: $-14923.35
+2025-04-11 15:10:13,545 - INFO - Position: NVDA, Qty: -137, Market value: $-14889.845
+2025-04-11 15:10:13,556 - INFO - Account ID: 647fb3b4-0c43-4547-b847-3ce26d587404
+2025-04-11 15:10:13,556 - INFO - Cash: $204863.39
+2025-04-11 15:10:13,556 - INFO - Portfolio value: $107461.4
+2025-04-11 15:10:13,556 - INFO - Buying power: $286145.76
+2025-04-11 15:10:13,556 - INFO - Analyzing GOOGL...
+2025-04-11 15:10:13,590 - INFO - Retrieved 63 bars for GOOGL
+2025-04-11 15:10:13,590 - INFO - Calculated momentum: -18.89%
+2025-04-11 15:10:13,597 - INFO - Position: AAPL, Qty: -68, Market value: $-13176.7
+2025-04-11 15:10:13,597 - INFO - Position: AMZN, Qty: -76, Market value: $-13623.38
+2025-04-11 15:10:13,598 - INFO - Position: GOOGL, Qty: -94, Market value: $-14568.59
+2025-04-11 15:10:13,598 - INFO - Position: META, Qty: -49, Market value: $-26218.43
+2025-04-11 15:10:13,598 - INFO - Position: MSFT, Qty: -39, Market value: $-14923.35
+2025-04-11 15:10:13,598 - INFO - Position: NVDA, Qty: -137, Market value: $-14889.16
+2025-04-11 15:10:13,598 - INFO - Already short on GOOGL. No additional short order placed.
+2025-04-11 15:10:13,598 - INFO - Analyzing AAPL...
+2025-04-11 15:10:13,613 - INFO - Retrieved 63 bars for AAPL
+2025-04-11 15:10:13,613 - INFO - Calculated momentum: -17.37%
+2025-04-11 15:10:13,621 - INFO - Position: AAPL, Qty: -68, Market value: $-13176.7
+2025-04-11 15:10:13,621 - INFO - Position: AMZN, Qty: -76, Market value: $-13623.38
+2025-04-11 15:10:13,621 - INFO - Position: GOOGL, Qty: -94, Market value: $-14568.59
+2025-04-11 15:10:13,621 - INFO - Position: META, Qty: -49, Market value: $-26218.43
+2025-04-11 15:10:13,621 - INFO - Position: MSFT, Qty: -39, Market value: $-14923.35
+2025-04-11 15:10:13,621 - INFO - Position: NVDA, Qty: -137, Market value: $-14889.16
+2025-04-11 15:10:13,621 - INFO - Already short on AAPL. No additional short order placed.
+2025-04-11 15:10:13,621 - INFO - Analyzing AMZN...
+2025-04-11 15:10:13,637 - INFO - Retrieved 63 bars for AMZN
+2025-04-11 15:10:13,638 - INFO - Calculated momentum: -18.01%
+2025-04-11 15:10:13,645 - INFO - Position: AAPL, Qty: -68, Market value: $-13176.7
+2025-04-11 15:10:13,645 - INFO - Position: AMZN, Qty: -76, Market value: $-13623.38
+2025-04-11 15:10:13,645 - INFO - Position: GOOGL, Qty: -94, Market value: $-14568.59
+2025-04-11 15:10:13,645 - INFO - Position: META, Qty: -49, Market value: $-26218.43
+2025-04-11 15:10:13,645 - INFO - Position: MSFT, Qty: -39, Market value: $-14923.35
+2025-04-11 15:10:13,645 - INFO - Position: NVDA, Qty: -137, Market value: $-14889.16
+2025-04-11 15:10:13,645 - INFO - Already short on AMZN. No additional short order placed.
+2025-04-11 15:10:13,645 - INFO - Analyzing META...
+2025-04-11 15:10:13,664 - INFO - Retrieved 63 bars for META
+2025-04-11 15:10:13,664 - INFO - Calculated momentum: -12.10%
+2025-04-11 15:10:13,671 - INFO - Position: AAPL, Qty: -68, Market value: $-13176.7
+2025-04-11 15:10:13,671 - INFO - Position: AMZN, Qty: -76, Market value: $-13623.38
+2025-04-11 15:10:13,671 - INFO - Position: GOOGL, Qty: -94, Market value: $-14568.59
+2025-04-11 15:10:13,671 - INFO - Position: META, Qty: -49, Market value: $-26218.43
+2025-04-11 15:10:13,671 - INFO - Position: MSFT, Qty: -39, Market value: $-14923.35
+2025-04-11 15:10:13,671 - INFO - Position: NVDA, Qty: -137, Market value: $-14890.53
+2025-04-11 15:10:13,671 - INFO - Already short on META. No additional short order placed.
+2025-04-11 15:10:13,671 - INFO - Analyzing MSFT...
+2025-04-11 15:10:13,692 - INFO - Retrieved 63 bars for MSFT
+2025-04-11 15:10:13,692 - INFO - Calculated momentum: -8.36%
+2025-04-11 15:10:13,700 - INFO - Position: AAPL, Qty: -68, Market value: $-13176.7
+2025-04-11 15:10:13,700 - INFO - Position: AMZN, Qty: -76, Market value: $-13623.38
+2025-04-11 15:10:13,700 - INFO - Position: GOOGL, Qty: -94, Market value: $-14568.59
+2025-04-11 15:10:13,700 - INFO - Position: META, Qty: -49, Market value: $-26218.43
+2025-04-11 15:10:13,700 - INFO - Position: MSFT, Qty: -39, Market value: $-14923.35
+2025-04-11 15:10:13,700 - INFO - Position: NVDA, Qty: -137, Market value: $-14889.16
+2025-04-11 15:10:13,700 - INFO - Already short on MSFT. No additional short order placed.
+2025-04-11 15:10:13,700 - INFO - Analyzing NVDA...
+2025-04-11 15:10:13,720 - INFO - Retrieved 63 bars for NVDA
+2025-04-11 15:10:13,720 - INFO - Calculated momentum: -18.48%
+2025-04-11 15:10:13,728 - INFO - Position: AAPL, Qty: -68, Market value: $-13176.7
+2025-04-11 15:10:13,728 - INFO - Position: AMZN, Qty: -76, Market value: $-13623.38
+2025-04-11 15:10:13,728 - INFO - Position: GOOGL, Qty: -94, Market value: $-14568.59
+2025-04-11 15:10:13,728 - INFO - Position: META, Qty: -49, Market value: $-26218.43
+2025-04-11 15:10:13,728 - INFO - Position: MSFT, Qty: -39, Market value: $-14923.35
+2025-04-11 15:10:13,728 - INFO - Position: NVDA, Qty: -137, Market value: $-14889.16
+2025-04-11 15:10:13,728 - INFO - Already short on NVDA. No additional short order placed.
+2025-04-11 15:10:13,728 - INFO - Momentum strategy execution completed
+2025-04-11 15:10:13,728 - INFO - momentum_bot_carlo completed successfully
