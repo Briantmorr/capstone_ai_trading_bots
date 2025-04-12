@@ -76,6 +76,25 @@ List registered bots
 ```bash
 python bot_manager.py --list
 ```
+currently returns 
+```
+2025-04-12 13:33:53,541 - bot_manager - INFO - Logger initialized and header written.
+2025-04-12 13:33:53,541 - bot_manager - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-04-12 13:33:53,541 - bot_manager - INFO - Discovered bot: momentum_bot_carlo
+2025-04-12 13:33:53,541 - bot_manager - INFO - Discovered bot: trading_bot_macd_melissa
+2025-04-12 13:33:53,541 - bot_manager - INFO - Discovered bot: momentum_ml_carlo
+2025-04-12 13:33:53,541 - bot_manager - INFO - Bot Manager initialized with 4 bots
+Registered bots (4):
+  trading_bot_llm_sentiment_brian
+    Path: trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py
+  momentum_bot_carlo
+    Path: momentum_bot_carlo/momentum_bot_carlo.py
+  trading_bot_macd_melissa
+    Path: trading_bot_macd_melissa/trading_bot_macd_melissa.py
+  momentum_ml_carlo
+    Path: momentum_ml_carlo/momentum_ml_carlo.py
+(capstone_ai_trading_bots) 
+```
 Run a specific bot
 ```bash
 python bot_manager.py --run trading_bot_llm_sentiment_brian
@@ -108,9 +127,10 @@ Bot Manager Log:
 bot_manager.log in the project root records overall execution details.
 
 Automated Git Push:
-After each scheduled run, the workflow automatically commits and pushes updated log files to the bot-execution branch.
+After each scheduled run, the workflow automatically commits and pushes updated log files to the bot-execution branch. Logs are ephemeral (lasting 1 day)
 
 ---
+
 ### Disclaimer
 This trading bot framework is provided for educational purposes only. Trading involves significant risk, and algorithmic trading introduces additional technical complexities. Always test with paper trading accounts before risking real capital.
 

@@ -82,7 +82,7 @@ class MomentumStrategy:
         """Fetch historical daily bar data for a given symbol."""
         if days is None:
             days = self.lookback_days
-        end = datetime.now() - datetime.timedelta(minutes=20)
+        end = datetime.now() - timedelta(minutes=20)
         start = end - timedelta(days=days)
         
         request_params = StockBarsRequest(

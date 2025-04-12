@@ -13,3 +13,49 @@
 2025-03-30 14:34:19,843 - INFO - BUY Order placed for NVDA
 2025-03-30 14:34:19,843 - INFO - Trading bot executed based on LSTM predictions and MACD analysis.
 2025-03-30 14:34:19,843 - INFO - trading_bot_macd_melissa completed successfully
+
+================================================================================
+=== Log Start: 2025-04-12 13:36:05 ===
+================================================================================
+2025-04-12 13:36:05,643 - INFO - Logger initialized and header written.
+2025-04-12 13:36:05,644 - INFO - Starting trading_bot_macd_melissa
+2025-04-12 13:36:05,644 - INFO - Macd strategy bot trading_bot_macd_melissa initialized with 6 symbols
+2025-04-12 13:36:06,254 - INFO - Starting model training...
+2025-04-12 13:36:11,881 - INFO - Model training completed.
+2025-04-12 13:36:12,400 - INFO - Processing AAPL: ATR: 210.91 | Stop-Loss Distance: 421.83 | Position Size: -1 shares
+2025-04-12 13:36:12,400 - INFO - Predicted Price: 0.28 | Actual Price: 0.35
+2025-04-12 13:36:12,447 - INFO - Processing GOOGL: ATR: 158.63 | Stop-Loss Distance: 317.25 | Position Size: -2 shares
+2025-04-12 13:36:12,447 - INFO - Predicted Price: 0.09 | Actual Price: 0.20
+2025-04-12 13:36:12,494 - INFO - Processing AMZN: ATR: 192.21 | Stop-Loss Distance: 384.42 | Position Size: -1 shares
+2025-04-12 13:36:12,494 - INFO - Predicted Price: 0.21 | Actual Price: 0.29
+2025-04-12 13:36:12,540 - INFO - Processing META: ATR: 578.96 | Stop-Loss Distance: 1157.92 | Position Size: 0 shares
+2025-04-12 13:36:12,540 - INFO - Predicted Price: 0.32 | Actual Price: 0.37
+2025-04-12 13:36:12,583 - INFO - Processing MSFT: ATR: 384.21 | Stop-Loss Distance: 768.42 | Position Size: 0 shares
+2025-04-12 13:36:12,583 - INFO - Predicted Price: 0.14 | Actual Price: 0.30
+2025-04-12 13:36:12,628 - INFO - Processing NVDA: ATR: 110.81 | Stop-Loss Distance: 221.61 | Position Size: -3 shares
+2025-04-12 13:36:12,628 - INFO - Predicted Price: 0.01 | Actual Price: 0.01
+2025-04-12 13:36:12,628 - INFO - Trading bot executed based on ATR, LSTM predictions, and MACD analysis.
+2025-04-12 13:36:12,628 - INFO - trading_bot_macd_melissa completed successfully
+
+================================================================================
+=== Log Start: 2025-04-12 13:37:32 ===
+================================================================================
+2025-04-12 13:37:32,318 - INFO - Logger initialized and header written.
+2025-04-12 13:37:32,319 - INFO - Starting trading_bot_macd_melissa
+2025-04-12 13:37:32,319 - INFO - Macd strategy bot trading_bot_macd_melissa initialized with 6 symbols
+2025-04-12 13:37:32,891 - INFO - Starting model training...
+2025-04-12 13:37:38,432 - INFO - Model training completed.
+2025-04-12 13:37:38,899 - INFO - Processing AAPL: ATR: 210.91 | Stop-Loss Distance: 421.83 | Position Size: -1 shares
+2025-04-12 13:37:38,900 - INFO - Predicted Price: 0.28 | Actual Price: 0.35
+2025-04-12 13:37:38,946 - INFO - Processing GOOGL: ATR: 158.63 | Stop-Loss Distance: 317.25 | Position Size: -2 shares
+2025-04-12 13:37:38,946 - INFO - Predicted Price: 0.09 | Actual Price: 0.20
+2025-04-12 13:37:38,994 - INFO - Processing AMZN: ATR: 192.21 | Stop-Loss Distance: 384.42 | Position Size: -1 shares
+2025-04-12 13:37:38,994 - INFO - Predicted Price: 0.22 | Actual Price: 0.29
+2025-04-12 13:37:39,039 - INFO - Processing META: ATR: 578.96 | Stop-Loss Distance: 1157.92 | Position Size: 0 shares
+2025-04-12 13:37:39,039 - INFO - Predicted Price: 0.33 | Actual Price: 0.37
+2025-04-12 13:37:39,084 - INFO - Processing MSFT: ATR: 384.21 | Stop-Loss Distance: 768.42 | Position Size: 0 shares
+2025-04-12 13:37:39,084 - INFO - Predicted Price: 0.13 | Actual Price: 0.30
+2025-04-12 13:37:39,128 - INFO - Processing NVDA: ATR: 110.81 | Stop-Loss Distance: 221.61 | Position Size: -3 shares
+2025-04-12 13:37:39,128 - INFO - Predicted Price: -0.00 | Actual Price: 0.01
+2025-04-12 13:37:39,128 - INFO - Trading bot executed based on ATR, LSTM predictions, and MACD analysis.
+2025-04-12 13:37:39,128 - INFO - trading_bot_macd_melissa completed successfully

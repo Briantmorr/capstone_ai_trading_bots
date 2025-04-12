@@ -16,8 +16,17 @@ def get_bot_logger(bot_name: str) -> logging.Logger:
     Returns:
         logging.Logger: Configured logger for the bot.
     """
-    # Use current working directory if no log_dir provided
-    log_dir = Path.cwd()
+    # Determine the root directory of the project
+    root_marker = 'bot_manager.py'  # or any specific file that indicates the root
+    root_dir = Path.cwd()
+
+    # Traverse up to find the root directory
+    while not (root_dir / root_marker).exists() and root_dir != root_dir.parent:
+        root_dir = root_dir.parent
+
+    # Use the root directory as the log directory
+    log_dir = root_dir
+
     if bot_name == 'bot_manager':
         log_file = f"{log_dir}/{bot_name}.log"
     else: 

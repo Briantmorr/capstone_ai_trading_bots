@@ -1,0 +1,52 @@
+
+================================================================================
+=== Log Start: 2025-04-12 13:37:39 ===
+================================================================================
+2025-04-12 13:37:39,475 - INFO - Logger initialized and header written.
+2025-04-12 13:37:39,475 - INFO - Starting momentum_ml_carlo
+2025-04-12 13:37:39,475 - INFO - Optimized Momentum strategy bot momentum_ml_carlo initialized with 6 symbols
+2025-04-12 13:37:39,475 - INFO - Running optimized momentum strategy...
+2025-04-12 13:37:39,786 - INFO - Market is closed according to Alpaca. Running in simulation mode.
+2025-04-12 13:37:39,869 - INFO - Position: AMZN, Qty: 84, Market Value: $15529.08
+2025-04-12 13:37:39,957 - INFO - Account ID: 1a9647ec-da17-4d78-b173-d7cc4ced6608
+2025-04-12 13:37:39,958 - INFO - Cash: $83257.75
+2025-04-12 13:37:39,958 - INFO - Portfolio value: $98786.83
+2025-04-12 13:37:39,958 - INFO - Buying power: $182044.58
+2025-04-12 13:37:39,958 - INFO - Analyzing GOOGL...
+2025-04-12 13:37:40,294 - INFO - Retrieved 342 bars for GOOGL
+2025-04-12 13:37:40,295 - INFO - Calculated normalized momentum: 4.01
+2025-04-12 13:37:40,438 - INFO - Calculated normalized momentum: 4.01
+2025-04-12 13:37:40,442 - INFO - Corrective AI probability for GOOGL: 0.41
+2025-04-12 13:37:40,443 - INFO - No valid trade signal for GOOGL: normalized momentum 4.01, probability 0.41
+2025-04-12 13:37:40,443 - INFO - Analyzing AAPL...
+2025-04-12 13:37:40,541 - INFO - Retrieved 342 bars for AAPL
+2025-04-12 13:37:40,542 - INFO - Calculated normalized momentum: 12.34
+2025-04-12 13:37:40,666 - INFO - Calculated normalized momentum: 12.34
+2025-04-12 13:37:40,670 - INFO - Corrective AI probability for AAPL: 0.50
+2025-04-12 13:37:40,670 - INFO - No valid trade signal for AAPL: normalized momentum 12.34, probability 0.50
+2025-04-12 13:37:40,670 - INFO - Analyzing AMZN...
+2025-04-12 13:37:40,764 - INFO - Retrieved 342 bars for AMZN
+2025-04-12 13:37:40,765 - INFO - Calculated normalized momentum: 4.85
+2025-04-12 13:37:40,891 - INFO - Calculated normalized momentum: 4.85
+2025-04-12 13:37:40,895 - INFO - Corrective AI probability for AMZN: 0.67
+2025-04-12 13:37:40,991 - INFO - Position: AMZN, Qty: 84, Market Value: $15529.08
+2025-04-12 13:37:40,991 - INFO - Analyzing META...
+2025-04-12 13:37:41,141 - INFO - Retrieved 342 bars for META
+2025-04-12 13:37:41,141 - INFO - Calculated normalized momentum: 10.59
+2025-04-12 13:37:41,278 - INFO - Calculated normalized momentum: 10.59
+2025-04-12 13:37:41,283 - INFO - Corrective AI probability for META: 0.55
+2025-04-12 13:37:41,283 - INFO - No valid trade signal for META: normalized momentum 10.59, probability 0.55
+2025-04-12 13:37:41,283 - INFO - Analyzing MSFT...
+2025-04-12 13:37:41,379 - INFO - Retrieved 342 bars for MSFT
+2025-04-12 13:37:41,380 - INFO - Calculated normalized momentum: -5.19
+2025-04-12 13:37:41,503 - INFO - Calculated normalized momentum: -5.19
+2025-04-12 13:37:41,507 - INFO - Corrective AI probability for MSFT: 0.60
+2025-04-12 13:37:41,507 - INFO - No valid trade signal for MSFT: normalized momentum -5.19, probability 0.60
+2025-04-12 13:37:41,508 - INFO - Analyzing NVDA...
+2025-04-12 13:37:41,604 - INFO - Retrieved 342 bars for NVDA
+2025-04-12 13:37:41,604 - INFO - Calculated normalized momentum: -20.19
+2025-04-12 13:37:41,728 - INFO - Calculated normalized momentum: -20.19
+2025-04-12 13:37:41,732 - INFO - Corrective AI probability for NVDA: 0.94
+2025-04-12 13:37:41,733 - INFO - No valid trade signal for NVDA: normalized momentum -20.19, probability 0.94
+2025-04-12 13:37:41,733 - INFO - Optimized momentum strategy execution completed.
+2025-04-12 13:37:41,733 - INFO - momentum_ml_carlo completed successfully
