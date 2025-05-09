@@ -221,3 +221,36 @@ TypeError: 'Macd_trading_bot' object is not subscriptable
   - trading_bot_macd_melissa: Success
   - momentum_ml_carlo: Success
 
+
+================================================================================
+=== Log Start: 2025-05-09 15:09:59 ===
+================================================================================
+2025-05-09 15:09:59,065 - INFO - Logger initialized and header written.
+2025-05-09 15:09:59,065 - INFO - Discovered bot: trading_bot_llm_sentiment_brian
+2025-05-09 15:09:59,065 - INFO - Discovered bot: momentum_bot_carlo
+2025-05-09 15:09:59,065 - INFO - Discovered bot: trading_bot_macd_melissa
+2025-05-09 15:09:59,066 - INFO - Discovered bot: momentum_ml_carlo
+2025-05-09 15:09:59,066 - INFO - Bot Manager initialized with 4 bots
+2025-05-09 15:09:59,066 - INFO - Running all bots (4 total)
+2025-05-09 15:09:59,066 - INFO - Running bot: trading_bot_llm_sentiment_brian
+2025-05-09 15:10:06,663 - INFO - -------------------------------------
+2025-05-09 15:10:06,663 - INFO - Bot trading_bot_llm_sentiment_brian completed successfully
+2025-05-09 15:10:06,664 - INFO - -------------------------------------
+2025-05-09 15:10:06,664 - INFO - Running bot: momentum_bot_carlo
+2025-05-09 15:10:07,000 - INFO - -------------------------------------
+2025-05-09 15:10:07,000 - INFO - Bot momentum_bot_carlo completed successfully
+2025-05-09 15:10:07,000 - INFO - -------------------------------------
+2025-05-09 15:10:07,000 - INFO - Running bot: trading_bot_macd_melissa
+2025-05-09 15:10:17,607 - INFO - -------------------------------------
+2025-05-09 15:10:17,607 - INFO - Bot trading_bot_macd_melissa completed successfully
+2025-05-09 15:10:17,607 - INFO - -------------------------------------
+2025-05-09 15:10:17,607 - INFO - Running bot: momentum_ml_carlo
+2025-05-09 15:10:20,157 - INFO - -------------------------------------
+2025-05-09 15:10:20,157 - INFO - Bot momentum_ml_carlo completed successfully
+2025-05-09 15:10:20,157 - INFO - -------------------------------------
+2025-05-09 15:10:20,157 - INFO - Bot Execution Summary: 4/4 bots executed successfully
+  - trading_bot_llm_sentiment_brian: Success
+  - momentum_bot_carlo: Success
+  - trading_bot_macd_melissa: Success
+  - momentum_ml_carlo: Success
+
