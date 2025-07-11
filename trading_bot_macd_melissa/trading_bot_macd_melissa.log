@@ -59,3 +59,26 @@
 2025-04-12 13:37:39,128 - INFO - Predicted Price: -0.00 | Actual Price: 0.01
 2025-04-12 13:37:39,128 - INFO - Trading bot executed based on ATR, LSTM predictions, and MACD analysis.
 2025-04-12 13:37:39,128 - INFO - trading_bot_macd_melissa completed successfully
+
+================================================================================
+=== Log Start: 2025-07-11 15:10:48 ===
+================================================================================
+2025-07-11 15:10:48,642 - INFO - Logger initialized and header written.
+2025-07-11 15:10:48,642 - INFO - Starting trading_bot_macd_melissa
+2025-07-11 15:10:48,642 - INFO - Macd strategy bot trading_bot_macd_melissa initialized with 6 symbols
+2025-07-11 15:10:48,888 - INFO - Starting model training...
+2025-07-11 15:10:58,814 - INFO - Model training completed.
+2025-07-11 15:10:59,443 - INFO - Processing AAPL: ATR: 208.57 | Stop-Loss Distance: 417.14 | Position Size: -1 shares
+2025-07-11 15:10:59,443 - INFO - Predicted Price: 0.49 | Actual Price: 0.44
+2025-07-11 15:10:59,539 - INFO - Processing GOOGL: ATR: 175.95 | Stop-Loss Distance: 351.91 | Position Size: -2 shares
+2025-07-11 15:10:59,539 - INFO - Predicted Price: 0.58 | Actual Price: 0.55
+2025-07-11 15:10:59,628 - INFO - Processing AMZN: ATR: 220.30 | Stop-Loss Distance: 440.60 | Position Size: -1 shares
+2025-07-11 15:10:59,628 - INFO - Predicted Price: 0.77 | Actual Price: 0.78
+2025-07-11 15:10:59,720 - INFO - Processing META: ATR: 725.92 | Stop-Loss Distance: 1451.83 | Position Size: 0 shares
+2025-07-11 15:10:59,720 - INFO - Predicted Price: 0.94 | Actual Price: 0.93
+2025-07-11 15:10:59,814 - INFO - Processing MSFT: ATR: 497.27 | Stop-Loss Distance: 994.54 | Position Size: 0 shares
+2025-07-11 15:10:59,814 - INFO - Predicted Price: 0.95 | Actual Price: 0.99
+2025-07-11 15:10:59,905 - INFO - Processing NVDA: ATR: 157.25 | Stop-Loss Distance: 314.51 | Position Size: -2 shares
+2025-07-11 15:10:59,905 - INFO - Predicted Price: 0.94 | Actual Price: 1.00
+2025-07-11 15:10:59,905 - INFO - Trading bot executed based on ATR, LSTM predictions, and MACD analysis.
+2025-07-11 15:10:59,905 - INFO - trading_bot_macd_melissa completed successfully

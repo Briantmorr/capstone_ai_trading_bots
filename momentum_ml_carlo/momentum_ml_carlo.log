@@ -50,3 +50,60 @@
 2025-04-12 13:37:41,733 - INFO - No valid trade signal for NVDA: normalized momentum -20.19, probability 0.94
 2025-04-12 13:37:41,733 - INFO - Optimized momentum strategy execution completed.
 2025-04-12 13:37:41,733 - INFO - momentum_ml_carlo completed successfully
+
+================================================================================
+=== Log Start: 2025-07-11 15:10:59 ===
+================================================================================
+2025-07-11 15:10:59,976 - INFO - Logger initialized and header written.
+2025-07-11 15:10:59,976 - INFO - Starting momentum_ml_carlo
+2025-07-11 15:10:59,977 - INFO - Optimized Momentum strategy bot momentum_ml_carlo initialized with 6 symbols
+2025-07-11 15:10:59,977 - INFO - Running optimized momentum strategy...
+2025-07-11 15:11:00,039 - INFO - Market is open.
+2025-07-11 15:11:00,128 - INFO - Position: AMZN, Qty: 57, Market Value: $12797.07
+2025-07-11 15:11:00,128 - INFO - Position: META, Qty: 20, Market Value: $14337.1
+2025-07-11 15:11:00,136 - INFO - Account ID: 1a9647ec-da17-4d78-b173-d7cc4ced6608
+2025-07-11 15:11:00,136 - INFO - Cash: $72332.3
+2025-07-11 15:11:00,136 - INFO - Portfolio value: $99466.47
+2025-07-11 15:11:00,136 - INFO - Buying power: $171798.77
+2025-07-11 15:11:00,136 - INFO - Analyzing GOOGL...
+2025-07-11 15:11:00,186 - INFO - Retrieved 343 bars for GOOGL
+2025-07-11 15:11:00,187 - INFO - Calculated normalized momentum: -3.55
+2025-07-11 15:11:00,500 - INFO - Calculated normalized momentum: -3.55
+2025-07-11 15:11:00,513 - INFO - Corrective AI probability for GOOGL: 0.67
+2025-07-11 15:11:00,514 - INFO - No valid trade signal for GOOGL: normalized momentum -3.55, probability 0.67
+2025-07-11 15:11:00,514 - INFO - Analyzing AAPL...
+2025-07-11 15:11:00,541 - INFO - Retrieved 343 bars for AAPL
+2025-07-11 15:11:00,541 - INFO - Calculated normalized momentum: -8.16
+2025-07-11 15:11:00,857 - INFO - Calculated normalized momentum: -8.16
+2025-07-11 15:11:00,869 - INFO - Corrective AI probability for AAPL: 0.29
+2025-07-11 15:11:00,870 - INFO - No valid trade signal for AAPL: normalized momentum -8.16, probability 0.29
+2025-07-11 15:11:00,870 - INFO - Analyzing AMZN...
+2025-07-11 15:11:00,894 - INFO - Retrieved 343 bars for AMZN
+2025-07-11 15:11:00,895 - INFO - Calculated normalized momentum: 0.60
+2025-07-11 15:11:01,208 - INFO - Calculated normalized momentum: 0.60
+2025-07-11 15:11:01,220 - INFO - Corrective AI probability for AMZN: 0.74
+2025-07-11 15:11:01,221 - INFO - Liquidating LONG position for AMZN due to momentum reversal or stop loss.
+2025-07-11 15:11:01,240 - INFO - Order placed: sell 57.0 shares of AMZN. Order ID: e7914b67-91fd-4a2a-8c7f-d3d6c190fcee
+2025-07-11 15:11:01,248 - INFO - Position: AMZN, Qty: 57, Market Value: $12796.5
+2025-07-11 15:11:01,249 - INFO - Position: META, Qty: 20, Market Value: $14337.1
+2025-07-11 15:11:01,249 - INFO - Analyzing META...
+2025-07-11 15:11:01,274 - INFO - Retrieved 343 bars for META
+2025-07-11 15:11:01,275 - INFO - Calculated normalized momentum: 9.98
+2025-07-11 15:11:01,589 - INFO - Calculated normalized momentum: 9.98
+2025-07-11 15:11:01,601 - INFO - Corrective AI probability for META: 0.78
+2025-07-11 15:11:01,611 - INFO - Position: AMZN, Qty: 46, Market Value: $10327
+2025-07-11 15:11:01,611 - INFO - Position: META, Qty: 20, Market Value: $14337.1
+2025-07-11 15:11:01,611 - INFO - Analyzing MSFT...
+2025-07-11 15:11:01,635 - INFO - Retrieved 343 bars for MSFT
+2025-07-11 15:11:01,636 - INFO - Calculated normalized momentum: -2.72
+2025-07-11 15:11:01,949 - INFO - Calculated normalized momentum: -2.72
+2025-07-11 15:11:01,961 - INFO - Corrective AI probability for MSFT: 0.87
+2025-07-11 15:11:01,962 - INFO - No valid trade signal for MSFT: normalized momentum -2.72, probability 0.87
+2025-07-11 15:11:01,962 - INFO - Analyzing NVDA...
+2025-07-11 15:11:01,990 - INFO - Retrieved 343 bars for NVDA
+2025-07-11 15:11:01,991 - INFO - Calculated normalized momentum: -2.82
+2025-07-11 15:11:02,307 - INFO - Calculated normalized momentum: -2.82
+2025-07-11 15:11:02,319 - INFO - Corrective AI probability for NVDA: 0.99
+2025-07-11 15:11:02,320 - INFO - No valid trade signal for NVDA: normalized momentum -2.82, probability 0.99
+2025-07-11 15:11:02,320 - INFO - Optimized momentum strategy execution completed.
+2025-07-11 15:11:02,320 - INFO - momentum_ml_carlo completed successfully
