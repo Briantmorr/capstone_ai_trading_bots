@@ -28,8 +28,10 @@ Deliver a spec-driven trading prototype with 3 bots that run through the same fr
   - deterministic replay engine with configurable fees/slippage and next-bar-open fills
 - `trading_system/data/market_data.py`
   - CSV-backed historical data ingestion and causal snapshot construction
+- `trading_system/data/alpaca_market_data.py`
+  - Alpaca historical market data sync that persists bars into the local CSV store
 - `trading_system/execution/alpaca.py`
-  - Alpaca paper adapter and a dry-run executor with attribution hooks
+  - Alpaca paper adapter, stdlib REST fallback, and bot-scoped account/order/position reconciliation
 - `trading_system/storage/attribution.py`
   - SQLite mapping between bot/run/client order ids and broker order ids
 - `trading_system/reporting/artifacts.py`
@@ -51,6 +53,25 @@ Historical replay now follows these rules:
 
 This makes the current backtest path timestamp-safe enough for milestone validation and regression testing.
 
+## Historical market data sync
+
+The repo now supports a real provider-backed refresh path:
+- source: Alpaca historical stock bars API
+- transport: `alpaca-py` if available for trading, stdlib HTTPS for historical sync/reconciliation paths
+- storage target: local CSVs under `data/historical/daily/`
+- usage: `python bot_manager.py --sync-historical SPY QQQ AAPL MSFT NVDA --start 2025-01-01`
+
+This keeps backtests and dry-runs grounded on locally materialized data while still allowing periodic refresh from a broker-supported source.
+
+## Paper execution + reconciliation semantics
+
+Paper execution now follows these rules:
+- submitted orders always carry stable per-order `client_order_id`s with bot prefixes
+- submissions are persisted in the local attribution store before/with broker reconciliation context
+- pre-trade portfolio context is built from current Alpaca account + positions filtered through bot attribution and universe membership
+- post-submit reconciliation fetches Alpaca account, orders, and positions and writes a bot-scoped summary for downstream leaderboard/UI work
+- this gives the backend a consistent contract even when the paper account is shared across bots
+
 ## Artifact contract
 
 Each run writes under `artifacts/<run_id>/`:
@@ -59,6 +80,7 @@ Each run writes under `artifacts/<run_id>/`:
 - `trade_log.json`
 - `leaderboard_snapshot.json`
 - `run_manifest.json`
+- `paper_run.json` for paper-mode submissions and reconciliation payloads
 
 ## Leaderboard snapshot contract
 
@@ -79,6 +101,7 @@ Each run writes under `artifacts/<run_id>/`:
 ### 2. pead_drift
 - cadence: event-driven / daily event scan
 - idea: react to earnings-style event surprises using delayed continuation rules, with timestamp-safe event handling
+- current provider status: fixture/interface only; no live earnings feed wired yet
 
 ### 3. intraday_mean_reversion
 - cadence: hourly
@@ -97,6 +120,7 @@ Local artifact outputs should include:
 - `artifacts/<run_id>/decisions.json`
 - `artifacts/<run_id>/metrics.json`
 - `artifacts/<run_id>/leaderboard_snapshot.json`
+- `artifacts/<run_id>/paper_run.json`
 
 ## Backtest semantics
 

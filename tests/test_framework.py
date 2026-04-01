@@ -1,12 +1,15 @@
+import tempfile
 import unittest
 from datetime import datetime
 from pathlib import Path
 
 from trading_system.core.backtest import BacktestConfig, BacktestEngine
 from trading_system.core.bot import BaseStrategyBot, BotContext
-from trading_system.core.contracts import Bar, Decision, Event, MarketSnapshot, PortfolioState, RunResult, Mode, OrderSide
+from trading_system.core.contracts import Bar, Decision, Event, MarketSnapshot, Mode, OrderSide, PortfolioState, RunResult
 from trading_system.core.risk import RiskLimits, RiskManager
+from trading_system.data.alpaca_market_data import AlpacaHistoricalDataSource
 from trading_system.data.market_data import CsvHistoricalDataSource, build_market_snapshots
+from trading_system.execution.alpaca import AlpacaConfig, AlpacaPaperExecutor
 from trading_system.leaderboard.snapshot import leaderboard_snapshot
 from trading_system.reporting.artifacts import persist_run_artifacts
 from trading_system.storage.attribution import AttributionRecord, AttributionStore
@@ -37,6 +40,45 @@ class HistoryInspectBot(BaseStrategyBot):
                 )
             ]
         return []
+
+
+class StubAlpacaExecutor(AlpacaPaperExecutor):
+    def __init__(self, attribution_store=None, run_id="paper-test"):
+        self.config = AlpacaConfig()
+        self.run_id = run_id
+        self.attribution_store = attribution_store
+        self._sdk_client = None
+        self._key = "test"
+        self._secret = "test"
+
+    def get_account(self):
+        return {"id": "acct-1", "status": "ACTIVE", "currency": "USD", "equity": "101000", "cash": "85000", "buying_power": "200000", "portfolio_value": "101000"}
+
+    def get_positions(self):
+        return [
+            {"symbol": "AAPL", "qty": "10", "avg_entry_price": "150", "current_price": "160", "market_value": "1600", "unrealized_pl": "100", "side": "long"},
+            {"symbol": "MSFT", "qty": "5", "avg_entry_price": "300", "current_price": "310", "market_value": "1550", "unrealized_pl": "50", "side": "long"},
+        ]
+
+    def get_orders(self, status="all"):
+        return [
+            {"id": "alp-1", "client_order_id": "client-123", "symbol": "AAPL", "status": "filled", "side": "buy", "qty": "10", "filled_qty": "10", "filled_avg_price": "151"},
+            {"id": "alp-2", "client_order_id": "other-bot-1", "symbol": "MSFT", "status": "new", "side": "buy", "qty": "5", "filled_qty": "0", "filled_avg_price": None},
+        ]
+
+    def execute(self, decisions):
+        return []
+
+
+class StubHistoricalSource(AlpacaHistoricalDataSource):
+    def __init__(self):
+        super().__init__()
+
+    def fetch_bars(self, symbol: str, start: str, end: str = None):
+        return [
+            Bar(symbol=symbol, timestamp=datetime(2026, 1, 1), open=100, high=101, low=99, close=100.5, volume=1000),
+            Bar(symbol=symbol, timestamp=datetime(2026, 1, 2), open=101, high=102, low=100, close=101.5, volume=1100),
+        ]
 
 
 class FrameworkTests(unittest.TestCase):
@@ -84,6 +126,17 @@ class FrameworkTests(unittest.TestCase):
         self.assertEqual(snapshots[1].history["AAPL"][-1].close, 101.0)
         self.assertEqual(snapshots[2].bars["AAPL"].close, 105.0)
 
+    def test_alpaca_sync_writes_csv(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            source = StubHistoricalSource()
+            counts = source.sync_bars(symbols=["AAPL"], output_dir=tmp, start="2026-01-01")
+            self.assertEqual(counts["AAPL"], 2)
+            path = Path(tmp) / "AAPL.csv"
+            self.assertTrue(path.exists())
+            contents = path.read_text()
+            self.assertIn("timestamp,open,high,low,close,volume", contents)
+            self.assertIn("2026-01-02,101,102,100,101.5,1100", contents)
+
     def test_backtest_uses_next_bar_open_fill_and_no_future_history(self):
         bars_by_symbol = CsvHistoricalDataSource(FIXTURES).load_bars(["AAPL"])
         snapshots = build_market_snapshots(bars_by_symbol, lookback_bars=10)
@@ -105,11 +158,8 @@ class FrameworkTests(unittest.TestCase):
 
     def test_artifact_generation_persists_expected_files(self):
         with self.subTest("artifact persistence"):
-            import tempfile
-            from pathlib import Path as _Path
-
             with tempfile.TemporaryDirectory() as tmp:
-                base = _Path(tmp)
+                base = Path(tmp)
                 result = RunResult(bot_name="a", mode=Mode.BACKTEST, decisions=[], fills=[], metrics={"ending_equity": 110_000, "trade_count": 2})
                 snapshot = leaderboard_snapshot([result], run_id="run-123")
                 artifact_dir = persist_run_artifacts(base, "run-123", result, snapshot)
@@ -120,11 +170,8 @@ class FrameworkTests(unittest.TestCase):
                 self.assertTrue((artifact_dir / "run_manifest.json").exists())
 
     def test_attribution_store_records_and_reads_orders(self):
-        import tempfile
-        from pathlib import Path as _Path
-
         with tempfile.TemporaryDirectory() as tmp:
-            store = AttributionStore(_Path(tmp) / "attribution.sqlite3")
+            store = AttributionStore(Path(tmp) / "attribution.sqlite3")
             store.record(
                 AttributionRecord(
                     run_id="run-1",
@@ -144,6 +191,34 @@ class FrameworkTests(unittest.TestCase):
             self.assertEqual(len(rows), 1)
             self.assertEqual(rows[0]["client_order_id"], "client-123")
             self.assertEqual(rows[0]["broker_order_id"], "broker-456")
+
+    def test_paper_reconciliation_uses_account_positions_orders_and_attribution(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            store = AttributionStore(Path(tmp) / "attribution.sqlite3")
+            store.record(
+                AttributionRecord(
+                    run_id="paper-1",
+                    bot_name="momentum_volatility",
+                    symbol="AAPL",
+                    broker="alpaca",
+                    submitted_at=datetime(2026, 1, 2, 9, 30),
+                    client_order_id="client-123",
+                    broker_order_id="alp-1",
+                    status="filled",
+                    side="buy",
+                    qty=10,
+                    metadata={"reason": "ranked"},
+                )
+            )
+            executor = StubAlpacaExecutor(attribution_store=store, run_id="paper-1")
+            payload = executor.reconcile_state(bot_name="momentum_volatility", universe=["AAPL", "NVDA"], run_id="paper-1")
+            portfolio = executor.portfolio_state_from_reconciliation(bot_name="momentum_volatility", universe=["AAPL", "NVDA"], run_id="paper-1")
+            self.assertEqual(payload["bot"]["reconciled_order_count"], 1)
+            self.assertEqual(payload["bot"]["open_position_count"], 1)
+            self.assertEqual(payload["bot"]["positions"][0]["symbol"], "AAPL")
+            self.assertIn("AAPL", portfolio.positions)
+            self.assertEqual(portfolio.positions["AAPL"].qty, 10.0)
+            self.assertEqual(portfolio.equity, 101000.0)
 
     def test_leaderboard_snapshot_ranks_by_equity(self):
         snapshot = leaderboard_snapshot([

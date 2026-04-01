@@ -1,1 +1,2 @@
+from trading_system.data.alpaca_market_data import AlpacaHistoricalDataSource, AlpacaMarketDataConfig
 from trading_system.data.market_data import CsvHistoricalDataSource, build_market_snapshots

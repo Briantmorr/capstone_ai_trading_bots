@@ -76,11 +76,14 @@ Completed in this pass:
 - changed backtest execution to fill approved orders on the next bar open instead of the decision bar close
 - added persistent run artifacts (`metrics.json`, `decisions.json`, `trade_log.json`, `leaderboard_snapshot.json`, `run_manifest.json`)
 - added SQLite attribution storage for bot/client-order-id/broker-order-id mapping
-- upgraded the Alpaca paper executor to submit stable client order ids and persist attribution when `alpaca-py` is installed and credentials are present
+- upgraded the Alpaca paper executor to submit stable client order ids and persist attribution when credentials are present
 - produced a versioned backend leaderboard snapshot contract
-- added regression coverage for no-lookahead, artifact generation, and attribution behavior
+- added an Alpaca historical bar sync path that writes fresh local CSVs without relying on static demo-only files
+- added stdlib REST fallback support so paper execution and reconciliation do not strictly depend on `alpaca-py`
+- wired paper-mode account/order/position reconciliation into bot execution so strategies can evaluate against current broker-backed portfolio state
+- added regression coverage for no-lookahead, artifact generation, attribution behavior, historical sync CSV output, and reconciliation behavior
 
 Remaining blockers / gaps:
-- real paper trading still depends on local `alpaca-py` availability plus account connectivity at runtime; this repo environment currently lacks the package
-- paper-mode account/position reconciliation is not yet wired into the runner, so live portfolio state still needs a fuller orchestration pass
-- PEAD/news event ingestion is still fixture-driven rather than broker/data-provider backed
+- live paper trading still depends on local Alpaca credentials and network connectivity at runtime
+- reconciliation is bot-scoped through local attribution plus broker state, but a fully shared-account multi-bot PnL allocator is still not implemented
+- PEAD/news event ingestion is still fixture-driven rather than provider backed
