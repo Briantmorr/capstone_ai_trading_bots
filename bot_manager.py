@@ -2,89 +2,93 @@ from __future__ import annotations
 
 import argparse
 import json
-from datetime import datetime, timedelta
+from datetime import datetime
 from pathlib import Path
 
 from logger_setup import get_bot_logger
 from trading_system.core.backtest import BacktestConfig, BacktestEngine
-from trading_system.core.contracts import Bar, Event, MarketSnapshot, Mode
+from trading_system.core.contracts import Event, PortfolioState
 from trading_system.core.registry import create_bot, list_bots
 from trading_system.core.risk import RiskLimits, RiskManager
-from trading_system.execution.alpaca import DryRunExecutor
+from trading_system.data.market_data import CsvHistoricalDataSource, build_market_snapshots
+from trading_system.execution.alpaca import AlpacaConfig, AlpacaPaperExecutor, DryRunExecutor
 from trading_system.leaderboard.snapshot import leaderboard_snapshot
+from trading_system.reporting.artifacts import persist_run_artifacts
+from trading_system.storage.attribution import AttributionStore
 
 logger = get_bot_logger("bot_manager")
+DEFAULT_DATA_DIR = Path("data/historical/daily")
+DEFAULT_ARTIFACTS_DIR = Path("artifacts")
 
 
 class BotManager:
     def list_bots(self):
         return list_bots()
 
-    def run_backtest(self, bot_name: str):
-        bot = create_bot(bot_name, params={"history": self._demo_history(bot_name)})
-        engine = BacktestEngine(BacktestConfig())
+    def run_backtest(self, bot_name: str, data_dir: Path = DEFAULT_DATA_DIR, artifacts_dir: Path = DEFAULT_ARTIFACTS_DIR):
+        bot = create_bot(bot_name)
         risk = RiskManager(RiskLimits())
-        result = engine.run(bot, self._demo_snapshots(bot_name), risk)
-        logger.info("Backtest complete for %s with ending equity %.2f", bot_name, result.metrics["ending_equity"])
-        return result
+        run_id = f"{bot_name}-backtest-{datetime.utcnow().strftime('%Y%m%dT%H%M%SZ')}"
+        snapshots = self._load_snapshots(bot_name, bot.context.universe, data_dir)
+        result = BacktestEngine(BacktestConfig()).run(bot, snapshots, risk)
+        snapshot = leaderboard_snapshot([result], run_id=run_id, source="backtest")
+        artifact_dir = persist_run_artifacts(artifacts_dir, run_id, result, snapshot, extra={"data_dir": str(data_dir)})
+        logger.info("Backtest complete for %s ending equity %.2f artifacts=%s", bot_name, result.metrics["ending_equity"], artifact_dir)
+        return result, snapshot, artifact_dir
 
-    def run_dry(self, bot_name: str):
-        bot = create_bot(bot_name, params={"history": self._demo_history(bot_name)})
-        snapshots = self._demo_snapshots(bot_name)
+    def run_dry(self, bot_name: str, data_dir: Path = DEFAULT_DATA_DIR, artifacts_dir: Path = DEFAULT_ARTIFACTS_DIR):
+        bot = create_bot(bot_name)
+        run_id = f"{bot_name}-dry-{datetime.utcnow().strftime('%Y%m%dT%H%M%SZ')}"
+        snapshots = self._load_snapshots(bot_name, bot.context.universe, data_dir)
         latest = snapshots[-1]
-        decisions = bot.evaluate(latest, self._empty_portfolio())
-        executor = DryRunExecutor()
+        portfolio = PortfolioState(cash=100000.0, equity=100000.0)
+        decisions = bot.evaluate(latest, portfolio)
+        store = AttributionStore(artifacts_dir / "attribution.sqlite3")
+        executor = DryRunExecutor(attribution_store=store, run_id=run_id)
         fills = executor.execute(decisions, {symbol: bar.close for symbol, bar in latest.bars.items()})
-        return {"bot": bot_name, "decisions": [d.__dict__ for d in decisions], "fills": [f.__dict__ for f in fills]}
+        payload = {"bot": bot_name, "run_id": run_id, "decisions": [decision.__dict__ for decision in decisions], "fills": [fill.__dict__ for fill in fills], "attribution": store.list_for_run(run_id)}
+        (artifacts_dir / run_id).mkdir(parents=True, exist_ok=True)
+        (artifacts_dir / run_id / "dry_run.json").write_text(json.dumps(payload, indent=2, default=str))
+        return payload
+
+    def run_paper(self, bot_name: str, data_dir: Path = DEFAULT_DATA_DIR, artifacts_dir: Path = DEFAULT_ARTIFACTS_DIR):
+        bot = create_bot(bot_name)
+        run_id = f"{bot_name}-paper-{datetime.utcnow().strftime('%Y%m%dT%H%M%SZ')}"
+        snapshots = self._load_snapshots(bot_name, bot.context.universe, data_dir)
+        latest = snapshots[-1]
+        portfolio = PortfolioState(cash=100000.0, equity=100000.0)
+        decisions = bot.evaluate(latest, portfolio)
+        store = AttributionStore(artifacts_dir / "attribution.sqlite3")
+        executor = AlpacaPaperExecutor(AlpacaConfig(), attribution_store=store, run_id=run_id)
+        fills = executor.execute(decisions)
+        return {"bot": bot_name, "run_id": run_id, "decision_count": len(decisions), "fills": [fill.__dict__ for fill in fills], "attribution": store.list_for_run(run_id)}
 
     @staticmethod
-    def _empty_portfolio():
-        from trading_system.core.contracts import PortfolioState
-
-        return PortfolioState(cash=100000.0, equity=100000.0)
-
-    @staticmethod
-    def _demo_history(bot_name: str):
-        base = {
-            "SPY": [100, 101, 102, 103, 104, 105],
-            "QQQ": [100, 101, 102, 103, 102, 104],
-            "AAPL": [100, 101, 104, 107, 109, 111],
-            "MSFT": [100, 100.5, 101, 102, 103, 104],
-            "NVDA": [100, 103, 106, 110, 112, 115],
-            "AMZN": [100, 99, 98, 101, 102, 103],
-            "META": [100, 102, 103, 101, 102, 104],
-            "TSLA": [100, 99, 98, 97, 96, 95],
-            "NFLX": [100, 101, 99, 98, 100, 101],
-            "GOOGL": [100, 102, 104, 105, 106, 108],
-        }
-        if bot_name == "intraday_mean_reversion":
-            base["AAPL"] = [100, 100, 100, 99.8, 99.5, 97.8]
-        return base
+    def _load_snapshots(bot_name: str, symbols, data_dir: Path):
+        source = CsvHistoricalDataSource(data_dir)
+        bars_by_symbol = source.load_bars(symbols)
+        if not bars_by_symbol:
+            raise RuntimeError(f"No historical bars loaded from {data_dir}")
+        return build_market_snapshots(bars_by_symbol, events=BotManager._events_for(bot_name))
 
     @staticmethod
-    def _demo_snapshots(bot_name: str):
-        start = datetime(2026, 1, 1, 9, 30)
-        history = BotManager._demo_history(bot_name)
-        snapshots = []
-        symbols = list(history.keys())
-        for idx in range(3, 6):
-            bars = {}
-            for symbol in symbols:
-                price = history[symbol][idx]
-                bars[symbol] = Bar(symbol=symbol, timestamp=start + timedelta(days=idx), open=price - 1, high=price + 1, low=price - 2, close=price, volume=1000000)
-            events = []
-            if bot_name == "pead_drift" and idx == 4:
-                events.append(Event(symbol="NVDA", timestamp=start + timedelta(days=idx), event_type="earnings_surprise", payload={"surprise": 0.15, "reaction": 0.04}))
-            snapshots.append(MarketSnapshot(timestamp=start + timedelta(days=idx), bars=bars, events=events))
-        return snapshots
+    def _events_for(bot_name: str):
+        if bot_name != "pead_drift":
+            return []
+        return [
+            Event(symbol="NVDA", timestamp=datetime(2026, 1, 7), event_type="earnings_surprise", payload={"surprise": 0.15, "reaction": 0.04}),
+        ]
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Trading prototype bot manager")
     parser.add_argument("--list", action="store_true", help="List official prototype bots")
-    parser.add_argument("--backtest", type=str, help="Run demo backtest for one bot")
-    parser.add_argument("--backtest-all", action="store_true", help="Run demo backtest for all official bots")
+    parser.add_argument("--backtest", type=str, help="Run backtest for one bot")
+    parser.add_argument("--backtest-all", action="store_true", help="Run backtests for all official bots")
     parser.add_argument("--dry-run", type=str, help="Generate decisions/fills without broker execution")
+    parser.add_argument("--paper", type=str, help="Submit current bot decisions to Alpaca paper trading")
+    parser.add_argument("--data-dir", type=Path, default=DEFAULT_DATA_DIR, help="Directory containing historical CSV bars")
+    parser.add_argument("--artifacts-dir", type=Path, default=DEFAULT_ARTIFACTS_DIR, help="Directory for run artifacts")
     args = parser.parse_args()
 
     manager = BotManager()
@@ -92,12 +96,17 @@ if __name__ == "__main__":
         for name in manager.list_bots():
             print(name)
     elif args.backtest:
-        result = manager.run_backtest(args.backtest)
-        print(json.dumps(leaderboard_snapshot([result]), indent=2))
+        _, snapshot, artifact_dir = manager.run_backtest(args.backtest, data_dir=args.data_dir, artifacts_dir=args.artifacts_dir)
+        print(json.dumps({"artifact_dir": str(artifact_dir), "snapshot": snapshot}, indent=2))
     elif args.backtest_all:
-        results = [manager.run_backtest(name) for name in manager.list_bots()]
-        print(json.dumps(leaderboard_snapshot(results), indent=2))
+        outputs = []
+        for name in manager.list_bots():
+            _, snapshot, artifact_dir = manager.run_backtest(name, data_dir=args.data_dir, artifacts_dir=args.artifacts_dir)
+            outputs.append({"bot": name, "artifact_dir": str(artifact_dir), "snapshot": snapshot})
+        print(json.dumps(outputs, indent=2))
     elif args.dry_run:
-        print(json.dumps(manager.run_dry(args.dry_run), indent=2, default=str))
+        print(json.dumps(manager.run_dry(args.dry_run, data_dir=args.data_dir, artifacts_dir=args.artifacts_dir), indent=2, default=str))
+    elif args.paper:
+        print(json.dumps(manager.run_paper(args.paper, data_dir=args.data_dir, artifacts_dir=args.artifacts_dir), indent=2, default=str))
     else:
         parser.print_help()

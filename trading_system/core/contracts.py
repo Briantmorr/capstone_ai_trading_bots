@@ -40,6 +40,7 @@ class Event:
 class MarketSnapshot:
     timestamp: datetime
     bars: Dict[str, Bar]
+    history: Dict[str, List[Bar]] = field(default_factory=dict)
     events: List[Event] = field(default_factory=list)
 
 

@@ -25,13 +25,50 @@ Deliver a spec-driven trading prototype with 3 bots that run through the same fr
 - `trading_system/core/risk.py`
   - shared limits, kill switch, stale-data protection, daily loss cap, exposure checks
 - `trading_system/core/backtest.py`
-  - deterministic replay engine with configurable fees/slippage
+  - deterministic replay engine with configurable fees/slippage and next-bar-open fills
+- `trading_system/data/market_data.py`
+  - CSV-backed historical data ingestion and causal snapshot construction
 - `trading_system/execution/alpaca.py`
-  - Alpaca paper adapter and a dry-run executor
+  - Alpaca paper adapter and a dry-run executor with attribution hooks
+- `trading_system/storage/attribution.py`
+  - SQLite mapping between bot/run/client order ids and broker order ids
+- `trading_system/reporting/artifacts.py`
+  - per-run artifact persistence for metrics, decisions, trades, and snapshots
 - `trading_system/leaderboard/snapshot.py`
   - normalized leaderboard snapshot generation
 - `trading_system/strategies/*.py`
   - official prototype strategies and specs
+
+## Data / replay semantics
+
+Historical replay now follows these rules:
+- bars are loaded from one CSV per symbol
+- `MarketSnapshot.bars` contains the current decision bar
+- `MarketSnapshot.history[symbol]` contains only bars strictly earlier than the decision bar
+- strategies may inspect the current bar plus prior history, but not future bars
+- approved orders fill on the next available bar open
+- if the final snapshot emits a decision, it remains unfilled and is surfaced as a warning
+
+This makes the current backtest path timestamp-safe enough for milestone validation and regression testing.
+
+## Artifact contract
+
+Each run writes under `artifacts/<run_id>/`:
+- `metrics.json`
+- `decisions.json`
+- `trade_log.json`
+- `leaderboard_snapshot.json`
+- `run_manifest.json`
+
+## Leaderboard snapshot contract
+
+`leaderboard_snapshot.json` now includes:
+- `contract_version`
+- `generated_at`
+- `run_id`
+- `source`
+- `account`
+- `bots[]` with rank, equity, cash, trade count, halt state, warnings, and last equity point
 
 ## Official bots
 

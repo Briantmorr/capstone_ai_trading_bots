@@ -28,19 +28,22 @@ Implemented in this migration step:
 - shared strategy contract
 - bot registry
 - risk manager
-- deterministic demo backtest engine
+- CSV-backed historical data loader for backtests
+- causal snapshot builder with prior-bar history only
+- backtest engine with next-bar-open fill semantics
 - dry-run execution adapter
-- leaderboard snapshot generator
+- SQLite attribution store keyed by client/broker order ids
+- persistent per-run artifacts under `artifacts/<run_id>/`
+- versioned leaderboard snapshot generator
 - architecture and salvage docs
-- regression tests for core semantics
+- regression tests for no-lookahead, artifacts, attribution, and core semantics
 
 Still to do:
-- real historical data loader
-- real Alpaca paper execution orchestration
-- persistent attribution store keyed by Alpaca order id
-- artifact persistence
+- richer real strategy logic and validation against the written spec
+- paper-mode portfolio sync/reconciliation against live Alpaca account state
 - production leaderboard UI integration
-- richer strategy logic and validation against the written spec
+- event/news ingestion beyond fixture/demo events
+- install/runtime validation for `alpaca-py` in environments that will place paper trades
 
 ## Setup
 

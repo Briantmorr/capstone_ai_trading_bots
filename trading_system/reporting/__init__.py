@@ -1,0 +1,1 @@
+from trading_system.reporting.artifacts import persist_run_artifacts
