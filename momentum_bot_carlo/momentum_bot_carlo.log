@@ -239,3 +239,91 @@
 2025-04-12 13:37:32,184 - INFO - Already short on NVDA. No additional short order placed.
 2025-04-12 13:37:32,184 - INFO - Momentum strategy execution completed
 2025-04-12 13:37:32,184 - INFO - momentum_bot_carlo completed successfully
+
+================================================================================
+=== Log Start: 2026-04-01 16:00:16 ===
+================================================================================
+2026-04-01 16:00:16,701 - INFO - Logger initialized and header written.
+2026-04-01 16:00:16,702 - INFO - Starting momentum_bot_carlo
+2026-04-01 16:00:16,702 - INFO - Momentum strategy bot momentum_bot_carlo initialized with 6 symbols
+2026-04-01 16:00:16,702 - INFO - Running momentum strategy...
+2026-04-01 16:00:16,702 - INFO - Market is closed. Running in simulation mode.
+2026-04-01 16:00:16,966 - INFO - Position: AAPL, Qty: -84, Market value: $-21393.54
+2026-04-01 16:00:16,966 - INFO - Position: AMZN, Qty: -109, Market value: $-23226.81
+2026-04-01 16:00:16,966 - INFO - Position: GOOGL, Qty: -117, Market value: $-34858.98
+2026-04-01 16:00:16,966 - INFO - Position: META, Qty: -36, Market value: $-21006
+2026-04-01 16:00:16,966 - INFO - Position: MSFT, Qty: -26, Market value: $-9677.2
+2026-04-01 16:00:16,966 - INFO - Position: NVDA, Qty: -171, Market value: $-30278.97
+2026-04-01 16:00:16,966 - INFO - Position: TSLA, Qty: -103, Market value: $-39360.3685
+2026-04-01 16:00:17,045 - INFO - Account ID: 647fb3b4-0c43-4547-b847-3ce26d587404
+2026-04-01 16:00:17,045 - INFO - Cash: $266829.89
+2026-04-01 16:00:17,045 - INFO - Portfolio value: $87028.47
+2026-04-01 16:00:17,045 - INFO - Buying power: $121497.44
+2026-04-01 16:00:17,046 - INFO - Analyzing GOOGL...
+2026-04-01 16:00:17,284 - INFO - Retrieved 62 bars for GOOGL
+2026-04-01 16:00:17,285 - INFO - Calculated momentum: -5.44%
+2026-04-01 16:00:17,360 - INFO - Position: AAPL, Qty: -84, Market value: $-21393.54
+2026-04-01 16:00:17,360 - INFO - Position: AMZN, Qty: -109, Market value: $-23227.9
+2026-04-01 16:00:17,360 - INFO - Position: GOOGL, Qty: -117, Market value: $-34858.98
+2026-04-01 16:00:17,360 - INFO - Position: META, Qty: -36, Market value: $-21007.26
+2026-04-01 16:00:17,360 - INFO - Position: MSFT, Qty: -26, Market value: $-9677.2
+2026-04-01 16:00:17,361 - INFO - Position: NVDA, Qty: -171, Market value: $-30280.68
+2026-04-01 16:00:17,361 - INFO - Position: TSLA, Qty: -103, Market value: $-39356.3
+2026-04-01 16:00:17,361 - INFO - Already short on GOOGL. No additional short order placed.
+2026-04-01 16:00:17,361 - INFO - Analyzing AAPL...
+2026-04-01 16:00:17,495 - INFO - Retrieved 62 bars for AAPL
+2026-04-01 16:00:17,495 - INFO - Calculated momentum: -6.05%
+2026-04-01 16:00:17,567 - INFO - Position: AAPL, Qty: -84, Market value: $-21393.54
+2026-04-01 16:00:17,567 - INFO - Position: AMZN, Qty: -109, Market value: $-23227.9
+2026-04-01 16:00:17,567 - INFO - Position: GOOGL, Qty: -117, Market value: $-34858.98
+2026-04-01 16:00:17,567 - INFO - Position: META, Qty: -36, Market value: $-21007.26
+2026-04-01 16:00:17,567 - INFO - Position: MSFT, Qty: -26, Market value: $-9677.2
+2026-04-01 16:00:17,567 - INFO - Position: NVDA, Qty: -171, Market value: $-30281.535
+2026-04-01 16:00:17,567 - INFO - Position: TSLA, Qty: -103, Market value: $-39356.6605
+2026-04-01 16:00:17,567 - INFO - Already short on AAPL. No additional short order placed.
+2026-04-01 16:00:17,567 - INFO - Analyzing AMZN...
+2026-04-01 16:00:17,660 - INFO - Retrieved 62 bars for AMZN
+2026-04-01 16:00:17,661 - INFO - Calculated momentum: -5.94%
+2026-04-01 16:00:17,730 - INFO - Position: AAPL, Qty: -84, Market value: $-21393.54
+2026-04-01 16:00:17,730 - INFO - Position: AMZN, Qty: -109, Market value: $-23226.81
+2026-04-01 16:00:17,730 - INFO - Position: GOOGL, Qty: -117, Market value: $-34858.98
+2026-04-01 16:00:17,730 - INFO - Position: META, Qty: -36, Market value: $-21008.8008
+2026-04-01 16:00:17,730 - INFO - Position: MSFT, Qty: -26, Market value: $-9677.2
+2026-04-01 16:00:17,730 - INFO - Position: NVDA, Qty: -171, Market value: $-30281.535
+2026-04-01 16:00:17,730 - INFO - Position: TSLA, Qty: -103, Market value: $-39356.6605
+2026-04-01 16:00:17,730 - INFO - Already short on AMZN. No additional short order placed.
+2026-04-01 16:00:17,731 - INFO - Analyzing META...
+2026-04-01 16:00:17,930 - INFO - Retrieved 62 bars for META
+2026-04-01 16:00:17,931 - INFO - Calculated momentum: -10.28%
+2026-04-01 16:00:18,001 - INFO - Position: AAPL, Qty: -84, Market value: $-21393.54
+2026-04-01 16:00:18,001 - INFO - Position: AMZN, Qty: -109, Market value: $-23226.81
+2026-04-01 16:00:18,001 - INFO - Position: GOOGL, Qty: -117, Market value: $-34861.905
+2026-04-01 16:00:18,001 - INFO - Position: META, Qty: -36, Market value: $-21008.88
+2026-04-01 16:00:18,001 - INFO - Position: MSFT, Qty: -26, Market value: $-9677.46
+2026-04-01 16:00:18,001 - INFO - Position: NVDA, Qty: -171, Market value: $-30281.535
+2026-04-01 16:00:18,001 - INFO - Position: TSLA, Qty: -103, Market value: $-39356.3
+2026-04-01 16:00:18,001 - INFO - Already short on META. No additional short order placed.
+2026-04-01 16:00:18,001 - INFO - Analyzing MSFT...
+2026-04-01 16:00:18,106 - INFO - Retrieved 62 bars for MSFT
+2026-04-01 16:00:18,107 - INFO - Calculated momentum: -21.30%
+2026-04-01 16:00:18,177 - INFO - Position: AAPL, Qty: -84, Market value: $-21393.54
+2026-04-01 16:00:18,177 - INFO - Position: AMZN, Qty: -109, Market value: $-23227.9
+2026-04-01 16:00:18,177 - INFO - Position: GOOGL, Qty: -117, Market value: $-34861.905
+2026-04-01 16:00:18,177 - INFO - Position: META, Qty: -36, Market value: $-21008.88
+2026-04-01 16:00:18,177 - INFO - Position: MSFT, Qty: -26, Market value: $-9677.46
+2026-04-01 16:00:18,177 - INFO - Position: NVDA, Qty: -171, Market value: $-30281.535
+2026-04-01 16:00:18,177 - INFO - Position: TSLA, Qty: -103, Market value: $-39356.3
+2026-04-01 16:00:18,177 - INFO - Already short on MSFT. No additional short order placed.
+2026-04-01 16:00:18,177 - INFO - Analyzing NVDA...
+2026-04-01 16:00:18,300 - INFO - Retrieved 62 bars for NVDA
+2026-04-01 16:00:18,300 - INFO - Calculated momentum: -6.22%
+2026-04-01 16:00:18,370 - INFO - Position: AAPL, Qty: -84, Market value: $-21393.54
+2026-04-01 16:00:18,370 - INFO - Position: AMZN, Qty: -109, Market value: $-23227.9
+2026-04-01 16:00:18,370 - INFO - Position: GOOGL, Qty: -117, Market value: $-34861.905
+2026-04-01 16:00:18,370 - INFO - Position: META, Qty: -36, Market value: $-21008.88
+2026-04-01 16:00:18,370 - INFO - Position: MSFT, Qty: -26, Market value: $-9677.59
+2026-04-01 16:00:18,370 - INFO - Position: NVDA, Qty: -171, Market value: $-30281.535
+2026-04-01 16:00:18,370 - INFO - Position: TSLA, Qty: -103, Market value: $-39355.27
+2026-04-01 16:00:18,371 - INFO - Already short on NVDA. No additional short order placed.
+2026-04-01 16:00:18,371 - INFO - Momentum strategy execution completed
+2026-04-01 16:00:18,371 - INFO - momentum_bot_carlo completed successfully

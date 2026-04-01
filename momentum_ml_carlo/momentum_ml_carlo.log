@@ -50,3 +50,70 @@
 2025-04-12 13:37:41,733 - INFO - No valid trade signal for NVDA: normalized momentum -20.19, probability 0.94
 2025-04-12 13:37:41,733 - INFO - Optimized momentum strategy execution completed.
 2025-04-12 13:37:41,733 - INFO - momentum_ml_carlo completed successfully
+
+================================================================================
+=== Log Start: 2026-04-01 16:00:30 ===
+================================================================================
+2026-04-01 16:00:30,195 - INFO - Logger initialized and header written.
+2026-04-01 16:00:30,195 - INFO - Starting momentum_ml_carlo
+2026-04-01 16:00:30,196 - INFO - Optimized Momentum strategy bot momentum_ml_carlo initialized with 6 symbols
+2026-04-01 16:00:30,196 - INFO - Running optimized momentum strategy...
+2026-04-01 16:00:30,416 - INFO - Market is open.
+2026-04-01 16:00:30,521 - INFO - Position: AAPL, Qty: 48, Market Value: $12226.56
+2026-04-01 16:00:30,521 - INFO - Position: META, Qty: 20, Market Value: $11673.9
+2026-04-01 16:00:30,521 - INFO - Position: MSFT, Qty: 25, Market Value: $9304.9975
+2026-04-01 16:00:30,522 - INFO - Position: NVDA, Qty: 71, Market Value: $12572.325
+2026-04-01 16:00:30,603 - INFO - Account ID: 1a9647ec-da17-4d78-b173-d7cc4ced6608
+2026-04-01 16:00:30,603 - INFO - Cash: $53307.74
+2026-04-01 16:00:30,603 - INFO - Portfolio value: $99085.52
+2026-04-01 16:00:30,603 - INFO - Buying power: $152393.26
+2026-04-01 16:00:30,603 - INFO - Analyzing GOOGL...
+2026-04-01 16:00:30,898 - INFO - Retrieved 342 bars for GOOGL
+2026-04-01 16:00:30,899 - INFO - Calculated normalized momentum: 52.98
+2026-04-01 16:00:31,216 - INFO - Calculated normalized momentum: 52.98
+2026-04-01 16:00:31,229 - INFO - Corrective AI probability for GOOGL: 0.46
+2026-04-01 16:00:31,230 - INFO - No valid trade signal for GOOGL: normalized momentum 52.98, probability 0.46
+2026-04-01 16:00:31,230 - INFO - Analyzing AAPL...
+2026-04-01 16:00:31,401 - INFO - Retrieved 342 bars for AAPL
+2026-04-01 16:00:31,403 - INFO - Calculated normalized momentum: 15.41
+2026-04-01 16:00:31,718 - INFO - Calculated normalized momentum: 15.41
+2026-04-01 16:00:31,731 - INFO - Corrective AI probability for AAPL: 0.31
+2026-04-01 16:00:31,808 - INFO - Position: AAPL, Qty: 48, Market Value: $12226.56
+2026-04-01 16:00:31,808 - INFO - Position: META, Qty: 20, Market Value: $11674.5
+2026-04-01 16:00:31,808 - INFO - Position: MSFT, Qty: 25, Market Value: $9304
+2026-04-01 16:00:31,808 - INFO - Position: NVDA, Qty: 71, Market Value: $12571.97
+2026-04-01 16:00:31,808 - INFO - Analyzing AMZN...
+2026-04-01 16:00:31,962 - INFO - Retrieved 342 bars for AMZN
+2026-04-01 16:00:31,963 - INFO - Calculated normalized momentum: 7.19
+2026-04-01 16:00:32,277 - INFO - Calculated normalized momentum: 7.19
+2026-04-01 16:00:32,289 - INFO - Corrective AI probability for AMZN: 0.25
+2026-04-01 16:00:32,290 - INFO - No valid trade signal for AMZN: normalized momentum 7.19, probability 0.25
+2026-04-01 16:00:32,290 - INFO - Analyzing META...
+2026-04-01 16:00:32,654 - INFO - Retrieved 342 bars for META
+2026-04-01 16:00:32,655 - INFO - Calculated normalized momentum: 11.23
+2026-04-01 16:00:32,969 - INFO - Calculated normalized momentum: 11.23
+2026-04-01 16:00:32,982 - INFO - Corrective AI probability for META: 0.29
+2026-04-01 16:00:33,174 - INFO - Position: AAPL, Qty: 48, Market Value: $12227.04
+2026-04-01 16:00:33,175 - INFO - Position: META, Qty: 20, Market Value: $11674.08
+2026-04-01 16:00:33,175 - INFO - Position: MSFT, Qty: 25, Market Value: $9304
+2026-04-01 16:00:33,175 - INFO - Position: NVDA, Qty: 71, Market Value: $12574.1781
+2026-04-01 16:00:33,175 - INFO - Analyzing MSFT...
+2026-04-01 16:00:33,323 - INFO - Retrieved 342 bars for MSFT
+2026-04-01 16:00:33,324 - INFO - Calculated normalized momentum: 8.48
+2026-04-01 16:00:33,638 - INFO - Calculated normalized momentum: 8.48
+2026-04-01 16:00:33,650 - INFO - Corrective AI probability for MSFT: 0.51
+2026-04-01 16:00:33,731 - INFO - Position: AAPL, Qty: 48, Market Value: $12228
+2026-04-01 16:00:33,731 - INFO - Position: META, Qty: 20, Market Value: $11674.08
+2026-04-01 16:00:33,731 - INFO - Position: MSFT, Qty: 25, Market Value: $9304
+2026-04-01 16:00:33,731 - INFO - Position: NVDA, Qty: 71, Market Value: $12574.455
+2026-04-01 16:00:33,731 - INFO - Analyzing NVDA...
+2026-04-01 16:00:33,884 - INFO - Retrieved 342 bars for NVDA
+2026-04-01 16:00:33,885 - INFO - Calculated normalized momentum: 30.27
+2026-04-01 16:00:34,204 - INFO - Calculated normalized momentum: 30.27
+2026-04-01 16:00:34,216 - INFO - Corrective AI probability for NVDA: 0.39
+2026-04-01 16:00:34,292 - INFO - Position: AAPL, Qty: 48, Market Value: $12228
+2026-04-01 16:00:34,292 - INFO - Position: META, Qty: 20, Market Value: $11674.08
+2026-04-01 16:00:34,292 - INFO - Position: MSFT, Qty: 25, Market Value: $9304.5
+2026-04-01 16:00:34,292 - INFO - Position: NVDA, Qty: 71, Market Value: $12573.9225
+2026-04-01 16:00:34,292 - INFO - Optimized momentum strategy execution completed.
+2026-04-01 16:00:34,292 - INFO - momentum_ml_carlo completed successfully
