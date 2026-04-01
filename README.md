@@ -1,138 +1,92 @@
-# Multi-Bot Alpaca Trading Framework
+# Alpaca Paper Trading Prototype
 
-A simplified framework for running multiple algorithmic trading bots, each with its own Alpaca paper trading account and strategy. Bots are configured via environment variables and executed from their own directories using a centralized bot manager.
+This repo is being migrated from a class project bot collection into a spec-driven trading prototype.
 
-## Features
+## Current direction
 
-- **Multiple Bot Execution:**  
-  Run multiple trading bots with different strategies. Each bot has its own Alpaca paper trading account and implementation.
+The old bot scripts are still present as reference material, but the active prototype now targets:
+- 3 official bots
+- one shared Python framework
+- backtest and paper-trading modes through the same bot contract
+- Alpaca-backed attribution and leaderboard snapshots
+- risk controls outside strategy logic
 
-- **Centralized Bot Manager:**  
-  The `bot_manager.py` script calls each bot’s strategy method and coordinates their execution.
+Read first:
+- `docs/SALVAGE_STATUS.md`
+- `docs/ARCHITECTURE.md`
+- `config/bots.example.yaml`
 
-- **Scheduled Runs (Weekdays Only):**  
-  Bots are automatically executed at **8:00 AM PST** (weekdays only) via GitHub Actions.  
-  *Note:* The scheduled workflow also updates a trading leaderboard.
+## Official prototype bots
 
-- **Logging and Version Control:**  
-  - Each bot logs detailed run information to its own log file.
-  - The bot manager logs its output to `bot_manager.log` in the project root.
-  - After each run, updated log files are automatically pushed to the `bot-execution` branch.
+1. `momentum_volatility`
+2. `pead_drift`
+3. `intraday_mean_reversion`
 
-- **Leaderboard Update:**  
-  A scheduled run calls an external API endpoint to update the trading leaderboard with the latest execution data.
+## Repo status
 
+Implemented in this migration step:
+- shared strategy contract
+- bot registry
+- risk manager
+- deterministic demo backtest engine
+- dry-run execution adapter
+- leaderboard snapshot generator
+- architecture and salvage docs
+- regression tests for core semantics
+
+Still to do:
+- real historical data loader
+- real Alpaca paper execution orchestration
+- persistent attribution store keyed by Alpaca order id
+- artifact persistence
+- production leaderboard UI integration
+- richer strategy logic and validation against the written spec
 
 ## Setup
 
-### 1. Clone the Repository
-
 ```bash
-git clone https://github.com/Briantmorr/capstone_ai_trading_bots.git
-cd capstone_ai_trading_bots
+pipenv install --dev
+pipenv run pytest
 ```
 
-### 1. Install Dependencies
-```bash
-pipenv install
-pipenv shell
-```
+## CLI
 
-### 3. Configure Your Bots
-#### Bot 1
-```
-BOT_NAME_1=trading_bot_llm_sentiment_brian
-BOT_API_KEY_1=your_alpaca_api_key_here
-BOT_API_SECRET_1=your_alpaca_api_secret_here
+List official bots:
 
-#### Bot 2
-BOT_NAME_2=momentum_bot_carlo
-BOT_API_KEY_2=another_alpaca_api_key_here
-BOT_API_SECRET_2=another_alpaca_api_secret_here
-
-#### Additional API Keys
-FINNHUB_API_KEY=your_finnhub_api_key_here
-OPENAI_API_KEY=your_openai_api_key_here
-```
-
-### 4. Create Your Bot Implementations
-For each bot specified in the configuration, create a directory with the bot's name and add a Python script with the same name. For example:
-```bash
-mkdir -p trading_bot_llm_sentiment_brian
-touch trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py
-```
-
-Implement your trading strategy in the script. Ensure that each script has a main() function that will be invoked by the bot manager.
-
-
-each bot will can retrieve credentials with:
-```python
-api_key = os.getenv(f"{BOT_NAME}_API_KEY_1")
-api_secret = os.getenv(f"{BOT_NAME}_API_SECRET_1")
-```
-
-### 5. Run the Bot Manager
-List registered bots
 ```bash
 python bot_manager.py --list
 ```
-currently returns 
-```
-2025-04-12 13:33:53,541 - bot_manager - INFO - Logger initialized and header written.
-2025-04-12 13:33:53,541 - bot_manager - INFO - Discovered bot: trading_bot_llm_sentiment_brian
-2025-04-12 13:33:53,541 - bot_manager - INFO - Discovered bot: momentum_bot_carlo
-2025-04-12 13:33:53,541 - bot_manager - INFO - Discovered bot: trading_bot_macd_melissa
-2025-04-12 13:33:53,541 - bot_manager - INFO - Discovered bot: momentum_ml_carlo
-2025-04-12 13:33:53,541 - bot_manager - INFO - Bot Manager initialized with 4 bots
-Registered bots (4):
-  trading_bot_llm_sentiment_brian
-    Path: trading_bot_llm_sentiment_brian/trading_bot_llm_sentiment_brian.py
-  momentum_bot_carlo
-    Path: momentum_bot_carlo/momentum_bot_carlo.py
-  trading_bot_macd_melissa
-    Path: trading_bot_macd_melissa/trading_bot_macd_melissa.py
-  momentum_ml_carlo
-    Path: momentum_ml_carlo/momentum_ml_carlo.py
-(capstone_ai_trading_bots) 
-```
-Run a specific bot
+
+Run demo backtest for one bot:
+
 ```bash
-python bot_manager.py --run trading_bot_llm_sentiment_brian
+python bot_manager.py --backtest momentum_volatility
 ```
-Run all bots
+
+Run demo backtests for all official bots:
+
 ```bash
-python bot_manager.py --run-all
+python bot_manager.py --backtest-all
 ```
 
-### 6. Scheduled Execution & Leaderboard Update
+Generate dry-run decisions for one bot:
 
-The scheduled GitHub Actions workflow (.github/workflows/scheduled_bot_run.yml) performs the following each weekday at 8:00 AM PST:
+```bash
+python bot_manager.py --dry-run pead_drift
+```
 
-- ### Executes All Bots:
+## Config and secrets
 
-Calls the bot_manager.py script to run all registered bots.
+Use environment variables for broker/API credentials.
+Do not commit secrets.
+A sample non-secret config lives at `config/bots.example.yaml`.
 
-- ### Logs Run Details:
+## Legacy code
 
-Captures run details in bot_manager.log and pushes updates to the bot-execution branch.
+Legacy strategy folders remain temporarily for salvage/reference:
+- `trading_bot_llm_sentiment_brian`
+- `momentum_bot_carlo`
+- `trading_bot_macd_melissa`
+- `momentum_ml_carlo`
 
-- ### Updates the Leaderboard:
-Calls the external API at https://trading-leaderboard-three.vercel.app/api/update-leaderboard with the necessary payload to update the trading leaderboard.
-
-## Logging
-Bot-Specific Logs:
-Each bot writes logs to a file in its respective directory.
-
-Bot Manager Log:
-bot_manager.log in the project root records overall execution details.
-
-Automated Git Push:
-After each scheduled run, the workflow automatically commits and pushes updated log files to the bot-execution branch. Logs are ephemeral (lasting 1 day)
-
----
-
-### Disclaimer
-This trading bot framework is provided for educational purposes only. Trading involves significant risk, and algorithmic trading introduces additional technical complexities. Always test with paper trading accounts before risking real capital.
-
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+These are not the target architecture.

@@ -1,0 +1,43 @@
+# Sample prototype bot configuration
+
+bots:
+  - name: momentum_volatility
+    enabled: true
+    mode: backtest
+    cadence: daily
+    universe: [SPY, QQQ, AAPL, MSFT, NVDA, AMZN, META, TSLA, NFLX, GOOGL]
+    allow_short: false
+    max_symbol_weight: 0.20
+    max_gross_exposure: 1.00
+    daily_loss_cap: 0.03
+
+  - name: pead_drift
+    enabled: true
+    mode: backtest
+    cadence: event
+    universe: [AAPL, MSFT, NVDA, AMZN, META, GOOGL]
+    allow_short: false
+    max_symbol_weight: 0.20
+    max_gross_exposure: 1.00
+    daily_loss_cap: 0.03
+
+  - name: intraday_mean_reversion
+    enabled: true
+    mode: backtest
+    cadence: hourly
+    universe: [SPY, QQQ, AAPL, MSFT, NVDA]
+    allow_short: false
+    max_symbol_weight: 0.20
+    max_gross_exposure: 1.00
+    daily_loss_cap: 0.03
+
+broker:
+  alpaca:
+    paper: true
+    key_env: ALPACA_API_KEY
+    secret_env: ALPACA_API_SECRET
+
+backtest:
+  initial_cash: 100000
+  fee_per_order: 0.0
+  slippage_bps: 5
