@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from typing import Dict, List, Optional
 
 from trading_system.core.contracts import Decision, Fill, OrderSide, PortfolioState, Position
-from trading_system.storage.attribution import AttributionRecord, AttributionStore
+from trading_system.storage.attribution import AttributionRecord, AttributionStore, estimate_bot_pnl_allocation
 
 try:
     from alpaca.trading.client import TradingClient
@@ -138,6 +138,13 @@ class AlpacaPaperExecutor:
         open_orders = [row for row in relevant_orders if row.get("status") not in {"filled", "canceled", "expired", "rejected"}]
         filled_orders = [row for row in relevant_orders if row.get("status") == "filled"]
         exposure = sum(abs(row.get("market_value", 0.0)) for row in relevant_positions)
+        pnl_allocation = estimate_bot_pnl_allocation(
+            account=account,
+            positions=relevant_positions,
+            orders=relevant_orders,
+            attribution=attributed,
+            bot_name=bot_name,
+        )
         return {
             "account": account,
             "bot": {
@@ -153,12 +160,12 @@ class AlpacaPaperExecutor:
                 "positions": relevant_positions,
                 "orders": relevant_orders,
                 "attribution": attributed,
+                "pnl_allocation": pnl_allocation,
             },
         }
 
     def portfolio_state_from_reconciliation(self, bot_name: str, universe: List[str], run_id: Optional[str] = None) -> PortfolioState:
         payload = self.reconcile_state(bot_name=bot_name, universe=universe, run_id=run_id)
-        account = payload["account"]
         positions = {
             row["symbol"]: Position(
                 symbol=row["symbol"],
@@ -168,10 +175,12 @@ class AlpacaPaperExecutor:
             )
             for row in payload["bot"]["positions"]
         }
-        gross_exposure = payload["bot"]["gross_exposure"]
-        equity = account.get("equity", 0.0)
-        cash = max(equity - gross_exposure, 0.0)
-        return PortfolioState(cash=cash, equity=equity, positions=positions)
+        allocation = payload["bot"].get("pnl_allocation", {})
+        equity = float(allocation.get("allocated_equity", 0.0) or 0.0)
+        cash = float(allocation.get("allocated_cash", 0.0) or 0.0)
+        realized_pnl = float(allocation.get("estimated_realized_pnl", 0.0) or 0.0)
+        daily_pnl = float(allocation.get("allocated_unrealized_pl", 0.0) or 0.0)
+        return PortfolioState(cash=cash, equity=equity, positions=positions, realized_pnl=realized_pnl, daily_pnl=daily_pnl)
 
     def _submit_market_order(self, decision: Decision, client_order_id: str):
         if self._sdk_client is not None and MarketOrderRequest is not None:

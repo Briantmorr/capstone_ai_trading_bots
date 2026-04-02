@@ -12,7 +12,7 @@ from trading_system.data.market_data import CsvHistoricalDataSource, build_marke
 from trading_system.execution.alpaca import AlpacaConfig, AlpacaPaperExecutor
 from trading_system.leaderboard.snapshot import leaderboard_snapshot
 from trading_system.reporting.artifacts import persist_run_artifacts
-from trading_system.storage.attribution import AttributionRecord, AttributionStore
+from trading_system.storage.attribution import AttributionRecord, AttributionStore, estimate_bot_pnl_allocation
 from trading_system.strategies.intraday_mean_reversion import IntradayMeanReversionBot
 from trading_system.strategies.momentum_volatility import MomentumVolatilityBot
 from trading_system.strategies.pead_drift import PEADEventBot
@@ -191,8 +191,23 @@ class FrameworkTests(unittest.TestCase):
             self.assertEqual(len(rows), 1)
             self.assertEqual(rows[0]["client_order_id"], "client-123")
             self.assertEqual(rows[0]["broker_order_id"], "broker-456")
+            self.assertEqual(store.list_for_bot("momentum_volatility")[0]["client_order_id"], "client-123")
 
-    def test_paper_reconciliation_uses_account_positions_orders_and_attribution(self):
+    def test_shared_account_pnl_allocation_estimate(self):
+        allocation = estimate_bot_pnl_allocation(
+            account={"cash": 85000.0},
+            positions=[{"symbol": "AAPL", "qty": 10.0, "market_value": 1600.0, "unrealized_pl": 100.0}],
+            orders=[{"client_order_id": "client-123", "symbol": "AAPL", "status": "filled", "side": "buy", "qty": 10.0, "filled_qty": 10.0, "filled_avg_price": 151.0}],
+            attribution=[{"client_order_id": "client-123", "bot_name": "momentum_volatility", "symbol": "AAPL", "status": "filled", "side": "buy", "qty": 10.0}],
+            bot_name="momentum_volatility",
+        )
+        self.assertEqual(allocation["allocation_method"], "filled-order-net-qty-share")
+        self.assertAlmostEqual(allocation["allocated_market_value"], 1600.0)
+        self.assertAlmostEqual(allocation["allocated_unrealized_pl"], 100.0)
+        self.assertAlmostEqual(allocation["allocated_cash"], 85000.0)
+        self.assertGreater(allocation["allocated_equity"], 86600.0)
+
+    def test_paper_reconciliation_uses_account_positions_orders_attribution_and_pnl_allocation(self):
         with tempfile.TemporaryDirectory() as tmp:
             store = AttributionStore(Path(tmp) / "attribution.sqlite3")
             store.record(
@@ -216,9 +231,11 @@ class FrameworkTests(unittest.TestCase):
             self.assertEqual(payload["bot"]["reconciled_order_count"], 1)
             self.assertEqual(payload["bot"]["open_position_count"], 1)
             self.assertEqual(payload["bot"]["positions"][0]["symbol"], "AAPL")
+            self.assertEqual(payload["bot"]["pnl_allocation"]["allocated_market_value"], 1600.0)
             self.assertIn("AAPL", portfolio.positions)
             self.assertEqual(portfolio.positions["AAPL"].qty, 10.0)
-            self.assertEqual(portfolio.equity, 101000.0)
+            self.assertEqual(portfolio.cash, 85000.0)
+            self.assertGreater(portfolio.equity, 86600.0)
 
     def test_leaderboard_snapshot_ranks_by_equity(self):
         snapshot = leaderboard_snapshot([

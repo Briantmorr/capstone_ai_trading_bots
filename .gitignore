@@ -9,3 +9,7 @@ __pycache__/
 
 # Specifically ignore Jupyter Notebook checkpoints
 **/.ipynb_checkpoints/*
+
+# Generated runtime outputs
+artifacts/
+*.log

@@ -11,6 +11,7 @@ from trading_system.core.contracts import Event, PortfolioState
 from trading_system.core.registry import create_bot, list_bots
 from trading_system.core.risk import RiskLimits, RiskManager
 from trading_system.data.alpaca_market_data import AlpacaHistoricalDataSource
+from trading_system.data.events import PEADEventProvider
 from trading_system.data.market_data import CsvHistoricalDataSource, build_market_snapshots
 from trading_system.execution.alpaca import AlpacaConfig, AlpacaPaperExecutor, DryRunExecutor
 from trading_system.leaderboard.snapshot import leaderboard_snapshot
@@ -20,6 +21,11 @@ from trading_system.storage.attribution import AttributionStore
 logger = get_bot_logger("bot_manager")
 DEFAULT_DATA_DIR = Path("data/historical/daily")
 DEFAULT_ARTIFACTS_DIR = Path("artifacts")
+DEFAULT_EVENT_PROVIDER = PEADEventProvider(
+    fallback_events=[
+        Event(symbol="NVDA", timestamp=datetime(2026, 1, 7), event_type="earnings_surprise", payload={"surprise": 0.15, "reaction": 0.04}),
+    ]
+)
 
 
 class BotManager:
@@ -85,15 +91,8 @@ class BotManager:
         bars_by_symbol = source.load_bars(symbols)
         if not bars_by_symbol:
             raise RuntimeError(f"No historical bars loaded from {data_dir}")
-        return build_market_snapshots(bars_by_symbol, events=BotManager._events_for(bot_name))
-
-    @staticmethod
-    def _events_for(bot_name: str):
-        if bot_name != "pead_drift":
-            return []
-        return [
-            Event(symbol="NVDA", timestamp=datetime(2026, 1, 7), event_type="earnings_surprise", payload={"surprise": 0.15, "reaction": 0.04}),
-        ]
+        events = DEFAULT_EVENT_PROVIDER.get_events(bot_name=bot_name, symbols=symbols)
+        return build_market_snapshots(bars_by_symbol, events=events)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,23 @@
+{
+  "contract_version": "2026-04-01",
+  "generated_at": "2026-04-01T23:30:00Z",
+  "run_id": "momentum_volatility-backtest-20260401T233000Z",
+  "source": "backtest",
+  "account": {},
+  "bots": [
+    {
+      "rank": 1,
+      "bot_name": "momentum_volatility",
+      "mode": "backtest",
+      "ending_equity": 104250.12,
+      "ending_cash": 18250.77,
+      "trade_count": 14,
+      "halted": false,
+      "warnings": [],
+      "last_equity_point": {
+        "timestamp": "2026-03-31T00:00:00",
+        "equity": 104250.12
+      }
+    }
+  ]
+}
